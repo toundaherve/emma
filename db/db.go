@@ -11,14 +11,14 @@ type MenuService struct {
 // MenuOfTheDay returns the menu from the store
 func (s *MenuService) MenuOfTheDay() (*emma.Menu, error) {
 	return &emma.Menu{
-		Foods: []emma.Food{
-			emma.Food{
+		Foods: []*emma.Food{
+			&emma.Food{
 				Name: "name1",
 				Description: "desc1",
 				Price: 10.00,
 				Image: "img1",
 			},
-			emma.Food{
+			&emma.Food{
 				Name: "name2",
 				Description: "desc2",
 				Price: 10.00,
