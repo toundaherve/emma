@@ -6,17 +6,17 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/toundaherve/emma/db"
-	"github.com/toundaherve/emma/emma"
+	"emma/db"
+	"emma/emma"
 )
 
-// MenuHandler handles all menu requests
-type MenuHandler struct {
+// menuHandler handles all menu requests
+type menuHandler struct {
 	service emma.MenuService
 }
 
-// NewMenuHandler creates and returns a menu handler
-func NewMenuHandler(s emma.MenuService) (*MenuHandler, error) {
+// newMenuHandler creates and returns a menu handler
+func newMenuHandler(s emma.MenuService) (*menuHandler, error) {
 	if s == nil {
 		s2, err := db.NewMenuService()
 		if err != nil {
@@ -26,14 +26,14 @@ func NewMenuHandler(s emma.MenuService) (*MenuHandler, error) {
 		s = s2
 	}
 
-	h := &MenuHandler{
+	h := &menuHandler{
 		service: s,
 	}
 	return h, nil
 }
 
-// MenuOfTheDay handle request for the menu of the day
-func (h *MenuHandler) MenuOfTheDay(w http.ResponseWriter, r *http.Request) {
+// menuOfTheDay handle request for the menu of the day
+func (h *menuHandler) menuOfTheDay(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	enc := json.NewEncoder(w)
 

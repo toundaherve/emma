@@ -9,14 +9,14 @@ import (
 
 // NewServer returns a server
 func NewServer(addr string) (*http.Server, error) {
-	h, err := NewMenuHandler(nil)
+	h, err := newMenuHandler(nil)
 	if err != nil {
 		log.Printf("Could not create menu handler: %v\n", err)
 		return nil, err
 	}
 
 	r := mux.NewRouter()
-	r.HandleFunc("/menuoftheday", h.MenuOfTheDay)
+	r.HandleFunc("/menuoftheday", h.menuOfTheDay)
 
 	srv := &http.Server{
 		Addr:    addr,

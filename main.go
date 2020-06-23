@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/toundaherve/emma/server"
+	"emma/server"
 )
 
 func main() {
