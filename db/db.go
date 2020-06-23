@@ -1,7 +1,7 @@
 package db
 
 import (
-	"github.com/emma/emma"
+	"github.com/toundaherve/emma/emma"
 )
 
 // MenuService implements emma.MenuService
