@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestMenuOfTheDay(t *testing.T) {
+func Test_MenuOfTheDay(t *testing.T) {
 	s, err := NewMenuService()
 	if err != nil {
 		t.Fatalf("Could not create user service: %v", err)

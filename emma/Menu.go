@@ -7,13 +7,13 @@ type MenuService interface {
 
 // Menu contains available foods
 type Menu struct {
-	Foods []*Food
+	Foods []*Food `json:"foods"`
 }
 
 // Food represents a plate
 type Food struct {
-	Name string
-	Description string
-	Price float64
-	Image string
+	Name        string  `json:"name"`
+	Description string  `json:"description"`
+	Price       float64 `json:"price"`
+	Image       string  `json:"image"`
 }
