@@ -4,6 +4,7 @@ import TitleContainer from "./TitleContainer";
 import Header from "../HomePage/Header";
 import MenuGrid from "./MenuGrid";
 import FactSheet from "./FactSheet";
+import HealthNotice from "./HealthNotice";
 
 const MenuPage = () => {
   return (
@@ -14,6 +15,7 @@ const MenuPage = () => {
           <TitleContainer />
           <MenuGrid />
           <FactSheet />
+          <HealthNotice />
         </div>
       </section>
     </>
