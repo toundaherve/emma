@@ -2,13 +2,13 @@
 
 exports[`renders correctly 1`] = `
 <div
-  class="cta-banner"
+  className="cta-banner"
 >
   <div
-    class="masthead"
+    className="masthead"
   >
     <div
-      class="masthead-container masthead-cta-banner"
+      className="masthead-container masthead-cta-banner"
     >
       <picture>
         <video
@@ -20,44 +20,44 @@ exports[`renders correctly 1`] = `
         >
           <source
             media="(max-width: 479px)"
-            srcset="https://images.prismic.io/brinker-chilis/f9b6be32-961d-4e09-aca3-4eafecebce5f_10.17-Chilis-401.jpg?auto=compress,format&rect=301,0,897,934&w=480&h=500"
+            srcSet="https://images.prismic.io/brinker-chilis/f9b6be32-961d-4e09-aca3-4eafecebce5f_10.17-Chilis-401.jpg?auto=compress,format&rect=301,0,897,934&w=480&h=500"
           />
         </video>
         <img
           alt="Chili's now offer delivery through DoorDash & Chilis.com"
-          class="background-image-blur image-cover masthead-image b-lazy unblur b-loaded"
+          className="background-image-blur image-cover masthead-image b-lazy unblur b-loaded"
           src="https://images.prismic.io/brinker-chilis/70bbba64-ecc9-44b2-a3d3-a450918137b6_10.17-Chilis-407.jpg?auto=compress,format&rect=0,84,1400,448&w=1600&h=512"
         />
       </picture>
       <div
-        class="banner-content cta-banner-content bg-overlay-light"
+        className="banner-content cta-banner-content bg-overlay-light"
       >
         <div
-          class="body-section"
+          className="body-section"
         >
           <h2
-            class="cta-title"
+            className="cta-title"
           >
             Get your Chili's favorites in a way that works for you.
           </h2>
           <p
-            class="cta-description"
+            className="cta-description"
           >
             Our To Go menu is available for Delivery, Curbside and Pickup.
           </p>
         </div>
         <div
-          class="btn-container center cta-component"
+          className="btn-container center cta-component"
         >
           <a
-            class="btn"
+            className="btn"
             href="/delivery"
             id="home-7-button-1"
           >
             Learn about Delivery
           </a>
           <a
-            class="btn inverse"
+            className="btn inverse"
             href="/curbside"
             id="home-7-button-2"
           >

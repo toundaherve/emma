@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col12"
+  >
+    <div
+      className="page-title menu-page-title-container"
+    >
+      <h1>
+        Appetizers
+      </h1>
+      <div
+        className="breadcrumbs row"
+        itemScope=""
+        itemType="http://schema.org/BreadcrumbList"
+      >
+        <div
+          className="col12"
+        >
+          <span
+            itemProp="itemListElement"
+            itemScope=""
+            itemType="http://schema.org/ListItem"
+          >
+            <span
+              itemProp="item"
+              itemScope=""
+              itemType="http://schema.org/Thing"
+            >
+              <a
+                content="Menu"
+                href="/menu"
+                itemProp="name"
+              >
+                Menu
+              </a>
+              <meta
+                content="/menu"
+                itemProp="url"
+              />
+            </span>
+            <meta
+              content="1"
+              itemProp="position"
+            />
+          </span>
+          <span
+            className="arrow"
+          >
+            ›
+          </span>
+          <span
+            itemProp="itemListElement"
+            itemScope=""
+            itemType="http://schema.org/ListItem"
+          >
+            <span
+              itemProp="item"
+              itemScope=""
+              itemType="http://schema.org/Thing"
+            >
+              <strong
+                itemProp="name"
+              >
+                Appetizers
+              </strong>
+              <meta
+                content="/menu/appetizers"
+                itemProp="url"
+              />
+            </span>
+            <meta
+              content="2"
+              itemProp="position"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="page-title menu-page-summary-container on-mobile-show"
+    >
+      <div
+        className="summary"
+      >
+        All our appetizers are made to order and deliver big flavor that's simply too good not to share.
+      </div>
+    </div>
+    <div
+      className="page-title menu-page-summary-container on-mobile-show"
+    />
+    <div
+      className="menu-dropdown-container"
+    >
+      <div
+        className="dropdown dropdown-menu-wrapper"
+      >
+        <a
+          className="btn small tertiary outline btn-dropdown-menu"
+          data-toggle="dropdown"
+          href="#"
+          id="menu-dropdown"
+        >
+          <span>
+            Menu
+          </span>
+          <span
+            className="caret"
+          />
+        </a>
+        <ul
+          className="dropdown-menu dropdown-menu-right animated fadeIn"
+          role="menu"
+        >
+          <li>
+            <a
+              href="/menu/to-go-alcohol"
+              id="menu-dropdown-go-to-category-C1041"
+            >
+              To-Go Alcohol
+            </a>
+          </li>
+          <li
+            className="active"
+          >
+            <a
+              href="/menu/appetizers"
+              id="menu-dropdown-go-to-category-C1000"
+            >
+              Appetizers
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/big-mouth-burgers"
+              id="menu-dropdown-go-to-category-C1004"
+            >
+              Big Mouth Burgers®
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/ribs-steaks"
+              id="menu-dropdown-go-to-category-C1002"
+            >
+              Ribs & Steaks
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/fajitas"
+              id="menu-dropdown-go-to-category-C1019"
+            >
+              Fajitas
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/salads-soups-chili"
+              id="menu-dropdown-go-to-category-C1010"
+            >
+              Salads, Soups & Chili
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/chicken-seafood"
+              id="menu-dropdown-go-to-category-C1005"
+            >
+              Chicken & Seafood
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/sandwiches"
+              id="menu-dropdown-go-to-category-C1001"
+            >
+              Sandwiches
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/chicken-crispers"
+              id="menu-dropdown-go-to-category-C1025"
+            >
+              Chicken Crispers®
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/guiltless-grill"
+              id="menu-dropdown-go-to-category-C1014"
+            >
+              Guiltless Grill
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/tacos-quesadillas"
+              id="menu-dropdown-go-to-category-C1021"
+            >
+              Tacos & Quesadillas
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/smokehouse-combos"
+              id="menu-dropdown-go-to-category-C1003"
+            >
+              Smokehouse Combos
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/lunch-specials"
+              id="menu-dropdown-go-to-category-C1013"
+            >
+              Lunch Specials
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/3-for-10"
+              id="menu-dropdown-go-to-category-C1032"
+            >
+              3 for $10
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/meal-for-2"
+              id="menu-dropdown-go-to-category-C1027"
+            >
+              Meal for 2
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/sides"
+              id="menu-dropdown-go-to-category-C1011"
+            >
+              Sides
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/desserts"
+              id="menu-dropdown-go-to-category-C1007"
+            >
+              Desserts
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/beverages"
+              id="menu-dropdown-go-to-category-C1006"
+            >
+              Beverages
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/kids-menu"
+              id="menu-dropdown-go-to-category-C1008"
+            >
+              Kids Menu
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/party-platters"
+              id="menu-dropdown-go-to-category-C1009"
+            >
+              Party Platters
+            </a>
+          </li>
+          <li>
+            <a
+              href="/menu/party-platter-add-ons"
+              id="menu-dropdown-go-to-category-C1026"
+            >
+              Party Platter Add Ons
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="page-title menu-page-summary-container on-mobile-hide"
+    >
+      <div
+        className="summary"
+      >
+        All our appetizers are made to order and deliver big flavor that's simply too good not to share.
+      </div>
+    </div>
+  </div>
+</div>
+`;

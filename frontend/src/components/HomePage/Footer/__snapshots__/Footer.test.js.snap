@@ -3,13 +3,13 @@
 exports[`renders correctly to the left 1`] = `
 <footer>
   <div
-    class="container footer-container"
+    className="container footer-container"
   >
     <div
-      class="row"
+      className="row"
     >
       <div
-        class="col12 text-center"
+        className="col12 text-center"
       >
         <a
           href="/"
@@ -19,7 +19,7 @@ exports[`renders correctly to the left 1`] = `
           Chili's Grill & Bar - Local Restaurants Near Me | Chili's
         </a>
         <ul
-          class="footer-links"
+          className="footer-links"
         >
           <li>
             <a
@@ -75,13 +75,13 @@ exports[`renders correctly to the left 1`] = `
       </div>
     </div>
     <div
-      class="row"
+      className="row"
     >
       <div
-        class="col12 text-center footer-sublinks"
+        className="col12 text-center footer-sublinks"
       >
         <span
-          class="copyright-info"
+          className="copyright-info"
         >
           © 2020 Brinker International All Rights Reserved
         </span>
@@ -116,16 +116,16 @@ exports[`renders correctly to the left 1`] = `
       </div>
     </div>
     <div
-      class="row"
+      className="row"
     >
       <div
-        class="col12 text-center"
+        className="col12 text-center"
       >
         <ul
-          class="social-buttons"
+          className="social-buttons"
         >
           <li
-            class="app-store-btn"
+            className="app-store-btn"
           >
             <a
               href="https://itunes.apple.com/us/app/chilis/id464383246"
@@ -150,7 +150,7 @@ exports[`renders correctly to the left 1`] = `
           </li>
           <li>
             <a
-              class="facebook-like"
+              className="facebook-like"
               href="https://www.facebook.com/Chilis/"
               id="footer-facebook"
               rel="noopener"
@@ -161,7 +161,7 @@ exports[`renders correctly to the left 1`] = `
           </li>
           <li>
             <a
-              class="twitter-follow"
+              className="twitter-follow"
               href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fwww.chilis.com&region=follow_link&screen_name=Chilis&tw_p=followbutton&variant=2.0"
               id="footer-twiter"
               rel="noopener"

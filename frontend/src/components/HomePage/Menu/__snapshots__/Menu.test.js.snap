@@ -2,13 +2,13 @@
 
 exports[`renders correctly 1`] = `
 <div
-  class="container page-favorite"
+  className="container page-favorite"
 >
   <div
-    class="col12"
+    className="col12"
   >
     <div
-      class="page-title"
+      className="page-title"
     >
       <h1>
         Chili's Favorites
@@ -16,7 +16,7 @@ exports[`renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="owl-carousel animated fadeIn owl-theme"
+    className="owl-carousel animated fadeIn owl-theme"
     id="chilis-favorite-carousel"
     style={
       Object {
@@ -26,10 +26,10 @@ exports[`renders correctly 1`] = `
     }
   >
     <div
-      class="owl-wrapper-outer"
+      className="owl-wrapper-outer"
     >
       <div
-        class="owl-wrapper"
+        className="owl-wrapper"
         style={
           Object {
             "display": "block",
@@ -39,7 +39,7 @@ exports[`renders correctly 1`] = `
         }
       >
         <div
-          class="owl-item"
+          className="owl-item"
           style={
             Object {
               "width": "400px",
@@ -47,7 +47,7 @@ exports[`renders correctly 1`] = `
           }
         >
           <div
-            class="guest-section"
+            className="guest-section"
             style={
               Object {
                 "cursor": "pointer",
@@ -55,30 +55,30 @@ exports[`renders correctly 1`] = `
             }
           >
             <div
-              class="favorite-img"
+              className="favorite-img"
             >
               <img
                 alt="My Chili's Rewards"
-                class="itemImg b-lazy b-loaded"
+                className="itemImg b-lazy b-loaded"
                 src="/images/google/xView-My-Favorites.jpg.pagespeed.ic.9AFPkLB4Pw.webp"
               />
             </div>
             <div
-              class="favorite-desc"
+              className="favorite-desc"
             >
               <div
-                class="heading-tertiary heading-favorite"
+                className="heading-tertiary heading-favorite"
               >
                 LOG IN
               </div>
               <div
-                class="outer-border"
+                className="outer-border"
               >
                 <div
-                  class="inner-border"
+                  className="inner-border"
                 >
                   <div
-                    class="extra-info"
+                    className="extra-info"
                   >
                     <a>
                       Log in
@@ -89,10 +89,10 @@ exports[`renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="favorite-action"
+              className="favorite-action"
             >
               <button
-                class="btn slim add-login-button"
+                className="btn slim add-login-button"
                 data-add-default-btn="LOG IN"
               >
                 LOG IN
@@ -101,7 +101,7 @@ exports[`renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="owl-item"
+          className="owl-item"
           style={
             Object {
               "width": "400px",
@@ -109,11 +109,11 @@ exports[`renders correctly 1`] = `
           }
         >
           <div
-            class="favorite-item"
+            className="favorite-item"
           >
             <form
               action="/chilis/favorites/add-favorites-to-cart"
-              class="js-favorite-form favorite-form"
+              className="js-favorite-form favorite-form"
               method="post"
             >
               <input
@@ -122,7 +122,7 @@ exports[`renders correctly 1`] = `
                 value="73f74287-1fe2-4db7-ac06-be59789333fa"
               />
               <div
-                class="favorite-img"
+                className="favorite-img"
               >
                 <input
                   id="item-name-P102596-0"
@@ -150,27 +150,27 @@ exports[`renders correctly 1`] = `
                 />
                 <img
                   alt="Oldtimer with Cheese"
-                  class="itemImg b-lazy b-loaded"
+                  className="itemImg b-lazy b-loaded"
                   src="https://images.prismic.io/brinker-chilis/e82db89d793cb44c0df27a29dcbbe218bf3acf51_oldtimerwithcheese.jpg?auto=compress,format"
                   title="Oldtimer with Cheese"
                 />
               </div>
               <div
-                class="favorite-desc"
+                className="favorite-desc"
               >
                 <div
-                  class="heading-tertiary heading-favorite"
+                  className="heading-tertiary heading-favorite"
                 >
                   Oldtimer with Cheese
                 </div>
                 <div
-                  class="outer-border"
+                  className="outer-border"
                 >
                   <div
-                    class="inner-border"
+                    className="inner-border"
                   >
                     <div
-                      class="extra-info"
+                      className="extra-info"
                     >
                       Beef Patty, No Pink, Fries
                     </div>
@@ -178,10 +178,10 @@ exports[`renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="favorite-action"
+                className="favorite-action"
               >
                 <button
-                  class="btn slim add-chilis-button"
+                  className="btn slim add-chilis-button"
                   data-add-default-btn="Add to order"
                   data-added-to-cart-btn="Added To Cart"
                   data-unable-to-add-btn="Unable To Add "
@@ -191,7 +191,7 @@ exports[`renders correctly 1`] = `
                   Add to order
                 </button>
                 <input
-                  class="quantity"
+                  className="quantity"
                   id="chilisFavoriteProducts0.quantity"
                   name="chilisFavoriteProducts[0].quantity"
                   type="hidden"
@@ -202,7 +202,7 @@ exports[`renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="owl-item"
+          className="owl-item"
           style={
             Object {
               "width": "400px",
@@ -210,11 +210,11 @@ exports[`renders correctly 1`] = `
           }
         >
           <div
-            class="favorite-item"
+            className="favorite-item"
           >
             <form
               action="/chilis/favorites/add-favorites-to-cart"
-              class="js-favorite-form favorite-form"
+              className="js-favorite-form favorite-form"
               method="post"
             >
               <input
@@ -223,7 +223,7 @@ exports[`renders correctly 1`] = `
                 value="73f74287-1fe2-4db7-ac06-be59789333fa"
               />
               <div
-                class="favorite-img"
+                className="favorite-img"
               >
                 <input
                   id="item-name-P100026-1"
@@ -251,27 +251,27 @@ exports[`renders correctly 1`] = `
                 />
                 <img
                   alt="Original Full Order Ribs"
-                  class="itemImg b-lazy b-loaded"
+                  className="itemImg b-lazy b-loaded"
                   src="https://images.prismic.io/brinker-chilis/c34229628023958343a3c99f37c6e58d8814b90a_originalfullorderribs.jpg?auto=compress,format"
                   title="Original Full Order Ribs"
                 />
               </div>
               <div
-                class="favorite-desc"
+                className="favorite-desc"
               >
                 <div
-                  class="heading-tertiary heading-favorite"
+                  className="heading-tertiary heading-favorite"
                 >
                   Original Full Order Ribs
                 </div>
                 <div
-                  class="outer-border"
+                  className="outer-border"
                 >
                   <div
-                    class="inner-border"
+                    className="inner-border"
                   >
                     <div
-                      class="extra-info"
+                      className="extra-info"
                     >
                       Roasted Street Corn, Fries
                     </div>
@@ -279,10 +279,10 @@ exports[`renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="favorite-action"
+                className="favorite-action"
               >
                 <button
-                  class="btn slim add-chilis-button"
+                  className="btn slim add-chilis-button"
                   data-add-default-btn="Add to order"
                   data-added-to-cart-btn="Added To Cart"
                   data-unable-to-add-btn="Unable To Add "
@@ -292,7 +292,7 @@ exports[`renders correctly 1`] = `
                   Add to order
                 </button>
                 <input
-                  class="quantity"
+                  className="quantity"
                   id="chilisFavoriteProducts1.quantity"
                   name="chilisFavoriteProducts[1].quantity"
                   type="hidden"
@@ -303,7 +303,7 @@ exports[`renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="owl-item"
+          className="owl-item"
           style={
             Object {
               "width": "400px",
@@ -311,11 +311,11 @@ exports[`renders correctly 1`] = `
           }
         >
           <div
-            class="favorite-item"
+            className="favorite-item"
           >
             <form
               action="/chilis/favorites/add-favorites-to-cart"
-              class="js-favorite-form favorite-form"
+              className="js-favorite-form favorite-form"
               method="post"
             >
               <input
@@ -324,7 +324,7 @@ exports[`renders correctly 1`] = `
                 value="73f74287-1fe2-4db7-ac06-be59789333fa"
               />
               <div
-                class="favorite-img"
+                className="favorite-img"
               >
                 <input
                   id="item-name-P106433-2"
@@ -352,27 +352,27 @@ exports[`renders correctly 1`] = `
                 />
                 <img
                   alt="Mix & Match Fajitas"
-                  class="itemImg b-lazy b-loaded"
+                  className="itemImg b-lazy b-loaded"
                   src="https://images.prismic.io/brinker-chilis/70711607240dd73425c94f38502557da75f73e77_mixnmatchfajitas.jpg?auto=compress,format"
                   title="Mix & Match Fajitas"
                 />
               </div>
               <div
-                class="favorite-desc"
+                className="favorite-desc"
               >
                 <div
-                  class="heading-tertiary heading-favorite"
+                  className="heading-tertiary heading-favorite"
                 >
                   Mix & Match Fajitas
                 </div>
                 <div
-                  class="outer-border"
+                  className="outer-border"
                 >
                   <div
-                    class="inner-border"
+                    className="inner-border"
                   >
                     <div
-                      class="extra-info"
+                      className="extra-info"
                     >
                       Chicken, Steak
                     </div>
@@ -380,10 +380,10 @@ exports[`renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="favorite-action"
+                className="favorite-action"
               >
                 <button
-                  class="btn slim add-chilis-button"
+                  className="btn slim add-chilis-button"
                   data-add-default-btn="Add to order"
                   data-added-to-cart-btn="Added To Cart"
                   data-unable-to-add-btn="Unable To Add "
@@ -393,7 +393,7 @@ exports[`renders correctly 1`] = `
                   Add to order
                 </button>
                 <input
-                  class="quantity"
+                  className="quantity"
                   id="chilisFavoriteProducts2.quantity"
                   name="chilisFavoriteProducts[2].quantity"
                   type="hidden"
@@ -404,7 +404,7 @@ exports[`renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="owl-item"
+          className="owl-item"
           style={
             Object {
               "width": "400px",
@@ -412,11 +412,11 @@ exports[`renders correctly 1`] = `
           }
         >
           <div
-            class="favorite-item"
+            className="favorite-item"
           >
             <form
               action="/chilis/favorites/add-favorites-to-cart"
-              class="js-favorite-form favorite-form"
+              className="js-favorite-form favorite-form"
               method="post"
             >
               <input
@@ -425,7 +425,7 @@ exports[`renders correctly 1`] = `
                 value="73f74287-1fe2-4db7-ac06-be59789333fa"
               />
               <div
-                class="favorite-img"
+                className="favorite-img"
               >
                 <input
                   id="item-name-P102491-3"
@@ -453,27 +453,27 @@ exports[`renders correctly 1`] = `
                 />
                 <img
                   alt="Crispy Honey-Chipotle Chicken Crispers"
-                  class="itemImg b-lazy b-loaded"
+                  className="itemImg b-lazy b-loaded"
                   src="https://images.prismic.io/brinker-chilis/a18d51e26d756dcb9f5c1fc92c79619580673418_crispyhoneychipotlechickencrispers.jpg?auto=compress,format"
                   title="Crispy Honey-Chipotle Chicken Crispers"
                 />
               </div>
               <div
-                class="favorite-desc"
+                className="favorite-desc"
               >
                 <div
-                  class="heading-tertiary heading-favorite"
+                  className="heading-tertiary heading-favorite"
                 >
                   Crispy Honey-Chipotle Chicken Crispers
                 </div>
                 <div
-                  class="outer-border"
+                  className="outer-border"
                 >
                   <div
-                    class="inner-border"
+                    className="inner-border"
                   >
                     <div
-                      class="extra-info"
+                      className="extra-info"
                     >
                       Corn On The Cob, Fries
                     </div>
@@ -481,10 +481,10 @@ exports[`renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="favorite-action"
+                className="favorite-action"
               >
                 <button
-                  class="btn slim add-chilis-button"
+                  className="btn slim add-chilis-button"
                   data-add-default-btn="Add to order"
                   data-added-to-cart-btn="Added To Cart"
                   data-unable-to-add-btn="Unable To Add "
@@ -494,7 +494,7 @@ exports[`renders correctly 1`] = `
                   Add to order
                 </button>
                 <input
-                  class="quantity"
+                  className="quantity"
                   id="chilisFavoriteProducts3.quantity"
                   name="chilisFavoriteProducts[3].quantity"
                   type="hidden"
@@ -505,7 +505,7 @@ exports[`renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="owl-item"
+          className="owl-item"
           style={
             Object {
               "width": "400px",
@@ -513,11 +513,11 @@ exports[`renders correctly 1`] = `
           }
         >
           <div
-            class="favorite-item"
+            className="favorite-item"
           >
             <form
               action="/chilis/favorites/add-favorites-to-cart"
-              class="js-favorite-form favorite-form"
+              className="js-favorite-form favorite-form"
               method="post"
             >
               <input
@@ -526,7 +526,7 @@ exports[`renders correctly 1`] = `
                 value="73f74287-1fe2-4db7-ac06-be59789333fa"
               />
               <div
-                class="favorite-img"
+                className="favorite-img"
               >
                 <input
                   id="item-name-P106076-4"
@@ -554,27 +554,27 @@ exports[`renders correctly 1`] = `
                 />
                 <img
                   alt="Smokehouse Combo"
-                  class="itemImg b-lazy b-loaded"
+                  className="itemImg b-lazy b-loaded"
                   src="https://images.prismic.io/brinker-chilis/86e29bbdf8771db825d4d6692b70f75a87c731c7_smokehousecombo.jpg?auto=compress,format"
                   title="Smokehouse Combo"
                 />
               </div>
               <div
-                class="favorite-desc"
+                className="favorite-desc"
               >
                 <div
-                  class="heading-tertiary heading-favorite"
+                  className="heading-tertiary heading-favorite"
                 >
                   Smokehouse Combo
                 </div>
                 <div
-                  class="outer-border"
+                  className="outer-border"
                 >
                   <div
-                    class="inner-border"
+                    className="inner-border"
                   >
                     <div
-                      class="extra-info"
+                      className="extra-info"
                     >
                       Crispy Honey-Chipotle Chicken Crispers®, Ranch Dressing, Original BBQ Half Order House-Smoked Ribs $2.00, Roasted Street Corn, Fries
                     </div>
@@ -582,10 +582,10 @@ exports[`renders correctly 1`] = `
                 </div>
               </div>
               <div
-                class="favorite-action"
+                className="favorite-action"
               >
                 <button
-                  class="btn slim add-chilis-button"
+                  className="btn slim add-chilis-button"
                   data-add-default-btn="Add to order"
                   data-added-to-cart-btn="Added To Cart"
                   data-unable-to-add-btn="Unable To Add "
@@ -595,7 +595,7 @@ exports[`renders correctly 1`] = `
                   Add to order
                 </button>
                 <input
-                  class="quantity"
+                  className="quantity"
                   id="chilisFavoriteProducts4.quantity"
                   name="chilisFavoriteProducts[4].quantity"
                   type="hidden"
@@ -608,23 +608,23 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="owl-controls"
+      className="owl-controls"
     >
       <div
-        class="owl-pagination"
+        className="owl-pagination"
       >
         <div
-          class="owl-page active"
+          className="owl-page active"
         >
           <span
-            class=""
+            className=""
           />
         </div>
         <div
-          class="owl-page"
+          className="owl-page"
         >
           <span
-            class=""
+            className=""
           />
         </div>
       </div>
