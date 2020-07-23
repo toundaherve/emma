@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="hero"
+>
+  <div
+    className="masthead"
+  >
+    <div
+      className="masthead-container"
+    >
+      <picture>
+        <video
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <source
+            media="(max-width: 479px)"
+            srcSet="https://images.prismic.io/brinker-chilis/332f213b-0908-4491-84da-38da77c2f269_Chili%27s+To+Go+at+home+1.jpg?auto=compress,format&rect=216,0,768,800&w=480&h=500"
+          />
+        </video>
+        <img
+          alt="Chili's To Go "
+          className="background-image-blur image-cover masthead-image b-lazy unblur b-loaded"
+          src="https://images.prismic.io/brinker-chilis/332f213b-0908-4491-84da-38da77c2f269_Chili%27s+To+Go+at+home+1.jpg?auto=compress,format&rect=0,208,1200,384&w=1600&h=512"
+        />
+      </picture>
+      <div
+        className="banner-content hero-content bg-overlay-light"
+      >
+        <h1
+          className="headline-container headline-container-hero center"
+          style={
+            Object {
+              "color": "#F5E9DA",
+            }
+          }
+        >
+          <span
+            className="subheader top header-shadow"
+          >
+            Chili's To Go for your
+          </span>
+          <span
+            className="header header-shadow"
+          >
+            Go-To Crew
+          </span>
+          <span
+            className="subheader header-shadow"
+          >
+            Curbside - Pickup - Delivery
+          </span>
+        </h1>
+        <div
+          className="btn-container cta-component center"
+        >
+          <a
+            className="btn"
+            href="/menu"
+            id="home-hero-button-1"
+          >
+            Start Order
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
