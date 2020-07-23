@@ -1,2 +1,2 @@
-import Hero from "./Hero";
-export default Hero;
+import FactSheet from "./FactSheet";
+export default FactSheet;

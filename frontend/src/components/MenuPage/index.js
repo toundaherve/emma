@@ -3,6 +3,7 @@ import React from "react";
 import TitleContainer from "./TitleContainer";
 import Header from "../HomePage/Header";
 import MenuGrid from "./MenuGrid";
+import FactSheet from "./FactSheet";
 
 const MenuPage = () => {
   return (
@@ -12,6 +13,7 @@ const MenuPage = () => {
         <div className="container page-menu-category">
           <TitleContainer />
           <MenuGrid />
+          <FactSheet />
         </div>
       </section>
     </>
