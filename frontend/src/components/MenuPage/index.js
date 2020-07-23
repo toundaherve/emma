@@ -1,10 +1,11 @@
 import React from "react";
 
 import TitleContainer from "./TitleContainer";
-import Header from "../HomePage/Header";
+import Header from "../reusables/Header";
 import MenuGrid from "./MenuGrid";
 import FactSheet from "./FactSheet";
 import HealthNotice from "./HealthNotice";
+import Footer from "../reusables/Footer/Footer";
 
 const MenuPage = () => {
   return (
@@ -18,6 +19,7 @@ const MenuPage = () => {
           <HealthNotice />
         </div>
       </section>
+      <Footer />
     </>
   );
 };

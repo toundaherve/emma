@@ -1,11 +1,11 @@
 import React from "react";
 
-import Header from "./Header";
+import Header from "../reusables/Header";
 import Hero from "./Hero";
 import Menu from "./Menu";
 import Feature from "./Feature";
 import CTABanner from "./CTABanner";
-import Footer from "./Footer";
+import Footer from "../reusables/Footer";
 
 const HomePage = () => {
   return (
