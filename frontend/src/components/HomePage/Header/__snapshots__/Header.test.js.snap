@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<header>
+  <div
+    className="user-account-bar logged-out"
+  />
+  <div
+    className="container navigation"
+    id="header-container"
+  >
+    <a
+      className="logo"
+      href="/"
+      id="chili-logo"
+      title="Chili's Grill & Bar - Local Restaurants Near Me | Chili's"
+    >
+      Chili's Grill & Bar - Local Restaurants Near Me | Chili's
+    </a>
+    <a
+      className="cart-btn js-cart-btn"
+      data-cart-has-items="false"
+      href="/cart"
+      id="header-cart"
+    >
+      <div
+        className="count"
+      >
+        0
+      </div>
+      <span
+        className="items"
+      >
+        0 items
+      </span>
+      <img
+        alt="Cart"
+        className="bag js-bag"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiM0YTRhNGE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5iYWc8L3RpdGxlPjxnIGlkPSJfNGE0YTRhIiBkYXRhLW5hbWU9IjRhNGE0YSI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjQuNSwzM1YyMC41YTE2LjUsMTYuNSwwLDAsMC0zMywwVjMzSDExVjc3LjRBMTQuNiwxNC42LDAsMCwwLDI1LjYsOTJINzAuNEExNC42LDE0LjYsMCwwLDAsODUsNzcuNFYzM1ptLTI3LTEyLjVhMTAuNSwxMC41LDAsMCwxLDIxLDBWMzNoLTIxWiIvPjwvZz48L3N2Zz4="
+      />
+    </a>
+    <a
+      className="nav-toggle js-nav-toggle"
+      href="#"
+    >
+      Menu
+    </a>
+    <nav
+      className="nav-collapse animated fadeIn js-nav-collapse"
+    >
+      <ul
+        id="header-menu-list"
+      >
+        <li>
+          <a
+            className="header-link"
+            href="/rewards"
+            id="header-rewards"
+          >
+            Rewards
+          </a>
+        </li>
+        <li>
+          <a
+            className="header-link"
+            href="/order"
+            id="header-order"
+          >
+            Order Now
+          </a>
+        </li>
+        <li>
+          <a
+            className="header-link"
+            href="/menu"
+            id="header-menu"
+          >
+            Menu
+          </a>
+        </li>
+        <li>
+          <a
+            className="header-link"
+            href="/locations"
+            id="header-locations"
+          >
+            Locations
+          </a>
+        </li>
+        <li
+          className="header-hide-medium"
+        >
+          <a
+            className="header-link"
+            href="/gift-cards"
+            id="header-gift-cards"
+          >
+            Gift Cards
+          </a>
+        </li>
+        <li>
+          <a
+            className="header-link"
+            href="/login"
+            id="header-login"
+          >
+            Log In
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div
+      className="mini-cart-form animated fadeIn js-mini-cart-form"
+    >
+      <div
+        className="arrow-up"
+      />
+      <div
+        className="arrow-up-2"
+      />
+      <div
+        className="row header-mini-cart-form"
+      >
+        <div
+          className="heading-secondary mini-cart-title"
+        >
+          Your Order
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-mini-cart-item mini-cart-heading"
+        >
+          Item
+        </div>
+        <div
+          className="col-mini-cart-qty mini-cart-heading"
+        >
+          Qty
+        </div>
+      </div>
+      <div
+        className="mini-cart-total row"
+      >
+        <div
+          className="col6 total-label"
+        >
+          Subtotal
+        </div>
+        <div
+          className="col6 total-value"
+        >
+          <span />
+        </div>
+        <div
+          className="mini-cart-actions btn-container center"
+        >
+          <a
+            className="btn small js-view-cart-btn"
+            href="/cart"
+            id="mini-cart-view-upsell"
+          >
+            View Cart
+          </a>
+          <a
+            className="btn small tertiary outline js-close-btn"
+            href="/menu"
+            id="mini-cart-add-food"
+          >
+            Add Food
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-label="Restaurant location bar"
+    className="location-bar text-center"
+    style={
+      Object {
+        "position": "static",
+        "top": "0px",
+      }
+    }
+  >
+    <div
+      className="container location-bar-wrapper"
+    >
+      <a
+        className="location-bar-link"
+        href="/locations"
+        id="location-bar-select-location"
+      >
+        <span
+          className="location-bar-icon icon-search-location"
+        />
+        <span
+          className="location-bar-text"
+        >
+          Find a nearby Chili’s
+        </span>
+      </a>
+    </div>
+  </div>
+</header>
+`;
