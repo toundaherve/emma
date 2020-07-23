@@ -1,0 +1,634 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  class="container page-favorite"
+>
+  <div
+    class="col12"
+  >
+    <div
+      class="page-title"
+    >
+      <h1>
+        Chili's Favorites
+      </h1>
+    </div>
+  </div>
+  <div
+    class="owl-carousel animated fadeIn owl-theme"
+    id="chilis-favorite-carousel"
+    style={
+      Object {
+        "display": "block",
+        "opacity": "1",
+      }
+    }
+  >
+    <div
+      class="owl-wrapper-outer"
+    >
+      <div
+        class="owl-wrapper"
+        style={
+          Object {
+            "display": "block",
+            "left": "0px",
+            "width": "4800px",
+          }
+        }
+      >
+        <div
+          class="owl-item"
+          style={
+            Object {
+              "width": "400px",
+            }
+          }
+        >
+          <div
+            class="guest-section"
+            style={
+              Object {
+                "cursor": "pointer",
+              }
+            }
+          >
+            <div
+              class="favorite-img"
+            >
+              <img
+                alt="My Chili's Rewards"
+                class="itemImg b-lazy b-loaded"
+                src="/images/google/xView-My-Favorites.jpg.pagespeed.ic.9AFPkLB4Pw.webp"
+              />
+            </div>
+            <div
+              class="favorite-desc"
+            >
+              <div
+                class="heading-tertiary heading-favorite"
+              >
+                LOG IN
+              </div>
+              <div
+                class="outer-border"
+              >
+                <div
+                  class="inner-border"
+                >
+                  <div
+                    class="extra-info"
+                  >
+                    <a>
+                      Log in
+                    </a>
+                     to your My Chili’s Rewards account to view your favorites.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="favorite-action"
+            >
+              <button
+                class="btn slim add-login-button"
+                data-add-default-btn="LOG IN"
+              >
+                LOG IN
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="owl-item"
+          style={
+            Object {
+              "width": "400px",
+            }
+          }
+        >
+          <div
+            class="favorite-item"
+          >
+            <form
+              action="/chilis/favorites/add-favorites-to-cart"
+              class="js-favorite-form favorite-form"
+              method="post"
+            >
+              <input
+                name="_csrf"
+                type="hidden"
+                value="73f74287-1fe2-4db7-ac06-be59789333fa"
+              />
+              <div
+                class="favorite-img"
+              >
+                <input
+                  id="item-name-P102596-0"
+                  name="chilisFavoriteProducts[0].name"
+                  type="hidden"
+                  value="Oldtimer with Cheese"
+                />
+                <input
+                  id="item-id-P102596-0"
+                  name="chilisFavoriteProducts[0].productMasterId"
+                  type="hidden"
+                  value="P102596"
+                />
+                <input
+                  id="item-alt-id-P102596-0"
+                  name="chilisFavoriteProducts[0].altProductMasterId"
+                  type="hidden"
+                  value=""
+                />
+                <input
+                  id="item-category-id-P102596-0"
+                  name="chilisFavoriteProducts[0].categoryMasterId"
+                  type="hidden"
+                  value="C1004"
+                />
+                <img
+                  alt="Oldtimer with Cheese"
+                  class="itemImg b-lazy b-loaded"
+                  src="https://images.prismic.io/brinker-chilis/e82db89d793cb44c0df27a29dcbbe218bf3acf51_oldtimerwithcheese.jpg?auto=compress,format"
+                  title="Oldtimer with Cheese"
+                />
+              </div>
+              <div
+                class="favorite-desc"
+              >
+                <div
+                  class="heading-tertiary heading-favorite"
+                >
+                  Oldtimer with Cheese
+                </div>
+                <div
+                  class="outer-border"
+                >
+                  <div
+                    class="inner-border"
+                  >
+                    <div
+                      class="extra-info"
+                    >
+                      Beef Patty, No Pink, Fries
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="favorite-action"
+              >
+                <button
+                  class="btn slim add-chilis-button"
+                  data-add-default-btn="Add to order"
+                  data-added-to-cart-btn="Added To Cart"
+                  data-unable-to-add-btn="Unable To Add "
+                  href="#"
+                  id="P102596-0"
+                >
+                  Add to order
+                </button>
+                <input
+                  class="quantity"
+                  id="chilisFavoriteProducts0.quantity"
+                  name="chilisFavoriteProducts[0].quantity"
+                  type="hidden"
+                  value=""
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div
+          class="owl-item"
+          style={
+            Object {
+              "width": "400px",
+            }
+          }
+        >
+          <div
+            class="favorite-item"
+          >
+            <form
+              action="/chilis/favorites/add-favorites-to-cart"
+              class="js-favorite-form favorite-form"
+              method="post"
+            >
+              <input
+                name="_csrf"
+                type="hidden"
+                value="73f74287-1fe2-4db7-ac06-be59789333fa"
+              />
+              <div
+                class="favorite-img"
+              >
+                <input
+                  id="item-name-P100026-1"
+                  name="chilisFavoriteProducts[1].name"
+                  type="hidden"
+                  value="Original Full Order Ribs"
+                />
+                <input
+                  id="item-id-P100026-1"
+                  name="chilisFavoriteProducts[1].productMasterId"
+                  type="hidden"
+                  value="P100026"
+                />
+                <input
+                  id="item-alt-id-P100026-1"
+                  name="chilisFavoriteProducts[1].altProductMasterId"
+                  type="hidden"
+                  value="P108134"
+                />
+                <input
+                  id="item-category-id-P100026-1"
+                  name="chilisFavoriteProducts[1].categoryMasterId"
+                  type="hidden"
+                  value="C1002"
+                />
+                <img
+                  alt="Original Full Order Ribs"
+                  class="itemImg b-lazy b-loaded"
+                  src="https://images.prismic.io/brinker-chilis/c34229628023958343a3c99f37c6e58d8814b90a_originalfullorderribs.jpg?auto=compress,format"
+                  title="Original Full Order Ribs"
+                />
+              </div>
+              <div
+                class="favorite-desc"
+              >
+                <div
+                  class="heading-tertiary heading-favorite"
+                >
+                  Original Full Order Ribs
+                </div>
+                <div
+                  class="outer-border"
+                >
+                  <div
+                    class="inner-border"
+                  >
+                    <div
+                      class="extra-info"
+                    >
+                      Roasted Street Corn, Fries
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="favorite-action"
+              >
+                <button
+                  class="btn slim add-chilis-button"
+                  data-add-default-btn="Add to order"
+                  data-added-to-cart-btn="Added To Cart"
+                  data-unable-to-add-btn="Unable To Add "
+                  href="#"
+                  id="P100026-1"
+                >
+                  Add to order
+                </button>
+                <input
+                  class="quantity"
+                  id="chilisFavoriteProducts1.quantity"
+                  name="chilisFavoriteProducts[1].quantity"
+                  type="hidden"
+                  value=""
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div
+          class="owl-item"
+          style={
+            Object {
+              "width": "400px",
+            }
+          }
+        >
+          <div
+            class="favorite-item"
+          >
+            <form
+              action="/chilis/favorites/add-favorites-to-cart"
+              class="js-favorite-form favorite-form"
+              method="post"
+            >
+              <input
+                name="_csrf"
+                type="hidden"
+                value="73f74287-1fe2-4db7-ac06-be59789333fa"
+              />
+              <div
+                class="favorite-img"
+              >
+                <input
+                  id="item-name-P106433-2"
+                  name="chilisFavoriteProducts[2].name"
+                  type="hidden"
+                  value="Mix & Match Fajitas"
+                />
+                <input
+                  id="item-id-P106433-2"
+                  name="chilisFavoriteProducts[2].productMasterId"
+                  type="hidden"
+                  value="P106433"
+                />
+                <input
+                  id="item-alt-id-P106433-2"
+                  name="chilisFavoriteProducts[2].altProductMasterId"
+                  type="hidden"
+                  value="P108194"
+                />
+                <input
+                  id="item-category-id-P106433-2"
+                  name="chilisFavoriteProducts[2].categoryMasterId"
+                  type="hidden"
+                  value="C1019"
+                />
+                <img
+                  alt="Mix & Match Fajitas"
+                  class="itemImg b-lazy b-loaded"
+                  src="https://images.prismic.io/brinker-chilis/70711607240dd73425c94f38502557da75f73e77_mixnmatchfajitas.jpg?auto=compress,format"
+                  title="Mix & Match Fajitas"
+                />
+              </div>
+              <div
+                class="favorite-desc"
+              >
+                <div
+                  class="heading-tertiary heading-favorite"
+                >
+                  Mix & Match Fajitas
+                </div>
+                <div
+                  class="outer-border"
+                >
+                  <div
+                    class="inner-border"
+                  >
+                    <div
+                      class="extra-info"
+                    >
+                      Chicken, Steak
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="favorite-action"
+              >
+                <button
+                  class="btn slim add-chilis-button"
+                  data-add-default-btn="Add to order"
+                  data-added-to-cart-btn="Added To Cart"
+                  data-unable-to-add-btn="Unable To Add "
+                  href="#"
+                  id="P106433-2"
+                >
+                  Add to order
+                </button>
+                <input
+                  class="quantity"
+                  id="chilisFavoriteProducts2.quantity"
+                  name="chilisFavoriteProducts[2].quantity"
+                  type="hidden"
+                  value=""
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div
+          class="owl-item"
+          style={
+            Object {
+              "width": "400px",
+            }
+          }
+        >
+          <div
+            class="favorite-item"
+          >
+            <form
+              action="/chilis/favorites/add-favorites-to-cart"
+              class="js-favorite-form favorite-form"
+              method="post"
+            >
+              <input
+                name="_csrf"
+                type="hidden"
+                value="73f74287-1fe2-4db7-ac06-be59789333fa"
+              />
+              <div
+                class="favorite-img"
+              >
+                <input
+                  id="item-name-P102491-3"
+                  name="chilisFavoriteProducts[3].name"
+                  type="hidden"
+                  value="Crispy Honey-Chipotle Chicken Crispers"
+                />
+                <input
+                  id="item-id-P102491-3"
+                  name="chilisFavoriteProducts[3].productMasterId"
+                  type="hidden"
+                  value="P102491"
+                />
+                <input
+                  id="item-alt-id-P102491-3"
+                  name="chilisFavoriteProducts[3].altProductMasterId"
+                  type="hidden"
+                  value=""
+                />
+                <input
+                  id="item-category-id-P102491-3"
+                  name="chilisFavoriteProducts[3].categoryMasterId"
+                  type="hidden"
+                  value="C1025"
+                />
+                <img
+                  alt="Crispy Honey-Chipotle Chicken Crispers"
+                  class="itemImg b-lazy b-loaded"
+                  src="https://images.prismic.io/brinker-chilis/a18d51e26d756dcb9f5c1fc92c79619580673418_crispyhoneychipotlechickencrispers.jpg?auto=compress,format"
+                  title="Crispy Honey-Chipotle Chicken Crispers"
+                />
+              </div>
+              <div
+                class="favorite-desc"
+              >
+                <div
+                  class="heading-tertiary heading-favorite"
+                >
+                  Crispy Honey-Chipotle Chicken Crispers
+                </div>
+                <div
+                  class="outer-border"
+                >
+                  <div
+                    class="inner-border"
+                  >
+                    <div
+                      class="extra-info"
+                    >
+                      Corn On The Cob, Fries
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="favorite-action"
+              >
+                <button
+                  class="btn slim add-chilis-button"
+                  data-add-default-btn="Add to order"
+                  data-added-to-cart-btn="Added To Cart"
+                  data-unable-to-add-btn="Unable To Add "
+                  href="#"
+                  id="P102491-3"
+                >
+                  Add to order
+                </button>
+                <input
+                  class="quantity"
+                  id="chilisFavoriteProducts3.quantity"
+                  name="chilisFavoriteProducts[3].quantity"
+                  type="hidden"
+                  value=""
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div
+          class="owl-item"
+          style={
+            Object {
+              "width": "400px",
+            }
+          }
+        >
+          <div
+            class="favorite-item"
+          >
+            <form
+              action="/chilis/favorites/add-favorites-to-cart"
+              class="js-favorite-form favorite-form"
+              method="post"
+            >
+              <input
+                name="_csrf"
+                type="hidden"
+                value="73f74287-1fe2-4db7-ac06-be59789333fa"
+              />
+              <div
+                class="favorite-img"
+              >
+                <input
+                  id="item-name-P106076-4"
+                  name="chilisFavoriteProducts[4].name"
+                  type="hidden"
+                  value="Smokehouse Combo"
+                />
+                <input
+                  id="item-id-P106076-4"
+                  name="chilisFavoriteProducts[4].productMasterId"
+                  type="hidden"
+                  value="P106076"
+                />
+                <input
+                  id="item-alt-id-P106076-4"
+                  name="chilisFavoriteProducts[4].altProductMasterId"
+                  type="hidden"
+                  value=""
+                />
+                <input
+                  id="item-category-id-P106076-4"
+                  name="chilisFavoriteProducts[4].categoryMasterId"
+                  type="hidden"
+                  value="C1003"
+                />
+                <img
+                  alt="Smokehouse Combo"
+                  class="itemImg b-lazy b-loaded"
+                  src="https://images.prismic.io/brinker-chilis/86e29bbdf8771db825d4d6692b70f75a87c731c7_smokehousecombo.jpg?auto=compress,format"
+                  title="Smokehouse Combo"
+                />
+              </div>
+              <div
+                class="favorite-desc"
+              >
+                <div
+                  class="heading-tertiary heading-favorite"
+                >
+                  Smokehouse Combo
+                </div>
+                <div
+                  class="outer-border"
+                >
+                  <div
+                    class="inner-border"
+                  >
+                    <div
+                      class="extra-info"
+                    >
+                      Crispy Honey-Chipotle Chicken Crispers®, Ranch Dressing, Original BBQ Half Order House-Smoked Ribs $2.00, Roasted Street Corn, Fries
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="favorite-action"
+              >
+                <button
+                  class="btn slim add-chilis-button"
+                  data-add-default-btn="Add to order"
+                  data-added-to-cart-btn="Added To Cart"
+                  data-unable-to-add-btn="Unable To Add "
+                  href="#"
+                  id="P106076-4"
+                >
+                  Add to order
+                </button>
+                <input
+                  class="quantity"
+                  id="chilisFavoriteProducts4.quantity"
+                  name="chilisFavoriteProducts[4].quantity"
+                  type="hidden"
+                  value=""
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="owl-controls"
+    >
+      <div
+        class="owl-pagination"
+      >
+        <div
+          class="owl-page active"
+        >
+          <span
+            class=""
+          />
+        </div>
+        <div
+          class="owl-page"
+        >
+          <span
+            class=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
