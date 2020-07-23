@@ -4,6 +4,7 @@ import Header from "./Header";
 import Hero from "./Hero";
 import Menu from "./Menu";
 import Feature from "./Feature";
+import CTABanner from "./CTABanner";
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
           <Hero />
           <Menu />
           <Feature direction="right" />
+          <CTABanner />
         </div>
       </section>
     </>
