@@ -1,25 +1,20 @@
 import React from "react";
 
-import Header from "../reusables/Header";
 import Hero from "./Hero";
 import Menu from "./Menu";
 import Feature from "./Feature";
 import CTABanner from "./CTABanner";
-import Footer from "../reusables/Footer";
+import Layout from "../reusables/Layout";
 
 const HomePage = () => {
   return (
     <>
-      <Header />
-      <section id="page-container">
-        <div className="page-static page-home">
-          <Hero />
-          <Menu />
-          <Feature direction="right" />
-          <CTABanner />
-        </div>
-      </section>
-      <Footer />
+      <Layout page="home">
+        <Hero />
+        <Menu />
+        <Feature direction="right" />
+        <CTABanner />
+      </Layout>
     </>
   );
 };

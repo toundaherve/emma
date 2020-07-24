@@ -1,4 +1,5 @@
 import React from "react";
+import Breadcrumbs from "../../reusables/Breadcrumbs";
 
 const TitleContainer = () => {
   return (
@@ -6,47 +7,7 @@ const TitleContainer = () => {
       <div className="col12">
         <div className="page-title menu-page-title-container">
           <h1>Appetizers</h1>
-          <div
-            className="breadcrumbs row"
-            itemScope=""
-            itemType="http://schema.org/BreadcrumbList"
-          >
-            <div className="col12">
-              <span
-                itemProp="itemListElement"
-                itemScope=""
-                itemType="http://schema.org/ListItem"
-              >
-                <span
-                  itemScope=""
-                  itemType="http://schema.org/Thing"
-                  itemProp="item"
-                >
-                  <a href="/menu" itemProp="name" content="Menu">
-                    Menu
-                  </a>
-                  <meta itemProp="url" content="/menu" />
-                </span>
-                <meta itemProp="position" content="1" />
-              </span>
-              <span className="arrow">›</span>
-              <span
-                itemProp="itemListElement"
-                itemScope=""
-                itemType="http://schema.org/ListItem"
-              >
-                <span
-                  itemScope=""
-                  itemType="http://schema.org/Thing"
-                  itemProp="item"
-                >
-                  <strong itemProp="name">Appetizers</strong>
-                  <meta itemProp="url" content="/menu/appetizers" />
-                </span>
-                <meta itemProp="position" content="2" />
-              </span>
-            </div>
-          </div>
+          <Breadcrumbs />
         </div>
         <div className="page-title menu-page-summary-container on-mobile-show">
           <div className="summary">
