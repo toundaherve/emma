@@ -187,6 +187,7 @@ const ItemDetails = () => {
                           <div class="aa-dataset-1"></div>
                         </span>
                       </span>
+
                       <span class="input-group-btn">
                         <button
                           id="button-location-query"
@@ -243,11 +244,17 @@ const ItemDetails = () => {
             <div class="location-search-results-errors js-location-search-results-errors"></div>
           </div>
           <input class="js-location-lat" type="hidden" />
+
           <input class="js-location-lng" type="hidden" />
+
           <input class="js-location-address" type="hidden" />
+
           <input class="js-location-address2" type="hidden" />
+
           <input class="js-location-state" type="hidden" />
+
           <input class="js-location-city" type="hidden" />
+
           <input class="js-location-zipcode" type="hidden" />
           <div
             class="location-not-enabled js-location-not-enabled"

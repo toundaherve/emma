@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  class="hide-xxs"
+>
+  <div
+    class="breadcrumbs row"
+    itemscope=""
+    itemtype="http://schema.org/BreadcrumbList"
+  >
+    <div
+      class="col12"
+    >
+      <span
+        itemprop="itemListElement"
+        itemscope=""
+        itemtype="http://schema.org/ListItem"
+      >
+        <span
+          itemprop="item"
+          itemscope=""
+          itemtype="http://schema.org/Thing"
+        >
+          <a
+            content="Menu"
+            href="/menu"
+            itemprop="name"
+          >
+            Menu
+          </a>
+          <meta
+            content="/menu"
+            itemprop="url"
+          />
+        </span>
+        <meta
+          content="1"
+          itemprop="position"
+        />
+      </span>
+      <span
+        class="arrow"
+      >
+        ›
+      </span>
+      <span
+        itemprop="itemListElement"
+        itemscope=""
+        itemtype="http://schema.org/ListItem"
+      >
+        <span
+          itemprop="item"
+          itemscope=""
+          itemtype="http://schema.org/Thing"
+        >
+          <a
+            content="Big Mouth Burgers®"
+            href="/menu/big-mouth-burgers"
+            itemprop="name"
+          >
+            Big Mouth Burgers®
+          </a>
+          <meta
+            content="/menu/big-mouth-burgers"
+            itemprop="url"
+          />
+        </span>
+        <meta
+          content="2"
+          itemprop="position"
+        />
+      </span>
+      <span
+        class="arrow"
+      >
+        ›
+      </span>
+      <span
+        itemprop="itemListElement"
+        itemscope=""
+        itemtype="http://schema.org/ListItem"
+      >
+        <span
+          itemprop="item"
+          itemscope=""
+          itemtype="http://schema.org/Thing"
+        >
+          <strong
+            itemprop="name"
+          >
+            Queso Burger*
+          </strong>
+          <meta
+            content="/menu/big-mouth-burgers/queso-burger"
+            itemprop="url"
+          />
+        </span>
+        <meta
+          content="3"
+          itemprop="position"
+        />
+      </span>
+    </div>
+  </div>
+</div>
+`;
