@@ -211,7 +211,7 @@ Array [
       </div>
     </div>
     <div
-      className="page-static page-cart"
+      className="container page-cart"
     >
       <div
         className="row"

@@ -8,13 +8,15 @@ import HealthNotice from "../reusables/HealthNotice";
 
 const ItemPage = () => {
   return (
-    <Layout currentPage="itemDetails">
-      <div className="hide-xxs">
-        <Breadcrumbs />
+    <Layout>
+      <div className="container page-item-details">
+        <div className="hide-xxs">
+          <Breadcrumbs />
+        </div>
+        <ItemDetails />
+        <FactSheet />
+        <HealthNotice />
       </div>
-      <ItemDetails />
-      <FactSheet />
-      <HealthNotice />
     </Layout>
   );
 };

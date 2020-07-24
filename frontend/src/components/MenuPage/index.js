@@ -9,11 +9,13 @@ import HealthNotice from "../reusables/HealthNotice";
 const MenuPage = () => {
   return (
     <>
-      <Layout currentPage="menuPage">
-        <TitleContainer />
-        <MenuGrid />
-        <FactSheet />
-        <HealthNotice />
+      <Layout>
+        <div className="container page-menu-category">
+          <TitleContainer />
+          <MenuGrid />
+          <FactSheet />
+          <HealthNotice />
+        </div>
       </Layout>
     </>
   );

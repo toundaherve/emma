@@ -9,11 +9,13 @@ import Layout from "../reusables/Layout";
 const HomePage = () => {
   return (
     <>
-      <Layout currentPage="home">
-        <Hero />
-        <Menu />
-        <Feature direction="right" />
-        <CTABanner />
+      <Layout>
+        <div className="page-static page-home">
+          <Hero />
+          <Menu />
+          <Feature direction="right" />
+          <CTABanner />
+        </div>
       </Layout>
     </>
   );
