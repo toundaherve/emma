@@ -7,14 +7,18 @@ const pagesClassnames = {
   home: "page-home",
   menuPage: "page-menu-category",
   itemDetails: "page-item-details",
+  cart: "page-cart",
 };
 
-const Layout = ({ page, children }) => {
+const Layout = ({ currentPage, SiblingComponent, children }) => {
   return (
     <>
       <Header />
       <section id="page-container">
-        <div className={`page-static ${pagesClassnames[page]}`}>{children}</div>
+        <SiblingComponent />
+        <div className={`page-static ${pagesClassnames[currentPage]}`}>
+          {children}
+        </div>
       </section>
       <Footer />
     </>

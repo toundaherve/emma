@@ -8,7 +8,7 @@ import HealthNotice from "../reusables/HealthNotice";
 
 const ItemPage = () => {
   return (
-    <Layout page="itemDetails">
+    <Layout currentPage="itemDetails">
       <div className="hide-xxs">
         <Breadcrumbs />
       </div>

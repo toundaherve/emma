@@ -9,7 +9,7 @@ import HealthNotice from "../reusables/HealthNotice";
 const MenuPage = () => {
   return (
     <>
-      <Layout page="menuPage">
+      <Layout currentPage="menuPage">
         <TitleContainer />
         <MenuGrid />
         <FactSheet />

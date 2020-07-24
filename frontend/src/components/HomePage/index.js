@@ -9,7 +9,7 @@ import Layout from "../reusables/Layout";
 const HomePage = () => {
   return (
     <>
-      <Layout page="home">
+      <Layout currentPage="home">
         <Hero />
         <Menu />
         <Feature direction="right" />
