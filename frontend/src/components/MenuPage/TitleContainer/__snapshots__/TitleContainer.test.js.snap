@@ -14,100 +14,100 @@ exports[`renders correctly 1`] = `
         Appetizers
       </h1>
       <div
-        class="breadcrumbs row"
-        itemscope=""
-        itemtype="http://schema.org/BreadcrumbList"
+        className="breadcrumbs row"
+        itemScope=""
+        itemType="http://schema.org/BreadcrumbList"
       >
         <div
-          class="col12"
+          className="col12"
         >
           <span
-            itemprop="itemListElement"
-            itemscope=""
-            itemtype="http://schema.org/ListItem"
+            itemProp="itemListElement"
+            itemScope=""
+            itemType="http://schema.org/ListItem"
           >
             <span
-              itemprop="item"
-              itemscope=""
-              itemtype="http://schema.org/Thing"
+              itemProp="item"
+              itemScope=""
+              itemType="http://schema.org/Thing"
             >
               <a
                 content="Menu"
                 href="/menu"
-                itemprop="name"
+                itemProp="name"
               >
                 Menu
               </a>
               <meta
                 content="/menu"
-                itemprop="url"
+                itemProp="url"
               />
             </span>
             <meta
               content="1"
-              itemprop="position"
+              itemProp="position"
             />
           </span>
           <span
-            class="arrow"
+            className="arrow"
           >
             ›
           </span>
           <span
-            itemprop="itemListElement"
-            itemscope=""
-            itemtype="http://schema.org/ListItem"
+            itemProp="itemListElement"
+            itemScope=""
+            itemType="http://schema.org/ListItem"
           >
             <span
-              itemprop="item"
-              itemscope=""
-              itemtype="http://schema.org/Thing"
+              itemProp="item"
+              itemScope=""
+              itemType="http://schema.org/Thing"
             >
               <a
                 content="Big Mouth Burgers®"
                 href="/menu/big-mouth-burgers"
-                itemprop="name"
+                itemProp="name"
               >
                 Big Mouth Burgers®
               </a>
               <meta
                 content="/menu/big-mouth-burgers"
-                itemprop="url"
+                itemProp="url"
               />
             </span>
             <meta
               content="2"
-              itemprop="position"
+              itemProp="position"
             />
           </span>
           <span
-            class="arrow"
+            className="arrow"
           >
             ›
           </span>
           <span
-            itemprop="itemListElement"
-            itemscope=""
-            itemtype="http://schema.org/ListItem"
+            itemProp="itemListElement"
+            itemScope=""
+            itemType="http://schema.org/ListItem"
           >
             <span
-              itemprop="item"
-              itemscope=""
-              itemtype="http://schema.org/Thing"
+              itemProp="item"
+              itemScope=""
+              itemType="http://schema.org/Thing"
             >
               <strong
-                itemprop="name"
+                itemProp="name"
               >
                 Queso Burger*
               </strong>
               <meta
                 content="/menu/big-mouth-burgers/queso-burger"
-                itemprop="url"
+                itemProp="url"
               />
             </span>
             <meta
               content="3"
-              itemprop="position"
+              itemProp="position"
             />
           </span>
         </div>

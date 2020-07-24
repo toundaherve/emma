@@ -3,56 +3,56 @@ import React from "react";
 const Breadcrumbs = () => {
   return (
     <div
-      class="breadcrumbs row"
-      itemscope=""
-      itemtype="http://schema.org/BreadcrumbList"
+      className="breadcrumbs row"
+      itemScope=""
+      itemType="http://schema.org/BreadcrumbList"
     >
-      <div class="col12">
+      <div className="col12">
         <span
-          itemprop="itemListElement"
-          itemscope=""
-          itemtype="http://schema.org/ListItem"
+          itemProp="itemListElement"
+          itemScope=""
+          itemType="http://schema.org/ListItem"
         >
-          <span itemscope="" itemtype="http://schema.org/Thing" itemprop="item">
-            <a href="/menu" itemprop="name" content="Menu">
+          <span itemScope="" itemType="http://schema.org/Thing" itemProp="item">
+            <a href="/menu" itemProp="name" content="Menu">
               Menu
             </a>
-            <meta itemprop="url" content="/menu" />
+            <meta itemProp="url" content="/menu" />
           </span>
-          <meta itemprop="position" content="1" />
+          <meta itemProp="position" content="1" />
         </span>
-        <span class="arrow">›</span>
+        <span className="arrow">›</span>
         <span
-          itemprop="itemListElement"
-          itemscope=""
-          itemtype="http://schema.org/ListItem"
+          itemProp="itemListElement"
+          itemScope=""
+          itemType="http://schema.org/ListItem"
         >
-          <span itemscope="" itemtype="http://schema.org/Thing" itemprop="item">
+          <span itemScope="" itemType="http://schema.org/Thing" itemProp="item">
             <a
               href="/menu/big-mouth-burgers"
-              itemprop="name"
+              itemProp="name"
               content="Big Mouth Burgers®"
             >
               Big Mouth Burgers®
             </a>
-            <meta itemprop="url" content="/menu/big-mouth-burgers" />
+            <meta itemProp="url" content="/menu/big-mouth-burgers" />
           </span>
-          <meta itemprop="position" content="2" />
+          <meta itemProp="position" content="2" />
         </span>
-        <span class="arrow">›</span>
+        <span className="arrow">›</span>
         <span
-          itemprop="itemListElement"
-          itemscope=""
-          itemtype="http://schema.org/ListItem"
+          itemProp="itemListElement"
+          itemScope=""
+          itemType="http://schema.org/ListItem"
         >
-          <span itemscope="" itemtype="http://schema.org/Thing" itemprop="item">
-            <strong itemprop="name">Queso Burger*</strong>
+          <span itemScope="" itemType="http://schema.org/Thing" itemProp="item">
+            <strong itemProp="name">Queso Burger*</strong>
             <meta
-              itemprop="url"
+              itemProp="url"
               content="/menu/big-mouth-burgers/queso-burger"
             />
           </span>
-          <meta itemprop="position" content="3" />
+          <meta itemProp="position" content="3" />
         </span>
       </div>
     </div>

@@ -1,18 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header>
       <div className="user-account-bar logged-out"></div>
       <div id="header-container" className="container navigation">
-        <a
+        <Link
+          to="/"
           id="chili-logo"
           className="logo"
-          href="/"
           title="Chili's Grill &amp; Bar - Local Restaurants Near Me | Chili's"
         >
           Chili's Grill &amp; Bar - Local Restaurants Near Me | Chili's
-        </a>
+        </Link>
         <a
           id="header-cart"
           className="cart-btn js-cart-btn"
@@ -33,42 +34,20 @@ const Header = () => {
         <nav className="nav-collapse animated fadeIn js-nav-collapse">
           <ul id="header-menu-list">
             <li>
-              <a id="header-rewards" className="header-link" href="/rewards">
-                Rewards
-              </a>
-            </li>
-            <li>
-              <a id="header-order" className="header-link" href="/order">
+              <Link to="/menu" id="header-order" className="header-link">
                 Order Now
-              </a>
+              </Link>
             </li>
             <li>
-              <a id="header-menu" className="header-link" href="/menu">
+              <Link to="/menu" id="header-menu" className="header-link">
                 Menu
-              </a>
+              </Link>
             </li>
+
             <li>
-              <a
-                id="header-locations"
-                className="header-link"
-                href="/locations"
-              >
-                Locations
-              </a>
-            </li>
-            <li className="header-hide-medium">
-              <a
-                id="header-gift-cards"
-                className="header-link"
-                href="/gift-cards"
-              >
-                Gift Cards
-              </a>
-            </li>
-            <li>
-              <a id="header-login" className="header-link" href="/login">
+              <Link to="/" id="header-login" className="header-link">
                 Log In
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

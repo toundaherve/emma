@@ -3,86 +3,86 @@ import React from "react";
 const ItemDetails = () => {
   return (
     <div id="pattern-library-item-detail" className="row">
-      <div class="col6 detail-image-col">
-        <div class="detail-image">
+      <div className="col6 detail-image-col">
+        <div className="detail-image">
           <img
             alt="Queso Burger*"
             src="https://static.olocdn.net/menu/chilis/256be45b60d5065fb021093417373988.jpg"
             title="Queso Burger*"
             data-pagespeed-url-hash="3442366608"
-            onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
+            // onLoad="pagespeed.CriticalImages.checkImageForCriticality(this);"
           />
         </div>
       </div>
-      <div class="col6 detail-info-col">
+      <div className="col6 detail-info-col">
         <div
-          class="breadcrumbs row"
-          itemscope=""
-          itemtype="http://schema.org/BreadcrumbList"
+          className="breadcrumbs row"
+          itemScope=""
+          itemType="http://schema.org/BreadcrumbList"
         >
-          <div class="col12">
+          <div className="col12">
             <span
-              itemprop="itemListElement"
-              itemscope=""
-              itemtype="http://schema.org/ListItem"
+              itemProp="itemListElement"
+              itemScope=""
+              itemType="http://schema.org/ListItem"
             >
               <span
-                itemscope=""
-                itemtype="http://schema.org/Thing"
-                itemprop="item"
+                itemScope=""
+                itemType="http://schema.org/Thing"
+                itemProp="item"
               >
-                <a href="/menu" itemprop="name" content="Menu">
+                <a href="/menu" itemProp="name" content="Menu">
                   Menu
                 </a>
-                <meta itemprop="url" content="/menu" />
+                <meta itemProp="url" content="/menu" />
               </span>
-              <meta itemprop="position" content="1" />
+              <meta itemProp="position" content="1" />
             </span>
-            <span class="arrow">›</span>
+            <span className="arrow">›</span>
             <span
-              itemprop="itemListElement"
-              itemscope=""
-              itemtype="http://schema.org/ListItem"
+              itemProp="itemListElement"
+              itemScope=""
+              itemType="http://schema.org/ListItem"
             >
               <span
-                itemscope=""
-                itemtype="http://schema.org/Thing"
-                itemprop="item"
+                itemScope=""
+                itemType="http://schema.org/Thing"
+                itemProp="item"
               >
                 <a
                   href="/menu/big-mouth-burgers"
-                  itemprop="name"
+                  itemProp="name"
                   content="Big Mouth Burgers®"
                 >
                   Big Mouth Burgers®
                 </a>
-                <meta itemprop="url" content="/menu/big-mouth-burgers" />
+                <meta itemProp="url" content="/menu/big-mouth-burgers" />
               </span>
-              <meta itemprop="position" content="2" />
+              <meta itemProp="position" content="2" />
             </span>
-            <span class="arrow">›</span>
+            <span className="arrow">›</span>
             <span
-              itemprop="itemListElement"
-              itemscope=""
-              itemtype="http://schema.org/ListItem"
+              itemProp="itemListElement"
+              itemScope=""
+              itemType="http://schema.org/ListItem"
             >
               <span
-                itemscope=""
-                itemtype="http://schema.org/Thing"
-                itemprop="item"
+                itemScope=""
+                itemType="http://schema.org/Thing"
+                itemProp="item"
               >
-                <strong itemprop="name">Queso Burger*</strong>
+                <strong itemProp="name">Queso Burger*</strong>
                 <meta
-                  itemprop="url"
+                  itemProp="url"
                   content="/menu/big-mouth-burgers/queso-burger"
                 />
               </span>
-              <meta itemprop="position" content="3" />
+              <meta itemProp="position" content="3" />
             </span>
           </div>
         </div>
-        <h1 class="detail-title">Queso Burger*</h1>
-        <div class="detail-description">
+        <h1 className="detail-title">Queso Burger*</h1>
+        <div className="detail-description">
           <span>
             Say “cheese!” This half-pound patty comes smothered in white queso,
             crunchy tortilla strips &amp; pico.
@@ -91,19 +91,19 @@ const ItemDetails = () => {
         <input id="customize-item-flag" type="hidden" value="false" />
       </div>
 
-      <div class="col6 detail-spacer-col"></div>
+      <div className="col6 detail-spacer-col"></div>
 
-      <div class="col6 detail-restaurant-select-col">
-        <form id="select-locations-form" class="restaurant-selection-form">
+      <div className="col6 detail-restaurant-select-col">
+        <form id="select-locations-form" className="restaurant-selection-form">
           <label>Order at your Chili's</label>
-          <div class="row">
-            <div class="col12 location-search-form-container">
-              <div class="row">
-                <div class="col12 search-text-field-container">
-                  <div class="form-group">
-                    <div class="input-group">
+          <div className="row">
+            <div className="col12 location-search-form-container">
+              <div className="row">
+                <div className="col12 search-text-field-container">
+                  <div className="form-group">
+                    <div className="input-group">
                       <span
-                        class="algolia-autocomplete"
+                        className="algolia-autocomplete"
                         style={{
                           position: "relative",
                           display: "table-cell",
@@ -111,15 +111,15 @@ const ItemDetails = () => {
                         }}
                       >
                         <input
-                          class="form-control location-search-input js-location-search-input aa-hint"
+                          className="form-control location-search-input js-location-search-input aa-hint"
                           type="search"
                           title="Enter a City, State or ZIP and search for a Chili's near you!"
                           data-parsley-errors-messages-disabled="true"
-                          readonly=""
+                          readOnly=""
                           aria-hidden="true"
-                          autocomplete="off"
-                          spellcheck="false"
-                          tabindex="-1"
+                          autoComplete="off"
+                          spellCheck="false"
+                          tabIndex="-1"
                           style={{
                             position: "absolute",
                             top: "0px",
@@ -133,15 +133,15 @@ const ItemDetails = () => {
                         />
                         <input
                           id="location-search"
-                          class="form-control location-search-input js-location-search-input aa-input"
+                          className="form-control location-search-input js-location-search-input aa-input"
                           name="query"
                           type="search"
                           title="Enter a City, State or ZIP and search for a Chili's near you!"
                           data-parsley-errors-messages-disabled="true"
                           placeholder="Search by City, State, ZIP OR Delivery Address"
                           required="required"
-                          autocomplete="off"
-                          spellcheck="false"
+                          autoComplete="off"
+                          spellCheck="false"
                           role="combobox"
                           aria-autocomplete="both"
                           aria-expanded="false"
@@ -172,7 +172,7 @@ const ItemDetails = () => {
                           }}
                         ></pre>
                         <span
-                          class="aa-dropdown-menu"
+                          className="aa-dropdown-menu"
                           role="listbox"
                           id="algolia-autocomplete-listbox-0"
                           style={{
@@ -184,52 +184,52 @@ const ItemDetails = () => {
                             right: "auto",
                           }}
                         >
-                          <div class="aa-dataset-1"></div>
+                          <div className="aa-dataset-1"></div>
                         </span>
                       </span>
 
-                      <span class="input-group-btn">
+                      <span className="input-group-btn">
                         <button
                           id="button-location-query"
-                          class="btn search-button-query input-group-btn-inline disabled-fake js-location-search-submit"
+                          className="btn search-button-query input-group-btn-inline disabled-fake js-location-search-submit"
                           title="Search"
                           type="submit"
                           validate="true"
                           aria-label="Search"
                         >
-                          <span class="icon-search-location"></span>
+                          <span className="icon-search-location"></span>
                         </button>
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="row js-geolocate-row">
-                <div class="col12 center geolocate-col">
-                  <div class="or-text">- or -</div>
+              <div className="row js-geolocate-row">
+                <div className="col12 center geolocate-col">
+                  <div className="or-text">- or -</div>
                   <button
                     id="button-location-geolocate"
-                    class="btn disabled-fake search-button-geolocate js-geolocate"
+                    className="btn disabled-fake search-button-geolocate js-geolocate"
                   >
-                    <span>Use</span> <span class="hide-xxs">My</span>
-                    <span class="text-before-icon">Current Location</span>
-                    <span class="icon-current-location"></span>
+                    <span>Use</span> <span className="hide-xxs">My</span>
+                    <span className="text-before-icon">Current Location</span>
+                    <span className="icon-current-location"></span>
                   </button>
                 </div>
               </div>
-              <div class="row">
-                <div class="col12">
+              <div className="row">
+                <div className="col12">
                   <div
                     id="location-search-form-errors"
-                    class="search-errors"
+                    className="search-errors"
                   ></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="location-search-results-container">
+          <div className="location-search-results-container">
             <select
-              class="form-control location-search-results animated fadeIn js-location-search-results"
+              className="form-control location-search-results animated fadeIn js-location-search-results"
               disabled="disabled"
               id="store-number"
               name="storeNumber"
@@ -241,29 +241,29 @@ const ItemDetails = () => {
                 --Select a Chili's Location--
               </option>
             </select>
-            <div class="location-search-results-errors js-location-search-results-errors"></div>
+            <div className="location-search-results-errors js-location-search-results-errors"></div>
           </div>
-          <input class="js-location-lat" type="hidden" />
+          <input className="js-location-lat" type="hidden" />
 
-          <input class="js-location-lng" type="hidden" />
+          <input className="js-location-lng" type="hidden" />
 
-          <input class="js-location-address" type="hidden" />
+          <input className="js-location-address" type="hidden" />
 
-          <input class="js-location-address2" type="hidden" />
+          <input className="js-location-address2" type="hidden" />
 
-          <input class="js-location-state" type="hidden" />
+          <input className="js-location-state" type="hidden" />
 
-          <input class="js-location-city" type="hidden" />
+          <input className="js-location-city" type="hidden" />
 
-          <input class="js-location-zipcode" type="hidden" />
+          <input className="js-location-zipcode" type="hidden" />
           <div
-            class="location-not-enabled js-location-not-enabled"
+            className="location-not-enabled js-location-not-enabled"
             style={{ display: "none" }}
             data-call-default="Please call to place an order at this location."
             data-call-template="Please call <a href='tel:{0}'>{1}</a> to place an order at this location."
           ></div>
           <button
-            class="btn select-location-btn js-select-location-btn animated fadeIn"
+            className="btn select-location-btn js-select-location-btn animated fadeIn"
             type="submit"
             data-categoryname="big-mouth-burgers"
             data-itemname="queso-burger"

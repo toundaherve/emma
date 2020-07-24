@@ -14,6 +14,7 @@ Array [
         className="logo"
         href="/"
         id="chili-logo"
+        onClick={[Function]}
         title="Chili's Grill & Bar - Local Restaurants Near Me | Chili's"
       >
         Chili's Grill & Bar - Local Restaurants Near Me | Chili's
@@ -55,17 +56,9 @@ Array [
           <li>
             <a
               className="header-link"
-              href="/rewards"
-              id="header-rewards"
-            >
-              Rewards
-            </a>
-          </li>
-          <li>
-            <a
-              className="header-link"
-              href="/order"
+              href="/menu"
               id="header-order"
+              onClick={[Function]}
             >
               Order Now
             </a>
@@ -75,6 +68,7 @@ Array [
               className="header-link"
               href="/menu"
               id="header-menu"
+              onClick={[Function]}
             >
               Menu
             </a>
@@ -82,28 +76,9 @@ Array [
           <li>
             <a
               className="header-link"
-              href="/locations"
-              id="header-locations"
-            >
-              Locations
-            </a>
-          </li>
-          <li
-            className="header-hide-medium"
-          >
-            <a
-              className="header-link"
-              href="/gift-cards"
-              id="header-gift-cards"
-            >
-              Gift Cards
-            </a>
-          </li>
-          <li>
-            <a
-              className="header-link"
-              href="/login"
+              href="/"
               id="header-login"
+              onClick={[Function]}
             >
               Log In
             </a>
@@ -210,24 +185,24 @@ Array [
     id="page-container"
   >
     <div
-      class="container-sm"
+      className="container-sm"
     >
       <div
-        class="row"
+        className="row"
       >
         <div
-          class="col12"
+          className="col12"
         >
           <div
-            class="page-title"
+            className="page-title"
           >
             <div
-              class="heading-primary"
+              className="heading-primary"
             >
               Your Cart is Empty
             </div>
             <div
-              class="summary"
+              className="summary"
             >
               Head to the menu page to add some food!
             </div>
@@ -239,23 +214,23 @@ Array [
       className="page-static page-cart"
     >
       <div
-        class="row"
+        className="row"
       >
         <div
-          class="col12"
+          className="col12"
         >
           <div
-            class="cart-empty-actions"
+            className="cart-empty-actions"
           >
             <a
-              class="btn small cart-order-more-btn"
+              className="btn small cart-order-more-btn"
               href="/menu"
               id="cart-add-more-items"
             >
               « Back to Menu
             </a>
             <a
-              class="btn small cart-reorder-btn"
+              className="btn small cart-reorder-btn"
               href="/account/order-history"
               id="cart-reorder"
             >

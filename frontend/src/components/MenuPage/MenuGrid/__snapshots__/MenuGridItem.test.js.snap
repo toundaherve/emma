@@ -26,8 +26,9 @@ exports[`renders correctly 1`] = `
     />
     <a
       className="item-image b-lazy b-loaded"
-      href="/menu/appetizers/triple-dipper"
+      href="/item"
       id="menu-item-image-P101942"
+      onClick={[Function]}
       style={
         Object {
           "backgroundImage": "url(\\"https://static.olocdn.net/menu/chilis/a30644e222a6f6d261f13b5bf1f0b089.jpg\\")",
@@ -42,9 +43,10 @@ exports[`renders correctly 1`] = `
     >
       <a
         className="item-title js-item-title height-calculated"
-        href="/menu/appetizers/triple-dipper"
+        href="/item"
         id="menu-item-name-P101942"
         itemProp="url"
+        onClick={[Function]}
         style={
           Object {
             "height": "25px",
@@ -79,8 +81,9 @@ exports[`renders correctly 1`] = `
       </div>
       <a
         className="btn slim btn-menu-item"
-        href="/menu/appetizers/triple-dipper"
+        href="/item"
         id="menu-item-button-P101942"
+        onClick={[Function]}
       >
         Order
       </a>

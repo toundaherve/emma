@@ -2,9 +2,9 @@ import React from "react";
 
 const Select = () => {
   return (
-    <div class="location-search-results-container">
+    <div className="location-search-results-container">
       <select
-        class="form-control location-search-results animated fadeIn js-location-search-results"
+        className="form-control location-search-results animated fadeIn js-location-search-results"
         id="store-number"
         name="storeNumber"
         title="Select a Chili's Location"
@@ -162,7 +162,7 @@ const Select = () => {
           Westbury - 1205 Corporate Dr., Westbury, NY 11590
         </option>
       </select>
-      <div class="location-search-results-errors js-location-search-results-errors"></div>
+      <div className="location-search-results-errors js-location-search-results-errors"></div>
     </div>
   );
 };

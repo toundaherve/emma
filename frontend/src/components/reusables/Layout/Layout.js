@@ -15,7 +15,7 @@ const Layout = ({ currentPage, SiblingComponent, children }) => {
     <>
       <Header />
       <section id="page-container">
-        <SiblingComponent />
+        {SiblingComponent && <SiblingComponent />}
         <div className={`page-static ${pagesClassnames[currentPage]}`}>
           {children}
         </div>

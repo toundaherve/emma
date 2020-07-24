@@ -5,19 +5,19 @@ import Layout from "../reusables/Layout";
 const CartPage = () => {
   return (
     <Layout currentPage="cart" SiblingComponent={Title}>
-      <div class="row">
-        <div class="col12">
-          <div class="cart-empty-actions">
+      <div className="row">
+        <div className="col12">
+          <div className="cart-empty-actions">
             <a
               id="cart-add-more-items"
-              class="btn small cart-order-more-btn"
+              className="btn small cart-order-more-btn"
               href="/menu"
             >
               « Back to Menu
             </a>
             <a
               id="cart-reorder"
-              class="btn small cart-reorder-btn"
+              className="btn small cart-reorder-btn"
               href="/account/order-history"
             >
               Reorder
@@ -31,12 +31,14 @@ const CartPage = () => {
 
 const Title = () => {
   return (
-    <div class="container-sm">
-      <div class="row">
-        <div class="col12">
-          <div class="page-title">
-            <div class="heading-primary">Your Cart is Empty</div>
-            <div class="summary">Head to the menu page to add some food!</div>
+    <div className="container-sm">
+      <div className="row">
+        <div className="col12">
+          <div className="page-title">
+            <div className="heading-primary">Your Cart is Empty</div>
+            <div className="summary">
+              Head to the menu page to add some food!
+            </div>
           </div>
         </div>
       </div>

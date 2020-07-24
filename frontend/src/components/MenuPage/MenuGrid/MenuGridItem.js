@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MenuGridItem = () => {
   return (
@@ -15,27 +16,27 @@ const MenuGridItem = () => {
           content="https://static.olocdn.net/menu/chilis/a30644e222a6f6d261f13b5bf1f0b089.jpg"
         />
         <div className="item-image-placeholder"></div>
-        <a
+        <Link
+          to="/item"
           id="menu-item-image-P101942"
           className="item-image b-lazy b-loaded"
-          href="/menu/appetizers/triple-dipper"
           title="Triple Dipper™"
           style={{
             backgroundImage: `url("https://static.olocdn.net/menu/chilis/a30644e222a6f6d261f13b5bf1f0b089.jpg")`,
           }}
         >
           Triple Dipper™
-        </a>
+        </Link>
         <div className="item-body">
-          <a
+          <Link
+            to="/item"
             id="menu-item-name-P101942"
             className="item-title js-item-title height-calculated"
-            href="/menu/appetizers/triple-dipper"
             itemProp="url"
             style={{ height: "25px" }}
           >
             <span itemProp="name">Triple Dipper™</span>
-          </a>
+          </Link>
           <div className="item-description-wrapper">
             <div
               className="item-description js-item-description height-calculated"
@@ -51,13 +52,13 @@ const MenuGridItem = () => {
               </span>
             </div>
           </div>
-          <a
+          <Link
+            to="/item"
             id="menu-item-button-P101942"
             className="btn slim btn-menu-item"
-            href="/menu/appetizers/triple-dipper"
           >
             Order
-          </a>
+          </Link>
         </div>
       </div>
     </div>
