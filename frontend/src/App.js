@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import MenuPage from "./components/MenuPage";
 import ItemPage from "./components/ItemPage";
-import CartPage from "./components/CartPage/CartPage";
+import CartPage from "./components/CartPage";
 
 function App() {
   return (

@@ -14,10 +14,10 @@ const Header = () => {
         >
           Chili's Grill &amp; Bar - Local Restaurants Near Me | Chili's
         </Link>
-        <a
+        <Link
+          to="/cart"
           id="header-cart"
           className="cart-btn js-cart-btn"
-          href="/cart"
           data-cart-has-items="false"
         >
           <div className="count">0</div>
@@ -27,7 +27,7 @@ const Header = () => {
             alt="Cart"
             src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiM0YTRhNGE7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5iYWc8L3RpdGxlPjxnIGlkPSJfNGE0YTRhIiBkYXRhLW5hbWU9IjRhNGE0YSI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNjQuNSwzM1YyMC41YTE2LjUsMTYuNSwwLDAsMC0zMywwVjMzSDExVjc3LjRBMTQuNiwxNC42LDAsMCwwLDI1LjYsOTJINzAuNEExNC42LDE0LjYsMCwwLDAsODUsNzcuNFYzM1ptLTI3LTEyLjVhMTAuNSwxMC41LDAsMCwxLDIxLDBWMzNoLTIxWiIvPjwvZz48L3N2Zz4="
           />
-        </a>
+        </Link>
         <a href="#" className="nav-toggle js-nav-toggle">
           Menu
         </a>
