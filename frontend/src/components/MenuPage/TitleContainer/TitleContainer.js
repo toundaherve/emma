@@ -6,8 +6,7 @@ const TitleContainer = () => {
     <div className="row">
       <div className="col12">
         <div className="page-title menu-page-title-container">
-          <h1>Appetizers</h1>
-          <Breadcrumbs />
+          <h1>Menu</h1>
         </div>
         <div className="page-title menu-page-summary-container on-mobile-show">
           <div className="summary">

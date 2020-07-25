@@ -25,7 +25,7 @@ const MenuGridItem = () => {
             backgroundImage: `url("https://static.olocdn.net/menu/chilis/a30644e222a6f6d261f13b5bf1f0b089.jpg")`,
           }}
         >
-          Triple Dipper™
+          Ndolè Poisson Braisé
         </Link>
         <div className="item-body">
           <Link
@@ -35,7 +35,7 @@ const MenuGridItem = () => {
             itemProp="url"
             style={{ height: "25px" }}
           >
-            <span itemProp="name">Triple Dipper™</span>
+            <span itemProp="name">Ndolè Poisson Braisé</span>
           </Link>
           <div className="item-description-wrapper">
             <div

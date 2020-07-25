@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -28,17 +29,15 @@ const Hero = () => {
               style={{ color: "#F5E9DA" }}
             >
               <span className="subheader top header-shadow">
-                Chili's To Go for your
+                Fresh and Homemade
               </span>
-              <span className="header header-shadow">Go-To Crew</span>
-              <span className="subheader header-shadow">
-                Curbside - Pickup - Delivery
-              </span>
+              <span className="header header-shadow">Cameroonian food</span>
+              <span className="subheader header-shadow">Pickup - Delivery</span>
             </h1>
             <div className="btn-container cta-component center">
-              <a id="home-hero-button-1" className="btn" href="/menu">
+              <Link to="/menu" id="home-hero-button-1" className="btn">
                 Start Order
-              </a>
+              </Link>
             </div>
           </div>
         </div>

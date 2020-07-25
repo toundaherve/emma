@@ -5,7 +5,7 @@ const Menu = () => {
     <div className="container page-favorite">
       <div className="col12">
         <div className="page-title">
-          <h1>Chili's Favorites</h1>
+          <h1>Emma's Favorites</h1>
         </div>
       </div>
       <div

@@ -71,7 +71,7 @@ const ItemDetails = () => {
                 itemType="http://schema.org/Thing"
                 itemProp="item"
               >
-                <strong itemProp="name">Queso Burger*</strong>
+                <strong itemProp="name">Ndolè Poisson Braisé</strong>
                 <meta
                   itemProp="url"
                   content="/menu/big-mouth-burgers/queso-burger"
@@ -81,7 +81,7 @@ const ItemDetails = () => {
             </span>
           </div>
         </div>
-        <h1 className="detail-title">Queso Burger*</h1>
+        <h1 className="detail-title">Ndolè Poisson Braisé</h1>
         <div className="detail-description">
           <span>
             Say “cheese!” This half-pound patty comes smothered in white queso,

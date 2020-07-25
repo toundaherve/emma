@@ -11,7 +11,7 @@ exports[`renders correctly 1`] = `
       className="page-title"
     >
       <h1>
-        Chili's Favorites
+        Emma's Favorites
       </h1>
     </div>
   </div>

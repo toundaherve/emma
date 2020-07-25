@@ -107,7 +107,7 @@ exports[`renders correctly 1`] = `
             <strong
               itemProp="name"
             >
-              Queso Burger*
+              Ndolè Poisson Braisé
             </strong>
             <meta
               content="/menu/big-mouth-burgers/queso-burger"
@@ -124,7 +124,7 @@ exports[`renders correctly 1`] = `
     <h1
       className="detail-title"
     >
-      Queso Burger*
+      Ndolè Poisson Braisé
     </h1>
     <div
       className="detail-description"

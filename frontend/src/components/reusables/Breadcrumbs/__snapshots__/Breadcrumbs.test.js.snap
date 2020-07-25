@@ -23,6 +23,7 @@ exports[`renders correctly 1`] = `
           content="Menu"
           href="/menu"
           itemProp="name"
+          onClick={[Function]}
         >
           Menu
         </a>
@@ -51,42 +52,10 @@ exports[`renders correctly 1`] = `
         itemScope=""
         itemType="http://schema.org/Thing"
       >
-        <a
-          content="Big Mouth Burgers®"
-          href="/menu/big-mouth-burgers"
-          itemProp="name"
-        >
-          Big Mouth Burgers®
-        </a>
-        <meta
-          content="/menu/big-mouth-burgers"
-          itemProp="url"
-        />
-      </span>
-      <meta
-        content="2"
-        itemProp="position"
-      />
-    </span>
-    <span
-      className="arrow"
-    >
-      ›
-    </span>
-    <span
-      itemProp="itemListElement"
-      itemScope=""
-      itemType="http://schema.org/ListItem"
-    >
-      <span
-        itemProp="item"
-        itemScope=""
-        itemType="http://schema.org/Thing"
-      >
         <strong
           itemProp="name"
         >
-          Queso Burger*
+           Ndolè Poisson Braisé
         </strong>
         <meta
           content="/menu/big-mouth-burgers/queso-burger"

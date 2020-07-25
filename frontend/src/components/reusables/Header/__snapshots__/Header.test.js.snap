@@ -23,6 +23,7 @@ exports[`renders correctly 1`] = `
       data-cart-has-items="false"
       href="/cart"
       id="header-cart"
+      onClick={[Function]}
     >
       <div
         className="count"
@@ -55,11 +56,11 @@ exports[`renders correctly 1`] = `
         <li>
           <a
             className="header-link"
-            href="/menu"
+            href="/"
             id="header-order"
             onClick={[Function]}
           >
-            Order Now
+            Home
           </a>
         </li>
         <li>
@@ -174,7 +175,7 @@ exports[`renders correctly 1`] = `
         <span
           className="location-bar-text"
         >
-          Find a nearby Chili’s
+          Enter your postcode
         </span>
       </a>
     </div>

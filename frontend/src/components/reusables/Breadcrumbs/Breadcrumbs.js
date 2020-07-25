@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Breadcrumbs = () => {
   return (
@@ -14,14 +15,14 @@ const Breadcrumbs = () => {
           itemType="http://schema.org/ListItem"
         >
           <span itemScope="" itemType="http://schema.org/Thing" itemProp="item">
-            <a href="/menu" itemProp="name" content="Menu">
+            <Link to="/menu" itemProp="name" content="Menu">
               Menu
-            </a>
+            </Link>
             <meta itemProp="url" content="/menu" />
           </span>
           <meta itemProp="position" content="1" />
         </span>
-        <span className="arrow">›</span>
+        {/* <span className="arrow">›</span>
         <span
           itemProp="itemListElement"
           itemScope=""
@@ -33,12 +34,12 @@ const Breadcrumbs = () => {
               itemProp="name"
               content="Big Mouth Burgers®"
             >
-              Big Mouth Burgers®
+              Ndolè Poisson Braisé
             </a>
             <meta itemProp="url" content="/menu/big-mouth-burgers" />
           </span>
           <meta itemProp="position" content="2" />
-        </span>
+        </span> */}
         <span className="arrow">›</span>
         <span
           itemProp="itemListElement"
@@ -46,7 +47,7 @@ const Breadcrumbs = () => {
           itemType="http://schema.org/ListItem"
         >
           <span itemScope="" itemType="http://schema.org/Thing" itemProp="item">
-            <strong itemProp="name">Queso Burger*</strong>
+            <strong itemProp="name"> Ndolè Poisson Braisé</strong>
             <meta
               itemProp="url"
               content="/menu/big-mouth-burgers/queso-burger"

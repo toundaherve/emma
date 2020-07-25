@@ -34,8 +34,8 @@ const Header = () => {
         <nav className="nav-collapse animated fadeIn js-nav-collapse">
           <ul id="header-menu-list">
             <li>
-              <Link to="/menu" id="header-order" className="header-link">
-                Order Now
+              <Link to="/" id="header-order" className="header-link">
+                Home
               </Link>
             </li>
             <li>
@@ -97,7 +97,7 @@ const Header = () => {
             href="/locations"
           >
             <span className="location-bar-icon icon-search-location"></span>
-            <span className="location-bar-text">Find a nearby Chili’s</span>
+            <span className="location-bar-text">Enter your postcode</span>
           </a>
         </div>
       </div>
