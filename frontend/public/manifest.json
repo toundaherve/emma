@@ -1,6 +1,6 @@
 {
-  "short_name": "E-K",
-  "name": "Emma's Kitchen",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
