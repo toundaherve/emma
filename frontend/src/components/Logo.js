@@ -1,20 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import Typography from "@material-ui/core/Typography";
 
-const LogoText = styled.h2`
-  font-size: 2.125rem;
-  font-weight: 500;
-  text-align: center;
-  padding: 0;
-  color: ${(props) => (props.color ? props.color : "#000000")};
-`;
-
-const Logo = ({ color }) => {
-  return (
-    <div>
-      <LogoText color={color}>Emma's Kitchen</LogoText>
-    </div>
-  );
+const Logo = () => {
+  return <Typography variant="h5">Emma's Kitchen</Typography>;
 };
 
 export default Logo;

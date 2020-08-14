@@ -25,7 +25,8 @@ const Navigation = () => {
         Terms and Conditions
       </Typography>
       <Typography variant="body" align="center" color="#FFFFFF">
-        © 2020 Emma’s Kitchen All Rights Reserved
+        © 2020 Emma’s Kitchen
+        <br /> All Rights Reserved
       </Typography>
     </Wrapper>
   );
