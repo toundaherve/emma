@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-  height: ${(props) => props.height}px;
+  height: ${(props) => props.heightComputed}px;
   border: 1px solid #cccccc;
 `;
 
@@ -31,7 +31,7 @@ export default ({
   }, []);
 
   return (
-    <Wrapper ref={wrapperRef} height={wrapperWidth * ratio}>
+    <Wrapper ref={wrapperRef} heightComputed={wrapperWidth * ratio}>
       <Image src={`${src}`} objectPosition={`${objectPosition}`} />
     </Wrapper>
   );

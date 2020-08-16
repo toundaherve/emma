@@ -1,50 +1,30 @@
 import React from "react";
-import Image from "../components_old/Image";
+import Image from "material-ui-image";
 import {
-  AppBar,
   Typography,
   Grid,
   Box,
   TextField,
   Button,
   useTheme,
-  Container,
-  GridListTile,
-  GridListTileBar,
-  GridList,
-  makeStyles,
 } from "@material-ui/core";
 
-import Logo from "../components/Logo";
+import Container from "../components/Container";
+import Header from "../layouts/Header";
+import EmmasFavorites from "../layouts/EmmasFavorites";
+import Features from "../layouts/Features";
 import Footer from "../layouts/Footer";
-
-const useStyles = makeStyles((theme) => ({
-  gridList: {
-    flexWrap: "nowrap",
-    transform: "translateZ(0)",
-    marginRight: "-16px !important",
-  },
-}));
+import useDeviceType from "../hooks/useDeviceType";
 
 const Home = () => {
   const theme = useTheme();
-  const classes = useStyles();
+  const isTablet = useDeviceType("tablet");
   return (
     <div>
       <Grid container direction="column">
         {/* ------------------------ Header --------------------- */}
         <Grid item>
-          <AppBar>
-            <Container>
-              <Box height="72px" display="flex" alignItems="stretch">
-                <Grid container justify="center" alignItems="center">
-                  <Grid item>
-                    <Logo />
-                  </Grid>
-                </Grid>
-              </Box>
-            </Container>
-          </AppBar>
+          <Header />
         </Grid>
 
         {/* ------------------------ Hero --------------------- */}
@@ -52,13 +32,15 @@ const Home = () => {
           <Box bgcolor={theme.palette.grey[300]}>
             <Container>
               <Box
-                height="calc(100vh - 72px)"
+                height={`calc(100vh - ${isTablet ? "80px" : "72px"})`}
                 mt={9}
+                maxWidth="672px"
+                margin="0 auto"
                 display="flex"
                 alignItems="stretch"
               >
                 <Grid container alignItems="center" justify="center">
-                  <Grid item container spacing={2}>
+                  <Grid item container spacing={3} justify="center">
                     <Grid item>
                       <Typography variant="h4" align="center">
                         Fresh and Tasty Homemade Food
@@ -89,60 +71,15 @@ const Home = () => {
         {/* ------------------------ Content --------------------- */}
         <Grid item>
           <Container>
-            <Grid container direction="column" spacing={3}>
+            <Grid container direction="column">
               {/* ------------------------ Favorites --------------------- */}
-              <Grid item>
-                <Box pt={3} pb={3}>
-                  <Grid container direction="column" spacing={1}>
-                    <Grid item>
-                      <Typography variant="h5">Emma's Favorite</Typography>
-                    </Grid>
-                    <Grid item>
-                      <GridList
-                        cols={2.8}
-                        spacing={12}
-                        className={classes.gridList}
-                        cellHeight={124}
-                      >
-                        {[1, 2, 3, 4, 5, 6].map((n) => (
-                          <GridListTile key={n}>
-                            <Image />
-                            <GridListTileBar title="Roasted Chicken" />
-                          </GridListTile>
-                        ))}
-                      </GridList>
-                    </Grid>
-                  </Grid>
-                </Box>
-              </Grid>
+              {/* <Grid item>
+                <EmmasFavorites />
+              </Grid> */}
 
               {/* ------------------------ Features --------------------- */}
-              <Grid item container direction="column" spacing={4}>
-                {/* ------------------------ Feature1 --------------------- */}
-                <Grid item container direction="column" spacing={1}>
-                  <Grid item>
-                    <Image ratio={9 / 16} />
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="h5">Homemade with care</Typography>
-                    <Typography variant="body1">
-                      With quality ingredients
-                    </Typography>
-                  </Grid>
-                </Grid>
-
-                {/* ------------------------ Feature2 --------------------- */}
-                <Grid item container direction="column" spacing={1}>
-                  <Grid item>
-                    <Image ratio={9 / 16} />
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="h5">Homemade with care</Typography>
-                    <Typography variant="body1">
-                      With quality ingredients
-                    </Typography>
-                  </Grid>
-                </Grid>
+              <Grid item>
+                <Features />
               </Grid>
             </Grid>
           </Container>
