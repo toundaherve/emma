@@ -5,6 +5,7 @@ import useDeviceType from "../hooks/useDeviceType";
 export const Image = ({
   src = "https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/84d6770ca439c4b1ba2d6f53adc039.svg",
   aspectRatio,
+  isFoodPage = false,
 }) => {
   const isTablet = useDeviceType("tablet");
 
@@ -15,11 +16,7 @@ export const Image = ({
 
     imgContainer: {
       backgroundColor: theme.palette.grey[900],
-      height: `${
-        isTablet
-          ? "calc((100vw - 48px - (32px * 2)) / 3 *" + aspectRatio + ")"
-          : "calc((100vw - 32px) *" + aspectRatio + ")"
-      }`,
+      height: calculateImageHeight(aspectRatio, isTablet, isFoodPage),
     },
   }));
 
@@ -65,5 +62,19 @@ const Cards = ({ data, aspectRatio = 9 / 16 }) => {
     </Box>
   );
 };
+
+function calculateImageHeight(aspectRatio, isTablet, isFoodPage) {
+  if (isFoodPage) {
+    return `${
+      isTablet ? "calc(676px * 400 / 676)" : "calc(100vw * 240 / 315)"
+    }`;
+  }
+
+  return `${
+    isTablet
+      ? "calc((100vw - 48px - (32px * 2)) / 3 *" + aspectRatio + ")"
+      : "calc((100vw - 32px) *" + aspectRatio + ")"
+  }`;
+}
 
 export default Cards;

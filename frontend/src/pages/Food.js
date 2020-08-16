@@ -67,7 +67,7 @@ const Food = ({ item = demoFood }) => {
       </Grid>
 
       <Grid item>
-        <Image aspectRatio={240 / 315} />
+        <Image aspectRatio={240 / 315} isFoodPage />
       </Grid>
 
       <Grid item>
