@@ -41,7 +41,6 @@ const Footer = () => {
                   container
                   xs={12}
                   sm={6}
-                  column
                   direction="column"
                   spacing={2}
                 >
@@ -60,7 +59,6 @@ const Footer = () => {
                   container
                   xs={12}
                   sm={6}
-                  column
                   direction="column"
                   spacing={2}
                 >

@@ -12,9 +12,24 @@ import {
 import Container from "../components/Container";
 import Header from "../layouts/Header";
 import EmmasFavorites from "../layouts/EmmasFavorites";
-import Features from "../layouts/Features";
+import Cards from "../layouts/Cards";
 import Footer from "../layouts/Footer";
 import useDeviceType from "../hooks/useDeviceType";
+
+const features = [
+  {
+    title: "Homemade with care",
+    description: "With quality ingredients",
+  },
+  {
+    title: "Homemade with care",
+    description: "With quality ingredients",
+  },
+  {
+    title: "Homemade with care",
+    description: "With quality ingredients",
+  },
+];
 
 const Home = () => {
   const theme = useTheme();
@@ -79,7 +94,7 @@ const Home = () => {
 
               {/* ------------------------ Features --------------------- */}
               <Grid item>
-                <Features />
+                <Cards data={features} />
               </Grid>
             </Grid>
           </Container>
