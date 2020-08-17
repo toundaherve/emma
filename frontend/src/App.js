@@ -4,6 +4,8 @@ import Menu from "./pages/Menu";
 import Food from "./pages/Food";
 import useDeviceType from "./hooks/useDeviceType";
 import { Modal, Box, useTheme, makeStyles } from "@material-ui/core";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -19,7 +21,7 @@ function App() {
     <div className="App">
       {/* <Home /> */}
       {/* <Menu /> */}
-      {isTablet ? (
+      {/* {isTablet ? (
         <Modal open disableScrollLock={true} className={classes.modal}>
           <Box
             maxWidth="676px"
@@ -34,7 +36,9 @@ function App() {
         </Modal>
       ) : (
         <Food />
-      )}
+      )} */}
+      {/* <Cart /> */}
+      <Checkout />
     </div>
   );
 }
