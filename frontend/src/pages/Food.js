@@ -93,7 +93,7 @@ const Food = ({ item = demoFood }) => {
           <Box pt={1} pb={3}>
             <List disablePadding className={classes.list}>
               {[1, 2, 3].map((n) => (
-                <Extra />
+                <Extra key={n} />
               ))}
             </List>
           </Box>

@@ -3,42 +3,24 @@ import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Food from "./pages/Food";
 import useDeviceType from "./hooks/useDeviceType";
-import { Modal, Box, useTheme, makeStyles } from "@material-ui/core";
+import { Box, useTheme, makeStyles } from "@material-ui/core";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    position: "absolute !important",
-  },
-}));
+import Modal from "./layouts/Modal";
+import Payment from "./pages/Payment";
 
 function App() {
-  const isTablet = useDeviceType("tablet");
-  const theme = useTheme();
-  const classes = useStyles();
   return (
     <div className="App">
       {/* <Home /> */}
       {/* <Menu /> */}
-      {/* {isTablet ? (
-        <Modal open disableScrollLock={true} className={classes.modal}>
-          <Box
-            maxWidth="676px"
-            mt={10}
-            mb={10}
-            margin="0 auto"
-            position="relative"
-            bgcolor={theme.palette.common.white}
-          >
-            <Food />
-          </Box>
-        </Modal>
-      ) : (
+      {/* <Modal>
         <Food />
-      )} */}
-      {/* <Cart /> */}
-      <Checkout />
+      </Modal> */}
+      {/* <Checkout /> */}
+      <Modal>
+        <Payment />
+      </Modal>
     </div>
   );
 }

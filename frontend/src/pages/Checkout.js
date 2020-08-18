@@ -1,5 +1,12 @@
 import React from "react";
-import { Grid, Typography, Box, makeStyles, useTheme } from "@material-ui/core";
+import {
+  Grid,
+  Typography,
+  Box,
+  makeStyles,
+  useTheme,
+  Hidden,
+} from "@material-ui/core";
 import { Schedule, Room } from "@material-ui/icons";
 
 import Header from "../layouts/Header";
@@ -100,14 +107,14 @@ const Checkout = () => {
   const isTablet = useDeviceType("tablet");
   return (
     <Box pt={isTablet ? 10 : 9} pb={10}>
-      <Grid container>
-        <Grid item xs={12} container direction="column">
-          {/* ------------------------ Header --------------------- */}
-          <Grid item>
-            <Header />
-          </Grid>
+      <Grid container justify="space-between">
+        {/* ------------------------ Header --------------------- */}
+        <Grid item xs={12}>
+          <Header />
+        </Grid>
 
-          {/* ------------------------ Content --------------------- */}
+        {/* ------------------------ Content --------------------- */}
+        <Grid item xs={12} sm={6} container direction="column">
           <Grid item container direction="column">
             {/* ------------------------ Delivery Details --------------------- */}
             <Grid item>
@@ -149,13 +156,15 @@ const Checkout = () => {
         </Grid>
 
         {/* ------------------------ HR --------------------- */}
-        <Grid item xs={12}>
-          <Hr />
-        </Grid>
+        <Hidden smUp>
+          <Grid item xs={12}>
+            <Hr />
+          </Grid>
+        </Hidden>
 
         {/* ------------------------ Summary --------------------- */}
-        <Grid xs={12} item>
-          <Section title="Order summary">
+        <Grid xs={12} sm={5} item>
+          <Section title="Order summary" cta="Place order">
             <Grid item container direction="column">
               {/* ------------------------ Location and Time --------------------- */}
               <Grid item container direction="column">
@@ -263,13 +272,15 @@ const Checkout = () => {
         </Grid>
 
         {/* ------------------------ Summary --------------------- */}
-        <Grid xs={12} item>
-          <Box pr={2} pl={2}>
-            <Button variant="contained" color="primary" fullWidth>
-              Place Order
-            </Button>
-          </Box>
-        </Grid>
+        <Hidden xsUp>
+          <Grid xs={12} item>
+            <Box pr={2} pl={2}>
+              <Button variant="contained" color="primary" fullWidth>
+                Place Order
+              </Button>
+            </Box>
+          </Grid>
+        </Hidden>
       </Grid>
     </Box>
   );
