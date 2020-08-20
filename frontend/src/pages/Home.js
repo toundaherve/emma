@@ -1,22 +1,62 @@
 import React from "react";
 import Image from "material-ui-image";
-import {
-  Typography,
-  Grid,
-  Box,
-  TextField,
-  Button,
-  useTheme,
-} from "@material-ui/core";
+import { Typography, Grid, Box, TextField, useTheme } from "@material-ui/core";
 
 import Container from "../components/Container";
+import Button from "../components/Button";
 import Header from "../layouts/Header";
 import EmmasFavorites from "../layouts/EmmasFavorites";
-import Cards from "../layouts/Cards";
+import { SimpleCard } from "../layouts/Cards";
 import Footer from "../layouts/Footer";
 import useDeviceType from "../hooks/useDeviceType";
+import { Link } from "react-router-dom";
 
-const features = [
+const WelcomeToEmmas = () => {
+  const theme = useTheme();
+  const isTablet = useDeviceType("tablet");
+  return (
+    <Box bgcolor={theme.palette.grey[300]}>
+      <Container>
+        <Box
+          height={`calc(100vh - ${isTablet ? "80px" : "72px"})`}
+          mt={9}
+          maxWidth="672px"
+          margin="0 auto"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Grid container direction="column" spacing={3}>
+            <Grid item>
+              <Typography variant="h4" align="center">
+                Fresh and Tasty Homemade Food
+              </Typography>
+            </Grid>
+            <Grid item container spacing={2} direction="column">
+              <Grid item>
+                <TextField
+                  id="outlined-basic"
+                  label="Enter postcode"
+                  variant="outlined"
+                  fullWidth
+                />
+              </Grid>
+              <Grid item>
+                <Link to="/menu">
+                  <Button variant="contained" color="primary" fullWidth>
+                    Order now
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Box>
+      </Container>
+    </Box>
+  );
+};
+
+const dataAboutEmmas = [
   {
     title: "Homemade with care",
     description: "With quality ingredients",
@@ -31,80 +71,31 @@ const features = [
   },
 ];
 
+const AboutEmmas = () => {
+  return (
+    <Container>
+      <Box pt={3} pb={3}>
+        <Grid container spacing={4}>
+          {dataAboutEmmas.map((item, n) => (
+            <Grid item xs={12} sm={4} key={n}>
+              <SimpleCard data={item} aspectRatio={16 / 9} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Container>
+  );
+};
+
 const Home = () => {
-  const theme = useTheme();
-  const isTablet = useDeviceType("tablet");
   return (
     <div>
-      <Grid container direction="column">
-        {/* ------------------------ Header --------------------- */}
-        <Grid item>
-          <Header />
-        </Grid>
-
-        {/* ------------------------ Hero --------------------- */}
-        <Grid item>
-          <Box bgcolor={theme.palette.grey[300]}>
-            <Container>
-              <Box
-                height={`calc(100vh - ${isTablet ? "80px" : "72px"})`}
-                mt={9}
-                maxWidth="672px"
-                margin="0 auto"
-                display="flex"
-                alignItems="stretch"
-              >
-                <Grid container alignItems="center" justify="center">
-                  <Grid item container spacing={3} justify="center">
-                    <Grid item>
-                      <Typography variant="h4" align="center">
-                        Fresh and Tasty Homemade Food
-                      </Typography>
-                    </Grid>
-                    <Grid item container spacing={2} direction="column">
-                      <Grid item>
-                        <TextField
-                          id="outlined-basic"
-                          label="Enter postcode"
-                          variant="outlined"
-                          fullWidth
-                        />
-                      </Grid>
-                      <Grid item>
-                        <Button variant="contained" color="primary" fullWidth>
-                          Order now
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Box>
-            </Container>
-          </Box>
-        </Grid>
-
-        {/* ------------------------ Content --------------------- */}
-        <Grid item>
-          <Container>
-            <Grid container direction="column">
-              {/* ------------------------ Favorites --------------------- */}
-              {/* <Grid item>
-                <EmmasFavorites />
-              </Grid> */}
-
-              {/* ------------------------ Features --------------------- */}
-              <Grid item>
-                <Cards data={features} />
-              </Grid>
-            </Grid>
-          </Container>
-        </Grid>
-
-        {/* ------------------------ Footer --------------------- */}
-        <Grid item>
-          <Footer />
-        </Grid>
-      </Grid>
+      <Header />
+      <WelcomeToEmmas />
+      <AboutEmmas />
+      <Box mt={8}>
+        <Footer />
+      </Box>
     </div>
   );
 };

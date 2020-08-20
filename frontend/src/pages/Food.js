@@ -62,11 +62,6 @@ const Food = ({ item = demoFood }) => {
   return (
     <Grid container direction="column">
       <Grid item>
-        <CloseBtn />
-        <Box height="48px" />
-      </Grid>
-
-      <Grid item>
         <Image aspectRatio={240 / 315} isFoodPage />
       </Grid>
 

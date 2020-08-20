@@ -2,7 +2,7 @@ import React from "react";
 import { Close } from "@material-ui/icons";
 import { Box } from "@material-ui/core";
 
-const CloseBtn = () => {
+const CloseBtn = (props) => {
   return (
     <Box
       display="flex"
@@ -13,6 +13,7 @@ const CloseBtn = () => {
       position="absolute"
       top="8px"
       left="8px"
+      {...props}
     >
       <Close />
     </Box>

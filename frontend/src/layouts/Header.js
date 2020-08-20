@@ -4,6 +4,7 @@ import Logo from "../components/Logo";
 import useDeviceType from "../hooks/useDeviceType";
 
 import Container from "../components/Container";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const isTablet = useDeviceType("tablet");
@@ -17,7 +18,9 @@ const Header = () => {
         >
           <Grid container alignItems="center">
             <Grid item>
-              <Logo />
+              <Link to="/">
+                <Logo />
+              </Link>
             </Grid>
           </Grid>
         </Box>
