@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Grid, Box, Typography, useTheme, Tabs, Tab } from "@material-ui/core";
+import {
+  Grid,
+  Box,
+  Typography,
+  useTheme,
+  Tabs,
+  Tab,
+  makeStyles,
+} from "@material-ui/core";
 
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
@@ -7,6 +15,15 @@ import Modal from "../layouts/Modal";
 import Container from "../components/Container";
 import { WithCTACard } from "../components/Card";
 import useDeviceType from "../hooks/useDeviceType";
+
+const useStyles = makeStyles((theme) => ({
+  tabs: {
+    "& .MuiTab-root": {
+      fontSize: "16px !important",
+      padding: "8px 12px !important",
+    },
+  },
+}));
 
 const Banner = () => {
   const theme = useTheme();
@@ -29,15 +46,16 @@ const Banner = () => {
 const Navigation = () => {
   const theme = useTheme();
   const isTablet = useDeviceType("tablet");
+  const classes = useStyles();
   return (
-    <Box
-      // marginTop={`${isTablet ? "80px" : "72px"}`}
-      border={`1px solid ${theme.palette.grey[300]}`}
-      // pt={isTablet ? 4 : 3}
-      // pb={isTablet ? 4 : 3}
-    >
+    <Box border={`1px solid ${theme.palette.grey[300]}`}>
       <Container>
-        <Tabs value={0} onChange={() => {}} aria-label="simple tabs example">
+        <Tabs
+          value={0}
+          onChange={() => {}}
+          aria-label="simple tabs example"
+          className={classes.tabs}
+        >
           <Tab label="Main" />
           <Tab label="Entrées" />
           <Tab label="Wines" />
