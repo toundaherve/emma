@@ -5,9 +5,11 @@ import { Close } from "@material-ui/icons";
 const useStyles = makeStyles((theme) => ({
   popover: {
     "& .MuiPopover-paper": {
-      top: "16px !important",
-      left: "16px !important",
+      top: "0 !important",
+      left: "0 !important",
       width: "100%",
+      maxWidth: "none",
+      maxHeight: "calc(100% - 0px)",
       position: "relative",
     },
   },
@@ -18,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     left: "8px",
     zIndex: 99,
   },
+
   content: {
     transform: "translateY(-48px)",
   },
