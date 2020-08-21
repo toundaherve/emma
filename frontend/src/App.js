@@ -4,7 +4,7 @@ import { Box, useTheme, makeStyles } from "@material-ui/core";
 
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
-// import Food from "./pages/Food";
+import Food from "./pages/Food";
 // import Cart from "./pages/Cart";
 // import Checkout from "./pages/Checkout";
 // import Payment from "./pages/Payment";
@@ -21,6 +21,10 @@ function App() {
           {/* <Route path="/checkout">
             <Checkout />
           </Route> */}
+
+          <Route path="/food">
+            <Food />
+          </Route>
 
           <Route path="/menu">
             <Menu />

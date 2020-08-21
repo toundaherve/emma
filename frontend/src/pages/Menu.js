@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Grid,
   Box,
@@ -15,6 +15,9 @@ import Modal from "../layouts/Modal";
 import Container from "../components/Container";
 import { WithCTACard } from "../components/Card";
 import useDeviceType from "../hooks/useDeviceType";
+import groupArrayElements from "../utils/groupArrayItems";
+import Popover from "../layouts/Popover";
+import Food from "./Food";
 
 const useStyles = makeStyles((theme) => ({
   tabs: {
@@ -92,20 +95,19 @@ const mains = [
   },
 ];
 
-const List = () => {
-  const isTablet = useDeviceType("tablet");
-  const groupedItems = groupsOf3(mains, (data) => (
-    <Grid item xs={12} sm={4}>
-      <WithCTACard data={data} aspectRatio={315 / 240} ctaText="Add to order" />
-    </Grid>
-  ));
+const List = ({ handleAddToOrder }) => {
   return (
     <Container>
-      <Box pt={4} pb={4}>
-        <Grid container spacing={isTablet ? 6 : 3}>
-          {groupedItems.map((group, idx) => (
-            <Grid item xs={12} container spacing={3} key={idx}>
-              {group}
+      <Box pt={3} pb={3}>
+        <Grid container spacing={3}>
+          {mains.map((item, idx) => (
+            <Grid item xs={12} sm={4} key={idx}>
+              <WithCTACard
+                data={item}
+                aspectRatio={315 / 240}
+                ctaText="Add to order"
+                onClick={handleAddToOrder}
+              />
             </Grid>
           ))}
         </Grid>
@@ -114,39 +116,30 @@ const List = () => {
   );
 };
 
-function groupsOf3(list, component) {
-  const bigArray = [];
-  const numberOfGroups = Math.ceil(list.length / 3);
-  let quantityPushed = 0;
-  let currentGroup = 0;
+const Menu = () => {
+  const anchorEl = useRef(null);
+  const [open, setOpen] = useState(false);
 
-  // create Groups
-  for (let i = 0; i < numberOfGroups; i++) {
-    bigArray.push([]);
+  function handleClose() {
+    setOpen(false);
   }
 
-  list.forEach((item) => {
-    if (quantityPushed >= 3) {
-      currentGroup++;
-      quantityPushed = 0;
-    }
-    bigArray[currentGroup].push(component(item));
-    quantityPushed++;
-  });
+  function handleAddToOrder() {
+    setOpen(true);
+  }
 
-  return bigArray;
-}
-
-const Menu = () => {
   return (
     <div>
       <Header />
       <Banner />
       <Navigation />
-      <List />
+      <List handleAddToOrder={handleAddToOrder} />
       <Box mt={8}>
         <Footer />
       </Box>
+      <Popover open={open} anchorEl={anchorEl} handleClose={handleClose}>
+        <Food />
+      </Popover>
     </div>
   );
 };

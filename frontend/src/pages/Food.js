@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "material-ui-image";
 import {
   Grid,
   Box,
@@ -11,32 +12,16 @@ import {
   List,
   makeStyles,
   Divider,
-  Button,
+  Button as GroupButton,
   ButtonGroup,
 } from "@material-ui/core";
-import CloseBtn from "../components/CloseBtn";
-import { Card, Image } from "../layouts/Cards";
-import { CheckBox } from "@material-ui/icons";
 
-const demoFood = {
+import Button from "../components/Button";
+
+const testData = {
   title: "Roasted chicken",
   description:
     "For nutritional and allergen information for our food please visit http://mcdonalds.co.uk/nutrition.",
-};
-
-const Extra = () => {
-  return (
-    <ListItem>
-      <ListItemIcon>
-        <Checkbox
-          defaultChecked
-          color="default"
-          inputProps={{ "aria-label": "checkbox with default color" }}
-        />
-      </ListItemIcon>
-      <ListItemText primary={`Sauce mayonaise`} />
-    </ListItem>
-  );
 };
 
 const useStyles = makeStyles((theme) => ({
@@ -54,69 +39,91 @@ const useStyles = makeStyles((theme) => ({
       padding: "12px",
     },
   },
+  qtyBtn: {
+    fontSize: "16px",
+    padding: "9px 18px !important",
+  },
 }));
 
-const Food = ({ item = demoFood }) => {
+const FoodDetails = ({ data }) => {
+  return (
+    <div>
+      <Image
+        src="https://i.ytimg.com/vi/yaqe1qesQ8c/maxresdefault.jpg"
+        onClick={() => console.log("onClick")}
+        aspectRatio={414 / 331}
+        disableSpinner
+      />
+      <Box pl={3} pr={3} pt={2} pb={2}>
+        <Box pb={2}>
+          <Typography variant="h4">{data.title}</Typography>
+        </Box>
+        <Typography variant="body2">{data.description}</Typography>
+      </Box>
+    </div>
+  );
+};
+const AddExtras = () => {
   const theme = useTheme();
   const classes = useStyles();
   return (
-    <Grid container direction="column">
-      <Grid item>
-        <Image aspectRatio={240 / 315} isFoodPage />
-      </Grid>
+    <div>
+      <Box bgcolor={theme.palette.grey[100]} p={2}>
+        <Typography variant="h6">Add Extra</Typography>
+      </Box>
 
-      <Grid item>
-        <Box pl={3} pr={3} pt={2} pb={2}>
-          <Grid container direction="column" spacing={2}>
-            <Grid item>
-              <Typography variant="h4">{item.title}</Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="body2">{item.description}</Typography>
-            </Grid>
-          </Grid>
-        </Box>
-      </Grid>
+      <Box pt={2} pb={3}>
+        <List disablePadding className={classes.list}>
+          {[1, 2, 3].map((n) => (
+            <ListItem key={n}>
+              <ListItemIcon>
+                <Checkbox
+                  defaultChecked
+                  color="default"
+                  inputProps={{ "aria-label": "checkbox with default color" }}
+                />
+              </ListItemIcon>
+              <ListItemText primary={`Sauce mayonaise`} />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    </div>
+  );
+};
 
-      <Grid item container direction="column">
-        <Grid item>
-          <Box bgcolor={theme.palette.grey[100]} p={2}>
-            <Typography variant="h6">Add Extra</Typography>
-          </Box>
-        </Grid>
-        <Grid item>
-          <Box pt={1} pb={3}>
-            <List disablePadding className={classes.list}>
-              {[1, 2, 3].map((n) => (
-                <Extra key={n} />
-              ))}
-            </List>
-          </Box>
-        </Grid>
-      </Grid>
+const ChooseQuantity = () => {
+  const classes = useStyles();
+  return (
+    <Box pt={3} pl={2} pr={2} display="flex" justifyContent="center">
+      <ButtonGroup size="large" aria-label="small outlined button group">
+        <GroupButton className={classes.qtyBtn}>-</GroupButton>
+        <GroupButton className={classes.qtyBtn}>2</GroupButton>
+        <GroupButton className={classes.qtyBtn}>+</GroupButton>
+      </ButtonGroup>
+    </Box>
+  );
+};
 
-      <Grid item>
-        <Divider />
-      </Grid>
+const AddToOrder = () => {
+  return (
+    <Box pl={2} pr={2} pt={3} pb={4}>
+      <Button variant="contained" color="primary" fullWidth>
+        Add 1 to order ( £5.99 )
+      </Button>
+    </Box>
+  );
+};
 
-      <Grid item>
-        <Box pt={3} pl={2} pr={2} display="flex" justifyContent="center">
-          <ButtonGroup size="large" aria-label="small outlined button group">
-            <Button>-</Button>
-            <Button>2</Button>
-            <Button>+</Button>
-          </ButtonGroup>
-        </Box>
-      </Grid>
-
-      <Grid item>
-        <Box pl={2} pr={2} pt={3} pb={4}>
-          <Button variant="contained" color="primary" fullWidth>
-            Add 1 to order ( £5.99 )
-          </Button>
-        </Box>
-      </Grid>
-    </Grid>
+const Food = ({ data = testData }) => {
+  return (
+    <div>
+      <FoodDetails data={data} />
+      <AddExtras />
+      <Divider />
+      <ChooseQuantity />
+      <AddToOrder />
+    </div>
   );
 };
 

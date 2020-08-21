@@ -36,14 +36,14 @@ export const WithCTACard = ({
   data,
   aspectRatio,
   ctaText = "Default Text",
-  handleClick = () => {},
+  onClick = () => {},
 }) => {
   return (
     <BaseCard
       data={data}
       aspectRatio={aspectRatio}
       render={() => (
-        <Button variant="outlined" color="primary" onClick={handleClick}>
+        <Button variant="outlined" color="primary" onClick={onClick}>
           {ctaText}
         </Button>
       )}
