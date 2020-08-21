@@ -1,13 +1,51 @@
 import React, { useState } from "react";
-import { Grid, Box, Typography, useTheme } from "@material-ui/core";
+import { Grid, Box, Typography, useTheme, Tabs, Tab } from "@material-ui/core";
 
 import Header from "../layouts/Header";
-import Cards from "../layouts/Cards";
-import useDeviceType from "../hooks/useDeviceType";
-import Container from "../components/Container";
 import Footer from "../layouts/Footer";
 import Modal from "../layouts/Modal";
-import Food from "./Food";
+import Container from "../components/Container";
+import { WithCTACard } from "../components/Card";
+import useDeviceType from "../hooks/useDeviceType";
+
+const Banner = () => {
+  const theme = useTheme();
+  const isTablet = useDeviceType("tablet");
+  return (
+    <Box
+      bgcolor={theme.palette.grey[900]}
+      marginTop={`${isTablet ? "80px" : "72px"}`}
+      height="208px"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      color={theme.palette.grey[50]}
+    >
+      <Typography variant={`${isTablet ? "h4" : "h6"}`}>The Menu</Typography>
+    </Box>
+  );
+};
+
+const Navigation = () => {
+  const theme = useTheme();
+  const isTablet = useDeviceType("tablet");
+  return (
+    <Box
+      // marginTop={`${isTablet ? "80px" : "72px"}`}
+      border={`1px solid ${theme.palette.grey[300]}`}
+      // pt={isTablet ? 4 : 3}
+      // pb={isTablet ? 4 : 3}
+    >
+      <Container>
+        <Tabs value={0} onChange={() => {}} aria-label="simple tabs example">
+          <Tab label="Main" />
+          <Tab label="Entrées" />
+          <Tab label="Wines" />
+        </Tabs>
+      </Container>
+    </Box>
+  );
+};
 
 const mains = [
   {
@@ -36,105 +74,62 @@ const mains = [
   },
 ];
 
-const Menu = () => {
-  const [modalOpened, setModalOpened] = useState(false);
-  const theme = useTheme();
+const List = () => {
   const isTablet = useDeviceType("tablet");
-
-  function showMenu() {
-    if (modalOpened) {
-      if (isTablet) return true;
-      return false;
-    }
-    return true;
-  }
-
-  function onItemClick() {
-    setModalOpened(true);
-  }
-
-  return (
-    <Grid container direction="column">
-      {/* ------------------------ Food --------------------- */}
-      <Grid item>
-        {modalOpened && (
-          <Grid item>
-            <Modal showModal={setModalOpened}>
-              <Food />
-            </Modal>
-          </Grid>
-        )}
-      </Grid>
-
-      {/* ------------------------ Menu --------------------- */}
-      {showMenu() && (
-        <Grid item container direction="column">
-          {/* ------------------------ Header --------------------- */}
-          <Grid item>
-            <Header />
-          </Grid>
-
-          {/* ------------------------ Hero --------------------- */}
-          <Grid item>
-            <Box
-              bgcolor={theme.palette.grey[900]}
-              marginTop={`${isTablet ? "80px" : "72px"}`}
-              height="208px"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              color={theme.palette.grey[50]}
-            >
-              <Typography variant={`${isTablet ? "h4" : "h6"}`}>
-                The Menu
-              </Typography>
-            </Box>
-          </Grid>
-
-          {/* ------------------------ Menu --------------------- */}
-          <Grid item>
-            <Box
-              border={`1px solid ${theme.palette.grey[300]}`}
-              pt={isTablet ? 4 : 3}
-              pb={isTablet ? 4 : 3}
-            >
-              <Grid container justify="center" spacing={2}>
-                <Grid item>
-                  <Typography variant={`${isTablet ? "h4" : "h5"}`}>
-                    Main
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant={`${isTablet ? "h4" : "h5"}`}>
-                    Entrées
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant={`${isTablet ? "h4" : "h5"}`}>
-                    Wines
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Box>
-          </Grid>
-
-          {/* ------------------------ List --------------------- */}
-          <Grid item>
-            <Container>
-              <Cards
-                data={mains}
-                aspectRatio={240 / 315}
-                handleCardClick={onItemClick}
-              />
-            </Container>
-          </Grid>
-
-          <Grid item>
-            <Footer />
-          </Grid>
-        </Grid>
-      )}
+  const groupedItems = groupsOf3(mains, (data) => (
+    <Grid item xs={12} sm={4}>
+      <WithCTACard data={data} aspectRatio={315 / 240} ctaText="Add to order" />
     </Grid>
+  ));
+  return (
+    <Container>
+      <Box pt={4} pb={4}>
+        <Grid container spacing={isTablet ? 6 : 3}>
+          {groupedItems.map((group, idx) => (
+            <Grid item xs={12} container spacing={3} key={idx}>
+              {group}
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </Container>
+  );
+};
+
+function groupsOf3(list, component) {
+  const bigArray = [];
+  const numberOfGroups = Math.ceil(list.length / 3);
+  let quantityPushed = 0;
+  let currentGroup = 0;
+
+  // create Groups
+  for (let i = 0; i < numberOfGroups; i++) {
+    bigArray.push([]);
+  }
+
+  list.forEach((item) => {
+    if (quantityPushed >= 3) {
+      currentGroup++;
+      quantityPushed = 0;
+    }
+    bigArray[currentGroup].push(component(item));
+    quantityPushed++;
+  });
+
+  return bigArray;
+}
+
+const Menu = () => {
+  return (
+    <div>
+      <Header />
+      <Banner />
+      <Navigation />
+      <List />
+      <Box mt={8}>
+        <Footer />
+      </Box>
+    </div>
   );
 };
 

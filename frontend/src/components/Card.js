@@ -1,12 +1,10 @@
 import React from "react";
-import { Grid, Typography, Box, makeStyles, Button } from "@material-ui/core";
+import { Grid, Typography, Box, Button } from "@material-ui/core";
 import Image from "material-ui-image";
-import useDeviceType from "../hooks/useDeviceType";
-import { useLocation } from "react-router-dom";
 
 const BaseCard = ({ data, aspectRatio = 16 / 9, render = () => null }) => {
   return (
-    <Box>
+    <div>
       <Image
         src="https://i.ytimg.com/vi/yaqe1qesQ8c/maxresdefault.jpg"
         onClick={() => console.log("onClick")}
@@ -26,7 +24,7 @@ const BaseCard = ({ data, aspectRatio = 16 / 9, render = () => null }) => {
           )}
         </Grid>
       </Box>
-    </Box>
+    </div>
   );
 };
 

@@ -14,15 +14,11 @@ const Header = () => {
         <Box
           height={`${isTablet ? "80px" : "72px"}`}
           display="flex"
-          alignItems="stretch"
+          alignItems="center"
         >
-          <Grid container alignItems="center">
-            <Grid item>
-              <Link to="/">
-                <Logo />
-              </Link>
-            </Grid>
-          </Grid>
+          <Link to="/">
+            <Logo />
+          </Link>
         </Box>
       </Container>
     </AppBar>

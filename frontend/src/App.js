@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Box, useTheme, makeStyles } from "@material-ui/core";
 
 import Home from "./pages/Home";
-// import Menu from "./pages/Menu";
+import Menu from "./pages/Menu";
 // import Food from "./pages/Food";
 // import Cart from "./pages/Cart";
 // import Checkout from "./pages/Checkout";
@@ -20,11 +20,11 @@ function App() {
         <Switch>
           {/* <Route path="/checkout">
             <Checkout />
-          </Route>
+          </Route> */}
 
           <Route path="/menu">
             <Menu />
-          </Route> */}
+          </Route>
 
           <Route path="/">
             <Home />

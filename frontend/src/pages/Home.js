@@ -1,15 +1,13 @@
 import React from "react";
-import Image from "material-ui-image";
+import { Link } from "react-router-dom";
 import { Typography, Grid, Box, TextField, useTheme } from "@material-ui/core";
 
 import Container from "../components/Container";
 import Button from "../components/Button";
 import Header from "../layouts/Header";
-import EmmasFavorites from "../layouts/EmmasFavorites";
-import { SimpleCard } from "../layouts/Cards";
+import { SimpleCard } from "../components/Card";
 import Footer from "../layouts/Footer";
 import useDeviceType from "../hooks/useDeviceType";
-import { Link } from "react-router-dom";
 
 const WelcomeToEmmas = () => {
   const theme = useTheme();
@@ -26,30 +24,26 @@ const WelcomeToEmmas = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Grid container direction="column" spacing={3}>
-            <Grid item>
+          <div>
+            <Box mb={3}>
               <Typography variant="h4" align="center">
                 Fresh and Tasty Homemade Food
               </Typography>
-            </Grid>
-            <Grid item container spacing={2} direction="column">
-              <Grid item>
-                <TextField
-                  id="outlined-basic"
-                  label="Enter postcode"
-                  variant="outlined"
-                  fullWidth
-                />
-              </Grid>
-              <Grid item>
-                <Link to="/menu">
-                  <Button variant="contained" color="primary" fullWidth>
-                    Order now
-                  </Button>
-                </Link>
-              </Grid>
-            </Grid>
-          </Grid>
+            </Box>
+            <Box mb={2}>
+              <TextField
+                id="outlined-basic"
+                label="Enter postcode"
+                variant="outlined"
+                fullWidth
+              />
+            </Box>
+            <Link to="/menu">
+              <Button variant="contained" color="primary" fullWidth>
+                Order now
+              </Button>
+            </Link>
+          </div>
         </Box>
       </Container>
     </Box>
