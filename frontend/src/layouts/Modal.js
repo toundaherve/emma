@@ -7,6 +7,7 @@ import {
   Grid,
   Box,
   Fab,
+  ClickAwayListener,
 } from "@material-ui/core";
 
 import Close from "../components/Close";
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Modal = ({ onClose: onCloseIconClick, children, open, ...rest }) => {
+const Modal = ({ onCloseIconClick, children, open, ...rest }) => {
   const classes = useStyles();
   return (
     <MuiModal
@@ -42,6 +43,7 @@ const Modal = ({ onClose: onCloseIconClick, children, open, ...rest }) => {
       open={open}
       className={classes.modal}
       onClose={onCloseIconClick}
+      onBackdropClick={onCloseIconClick}
       closeAfterTransition
       BackdropComponent={Backdrop}
       BackdropProps={{
@@ -55,11 +57,13 @@ const Modal = ({ onClose: onCloseIconClick, children, open, ...rest }) => {
           overflow="auto"
           className={classes.overflow}
         >
-          <Box width="676px" mt={10} mb={10} className={classes.paper}>
-            <Close onClose={onCloseIconClick} />
+          <ClickAwayListener onClickAway={onCloseIconClick}>
+            <Box width="676px" mt={10} mb={10} className={classes.paper}>
+              <Close onClose={onCloseIconClick} />
 
-            <Box className={classes.content}>{children}</Box>
-          </Box>
+              <Box className={classes.content}>{children}</Box>
+            </Box>
+          </ClickAwayListener>
         </Box>
       </Fade>
     </MuiModal>

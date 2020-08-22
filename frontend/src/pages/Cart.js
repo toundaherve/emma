@@ -13,7 +13,7 @@ import Divider from "../components/Divider";
 import { WithCTAActionTemplate } from "../layouts/ActionTemplate";
 import isLastItem from "../utils/isLastItem";
 
-const itemsData = [1, 2, 3, 4, 5];
+const itemsData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const ItemQuantity = ({ children }) => {
   return <Select />;

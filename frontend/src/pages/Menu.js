@@ -15,8 +15,8 @@ import Modal from "../layouts/Modal";
 import Container from "../components/Container";
 import { WithCTACard } from "../components/Card";
 import useDeviceType from "../hooks/useDeviceType";
-import groupArrayElements from "../utils/groupArrayItems";
 import Popover from "../layouts/Popover";
+import Drawer from "../layouts/Drawer";
 import Food from "./Food";
 import Cart from "./Cart";
 
@@ -117,6 +117,46 @@ const List = ({ onListItemClick }) => {
   );
 };
 
+function renderFood(isTablet, isOpenedPopover, closePopover, anchorEl) {
+  return isTablet ? (
+    <Modal open={isOpenedPopover} onCloseIconClick={closePopover}>
+      <Food />
+    </Modal>
+  ) : (
+    <Popover
+      open={isOpenedPopover}
+      anchorEl={anchorEl}
+      onCloseIconClick={closePopover}
+      horizontalOrigin="center"
+      verticalOrigin="bottom"
+    >
+      <Food />
+    </Popover>
+  );
+}
+
+function renderShoppingCart(
+  isTablet,
+  isShoppingCartOpened,
+  closeShoppingCart,
+  anchorEl
+) {
+  return isTablet ? (
+    <Drawer open={isShoppingCartOpened} onClose={closeShoppingCart}>
+      <Cart />
+    </Drawer>
+  ) : (
+    <Popover
+      open={isShoppingCartOpened}
+      anchorEl={anchorEl}
+      onCloseIconClick={closeShoppingCart}
+      horizontalOrigin="right"
+    >
+      <Cart />
+    </Popover>
+  );
+}
+
 const Menu = () => {
   const anchorEl = useRef(null);
   const isTablet = useDeviceType("tablet");
@@ -146,34 +186,16 @@ const Menu = () => {
       <Banner />
       <Navigation />
       <List onListItemClick={openPopover} />
+      {renderFood(isTablet, isOpenedPopover, closePopover, anchorEl)}
+      {renderShoppingCart(
+        isTablet,
+        isShoppingCartOpened,
+        closeShoppingCart,
+        anchorEl
+      )}
       <Box mt={8}>
         <Footer />
       </Box>
-
-      {isTablet ? (
-        <Modal open={isOpenedPopover} onCloseIconClick={closePopover}>
-          <Food />
-        </Modal>
-      ) : (
-        <Popover
-          open={isOpenedPopover}
-          anchorEl={anchorEl}
-          onCloseIconClick={closePopover}
-          horizontalOrigin="center"
-          verticalOrigin="bottom"
-        >
-          <Food />
-        </Popover>
-      )}
-
-      <Popover
-        open={isShoppingCartOpened}
-        anchorEl={anchorEl}
-        onCloseIconClick={closeShoppingCart}
-        horizontalOrigin="right"
-      >
-        <Cart />
-      </Popover>
     </div>
   );
 };

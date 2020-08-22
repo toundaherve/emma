@@ -27,7 +27,14 @@ const Header = ({ onShoppingCartIconClick }) => {
 
 const ShoppingCartIcon = ({ onClick }) => {
   return (
-    <Box pt={1.5} pb={1.5} pl={2} pr={2} onClick={onClick}>
+    <Box
+      pt={1.5}
+      pb={1.5}
+      pl={2}
+      pr={2}
+      onClick={onClick}
+      style={{ cursor: "pointer" }}
+    >
       <Grid container spacing={1} alignItems="center">
         <Grid item>
           <LocalMall size="medium" />
