@@ -1,67 +1,68 @@
 import React from "react";
 import {
-  Grid,
   Modal as MuiModal,
-  Box,
+  Fade,
+  Backdrop,
   makeStyles,
-  useTheme,
+  Grid,
+  Box,
+  Fab,
 } from "@material-ui/core";
 
-import useDeviceType from "../hooks/useDeviceType";
-import CloseBtn from "../components/CloseBtn";
-import ScrollToTop from "../components/ScrollToTop";
+import Close from "../components/Close";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-    position: "absolute !important",
+    // overflow: "auto",
+    // maxHeight: "86vh",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    position: "relative",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+  overflow: {
+    "&:focus": {
+      outline: "none !important",
+    },
+  },
+  content: {
+    transform: "translateY(-48px)",
   },
 }));
 
-const Modal = ({
-  showModal,
-  contentMaxWidth = "676px",
-  contentMaxHeight = "auto",
-  children,
-}) => {
-  const isTablet = useDeviceType("tablet");
-  const theme = useTheme();
+const Modal = ({ onClose: onCloseIconClick, children, open, ...rest }) => {
   const classes = useStyles();
-  return isTablet ? (
-    <MuiModal
-      open
-      disableScrollLock={true}
-      className={classes.modal}
-      onBackdropClick={() => showModal(false)}
-    >
-      <Box
-        maxWidth={contentMaxWidth}
-        minHeight={contentMaxHeight}
-        mt={10}
-        mb={10}
-        margin="0 auto"
-        position="relative"
-        bgcolor={theme.palette.common.white}
-      >
-        <ContentWrapper handleClose={() => showModal(false)}>
-          {children}
-        </ContentWrapper>
-      </Box>
-    </MuiModal>
-  ) : (
-    <ContentWrapper handleClose={() => showModal(false)}>
-      {children}
-    </ContentWrapper>
-  );
-};
-
-const ContentWrapper = ({ children, handleClose }) => {
   return (
-    <>
-      <ScrollToTop />
-      <CloseBtn onClick={handleClose} />
-      <Box height="48px" />
-      {children}
-    </>
+    <MuiModal
+      aria-labelledby="transition-modal-title"
+      aria-describedby="transition-modal-description"
+      open={open}
+      className={classes.modal}
+      onClose={onCloseIconClick}
+      closeAfterTransition
+      BackdropComponent={Backdrop}
+      BackdropProps={{
+        timeout: 500,
+      }}
+    >
+      <Fade in={open}>
+        <Box
+          width="100vw"
+          height="100vh"
+          overflow="auto"
+          className={classes.overflow}
+        >
+          <Box width="676px" mt={10} mb={10} className={classes.paper}>
+            <Close onClose={onCloseIconClick} />
+
+            <Box className={classes.content}>{children}</Box>
+          </Box>
+        </Box>
+      </Fade>
+    </MuiModal>
   );
 };
 

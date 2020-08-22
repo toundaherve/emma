@@ -107,7 +107,7 @@ const ChooseQuantity = () => {
 
 const AddToOrder = () => {
   return (
-    <Box pl={2} pr={2} pt={3} pb={4}>
+    <Box pl={2} pr={2} pt={3} pb={0}>
       <Button variant="contained" color="primary" fullWidth>
         Add 1 to order ( £5.99 )
       </Button>

@@ -1,6 +1,12 @@
 import React from "react";
-import { Grid, Typography, Box, Button } from "@material-ui/core";
+import { Grid, Typography, Box, Button, makeStyles } from "@material-ui/core";
 import Image from "material-ui-image";
+
+const useStyles = makeStyles((theme) => ({
+  btn: {
+    padding: "4px 12px !important",
+  },
+}));
 
 const BaseCard = ({ data, aspectRatio = 16 / 9, render = () => null }) => {
   return (
@@ -36,14 +42,20 @@ export const WithCTACard = ({
   data,
   aspectRatio,
   ctaText = "Default Text",
-  onClick = () => {},
+  onButtonClick = () => {},
 }) => {
+  const classes = useStyles();
   return (
     <BaseCard
       data={data}
       aspectRatio={aspectRatio}
       render={() => (
-        <Button variant="outlined" color="primary" onClick={onClick}>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={onButtonClick}
+          className={classes.btn}
+        >
           {ctaText}
         </Button>
       )}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Popover as MuiPopover, makeStyles, Fab, Box } from "@material-ui/core";
-import { Close } from "@material-ui/icons";
+
+import Close from "../components/Close";
 
 const useStyles = makeStyles((theme) => ({
   popover: {
@@ -14,36 +15,27 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  fab: {
-    position: "sticky",
-    top: "8px",
-    left: "8px",
-    zIndex: 99,
-  },
-
   content: {
     transform: "translateY(-48px)",
   },
 }));
 
-const Popover = ({ handleClose, children, ...rest }) => {
+const Popover = ({
+  onCloseIconClick,
+  children,
+  verticalOrigin = "top",
+  horizontalOrigin = "left",
+  ...rest
+}) => {
   const classes = useStyles();
   return (
     <MuiPopover
-      anchorOrigin={{ vertical: "top", horizontal: "left" }}
+      anchorOrigin={{ vertical: verticalOrigin, horizontal: horizontalOrigin }}
       className={classes.popover}
-      onClose={handleClose}
+      onClose={onCloseIconClick}
       {...rest}
     >
-      <Fab
-        size="medium"
-        color="secondary"
-        aria-label="close"
-        className={classes.fab}
-        onClick={handleClose}
-      >
-        <Close />
-      </Fab>
+      <Close onClose={onCloseIconClick} />
 
       <Box className={classes.content}>{children}</Box>
     </MuiPopover>

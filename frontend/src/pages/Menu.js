@@ -18,6 +18,7 @@ import useDeviceType from "../hooks/useDeviceType";
 import groupArrayElements from "../utils/groupArrayItems";
 import Popover from "../layouts/Popover";
 import Food from "./Food";
+import Cart from "./Cart";
 
 const useStyles = makeStyles((theme) => ({
   tabs: {
@@ -95,7 +96,7 @@ const mains = [
   },
 ];
 
-const List = ({ handleAddToOrder }) => {
+const List = ({ onListItemClick }) => {
   return (
     <Container>
       <Box pt={3} pb={3}>
@@ -106,7 +107,7 @@ const List = ({ handleAddToOrder }) => {
                 data={item}
                 aspectRatio={315 / 240}
                 ctaText="Add to order"
-                onClick={handleAddToOrder}
+                onButtonClick={onListItemClick}
               />
             </Grid>
           ))}
@@ -118,27 +119,60 @@ const List = ({ handleAddToOrder }) => {
 
 const Menu = () => {
   const anchorEl = useRef(null);
-  const [open, setOpen] = useState(false);
+  const isTablet = useDeviceType("tablet");
 
-  function handleClose() {
-    setOpen(false);
+  const [isOpenedPopover, setIsOpenedPopover] = useState(false);
+  const [isShoppingCartOpened, setIsShoppingCartOpened] = useState(false);
+
+  function openPopover() {
+    setIsOpenedPopover(true);
   }
 
-  function handleAddToOrder() {
-    setOpen(true);
+  function closePopover() {
+    setIsOpenedPopover(false);
+  }
+
+  function openShoppingCart() {
+    setIsShoppingCartOpened(true);
+  }
+
+  function closeShoppingCart() {
+    setIsShoppingCartOpened(false);
   }
 
   return (
     <div>
-      <Header />
+      <Header onShoppingCartIconClick={openShoppingCart} />
       <Banner />
       <Navigation />
-      <List handleAddToOrder={handleAddToOrder} />
+      <List onListItemClick={openPopover} />
       <Box mt={8}>
         <Footer />
       </Box>
-      <Popover open={open} anchorEl={anchorEl} handleClose={handleClose}>
-        <Food />
+
+      {isTablet ? (
+        <Modal open={isOpenedPopover} onCloseIconClick={closePopover}>
+          <Food />
+        </Modal>
+      ) : (
+        <Popover
+          open={isOpenedPopover}
+          anchorEl={anchorEl}
+          onCloseIconClick={closePopover}
+          horizontalOrigin="center"
+          verticalOrigin="bottom"
+        >
+          <Food />
+        </Popover>
+      )}
+
+      <Popover
+        open={isShoppingCartOpened}
+        anchorEl={anchorEl}
+        onCloseIconClick={closeShoppingCart}
+        horizontalOrigin="right"
+      >
+        <Cart />
       </Popover>
     </div>
   );
