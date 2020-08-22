@@ -14,6 +14,8 @@ import { Input } from "../components/Inputs";
 import Button from "../components/Button";
 import useDeviceType from "../hooks/useDeviceType";
 import Divider from "../components/Divider";
+import Container from "../components/Container";
+import Footer from "../layouts/Footer";
 
 const useStyles = makeStyles((theme) => ({
   line: {
@@ -21,268 +23,227 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Section = (props) => {
-  const { title, children, info = null, cta = null } = props;
-  console.log(title + "children \n");
-  console.log(children);
+const Section = ({
+  title,
+  titleMargin = 3,
+  info,
+  children,
+  ctaText = null,
+}) => {
   return (
-    <Box pt={3} pb={3} pl={2} pr={2}>
-      <Grid container direction="column" spacing={1}>
-        {/* ------------------------ Details --------------------- */}
-        <Grid item container direction="column" spacing={3}>
-          {/* ------------------------ Title --------------------- */}
-          <Grid item container justify="space-between" alignItems="center">
-            <Grid item>
-              <Typography variant="h6">{title}</Typography>
-            </Grid>
-
-            {info && (
-              <Grid item>
-                <Typography variant="h6">{info}</Typography>
-              </Grid>
-            )}
-          </Grid>
-          {/* ------------------------ Children--------------------- */}
-          {children && (
-            <Grid item container>
-              {children}
-            </Grid>
-          )}
-        </Grid>
-        {/* ------------------------ CTA --------------------- */}
-        <Grid item>
-          {cta && (
-            <Button variant="contained" color="primary" fullWidth>
-              {cta}
-            </Button>
-          )}
-        </Grid>
-      </Grid>
+    <Box pt={3} pb={3}>
+      <Box mb={titleMargin}>
+        <SectionTitle info={info}>{title}</SectionTitle>
+      </Box>
+      <div>{children}</div>
+      {ctaText && <SectionCTA>{ctaText}</SectionCTA>}
     </Box>
   );
 };
 
-const SummaryLine = (props) => {
-  const classes = useStyles();
-  const {
-    noPaddingTop = false,
-    render = () => <></>,
-    price = false,
-    isFee = false,
-    isTotal = false,
-  } = props;
-  return (
-    <>
-      {!noPaddingTop && (
-        <Grid item xs={12}>
-          <Box pt={1.5} />
-        </Grid>
-      )}
+const SectionTitle = ({ children, info = false }) => (
+  <Grid item container justify="space-between" alignItems="center">
+    <Grid item>
+      <Typography variant="h6">{children}</Typography>
+    </Grid>
 
-      <Grid item xs={9} container>
-        <Grid item>{render()}</Grid>
+    {info && (
+      <Grid item>
+        <Typography variant="h6">{info}</Typography>
       </Grid>
+    )}
+  </Grid>
+);
 
-      {price && (
-        <Grid item xs={3}>
-          <Typography
-            variant={`${isTotal ? "h6" : isFee ? "body2" : "body1"}`}
-            align="right"
-          >
-            {price}
+const SectionCTA = ({ children }) => (
+  <Button variant="contained" color="primary" fullWidth>
+    {children}
+  </Button>
+);
+
+const OrderSummaryLine = ({ left = () => null, right = () => null }) => {
+  return (
+    <Grid container>
+      <Grid item xs={9}>
+        {left()}
+      </Grid>
+      <Grid item xs={3}>
+        {right()}
+      </Grid>
+    </Grid>
+  );
+};
+
+const DeliveryDetails = () => {
+  return (
+    <Section title="Delivery Details" ctaText="Save & Continue">
+      <Box mb={1}>
+        <Grid container direction="column" spacing={2}>
+          <Grid item>
+            <Input placeholder="Post code" fullWidth />
+          </Grid>
+          <Grid item>
+            <Input placeholder="Door or Flat" fullWidth />
+          </Grid>
+          <Grid item>
+            <Input placeholder="Name" fullWidth />
+          </Grid>
+        </Grid>
+      </Box>
+    </Section>
+  );
+};
+
+const DeliveryTime = () => (
+  <Section title="Delivery Time" titleMargin={0} info="20-30min"></Section>
+);
+
+const PaymentMethod = () => (
+  <Section title="Payment" ctaText="Add payment method"></Section>
+);
+
+const OrderDeliveryTime = () => (
+  <OrderSummaryLine
+    left={() => (
+      <Grid container spacing={1}>
+        <Grid item>
+          <Schedule />
+        </Grid>
+        <Grid item>
+          <Typography variant="body1">Arriving in 20-30 min</Typography>
+        </Grid>
+      </Grid>
+    )}
+  />
+);
+
+const OrderDeliveryAddress = () => (
+  <OrderSummaryLine
+    left={() => (
+      <Grid container spacing={1}>
+        <Grid item>
+          <Room />
+        </Grid>
+        <Grid item>
+          <Typography variant="body1">
+            LS16 5RQ <br /> 27 Montgomery Avenue
           </Typography>
         </Grid>
+      </Grid>
+    )}
+  />
+);
+
+const SubTotal = () => (
+  <OrderSummaryLine
+    left={() => (
+      <Typography variant="body1">
+        Subtotal * <strong>2 items</strong>
+      </Typography>
+    )}
+    right={() => (
+      <Typography variant="body1" align="right">
+        £ 9.65
+      </Typography>
+    )}
+  />
+);
+
+const Fees = () => {
+  return (
+    <div>
+      <Box mb={1.5}>
+        <OrderSummaryLine
+          left={() => <Typography variant="body1">Fees</Typography>}
+        />
+      </Box>
+      <Box mb={1.5}>
+        <OrderSummaryLine
+          left={() => <Typography variant="body2">Delivery</Typography>}
+          right={() => (
+            <Typography variant="body2" align="right">
+              £ 5.99
+            </Typography>
+          )}
+        />
+      </Box>
+      <OrderSummaryLine
+        left={() => <Typography variant="body2">Service</Typography>}
+        right={() => (
+          <Typography variant="body2" align="right">
+            £ 5.99
+          </Typography>
+        )}
+      />
+    </div>
+  );
+};
+
+const Total = () => {
+  return (
+    <OrderSummaryLine
+      left={() => <Typography variant="h6">Total</Typography>}
+      right={() => (
+        <Typography variant="h6" align="right">
+          £ 79.85
+        </Typography>
       )}
-    </>
+    />
+  );
+};
+
+const OrderSummary = () => {
+  return (
+    <Section title="Order summary" ctaText="Place Order">
+      <Box mb={3}>
+        <Box mb={1.5}>
+          <OrderDeliveryTime />
+        </Box>
+        <OrderDeliveryAddress />
+        <Divider />
+        <Box mb={1.5}>
+          <SubTotal />
+        </Box>
+        <Box mb={1.5}>
+          <Fees />
+        </Box>
+        <Total />
+      </Box>
+    </Section>
   );
 };
 
 const Hr = () => {
   const theme = useTheme();
-
   return <Box height="8px" bgcolor={theme.palette.grey[200]} />;
 };
 
 const Checkout = () => {
   const isTablet = useDeviceType("tablet");
   return (
-    <Box pt={isTablet ? 10 : 9} pb={10}>
-      <Grid container justify="space-between">
-        {/* ------------------------ Header --------------------- */}
-        <Grid item xs={12}>
-          <Header />
-        </Grid>
-
-        {/* ------------------------ Content --------------------- */}
-        <Grid item xs={12} sm={6} container direction="column">
-          <Grid item container direction="column">
-            {/* ------------------------ Delivery Details --------------------- */}
-            <Grid item>
-              <Section title="Delivery Details" cta="Save & Continue">
-                <Grid container direction="column" spacing={2}>
-                  <Grid item>
-                    <Input placeholder="Post code" fullWidth />
-                  </Grid>
-                  <Grid item>
-                    <Input placeholder="Door or Flat" fullWidth />
-                  </Grid>
-                  <Grid item>
-                    <Input placeholder="Name" fullWidth />
-                  </Grid>
-                </Grid>
-              </Section>
-            </Grid>
-
-            {/* ------------------------ HR --------------------- */}
-            <Grid item>
+    <div>
+      <Box pt={isTablet ? 10 : 9} pb={10}>
+        <Header />
+        <Container>
+          <Grid container justify="space-around">
+            <Grid item xs={12} sm={4}>
+              <DeliveryDetails />
               <Hr />
-            </Grid>
-
-            {/* ------------------------ Delivery Time --------------------- */}
-            <Grid item>
-              <Section title="Delivery Time" info="20-30min"></Section>
-            </Grid>
-
-            {/* ------------------------ HR --------------------- */}
-            <Grid item>
+              <DeliveryTime />
               <Hr />
+              <PaymentMethod />
+              <Hidden smUp>
+                <Hr />
+              </Hidden>
             </Grid>
-
-            {/* ------------------------ Payment --------------------- */}
-            <Grid item>
-              <Section title="Payment" cta="Add payment method"></Section>
+            <Grid item xs={12} sm={4}>
+              <OrderSummary />
             </Grid>
           </Grid>
-        </Grid>
-
-        {/* ------------------------ HR --------------------- */}
-        <Hidden smUp>
-          <Grid item xs={12}>
-            <Hr />
-          </Grid>
-        </Hidden>
-
-        {/* ------------------------ Summary --------------------- */}
-        <Grid xs={12} sm={5} item>
-          <Section title="Order summary" cta="Place order">
-            <Grid item container direction="column">
-              {/* ------------------------ Location and Time --------------------- */}
-              <Grid item container direction="column">
-                {/* ------------------------ Time --------------------- */}
-                <Grid item container>
-                  <SummaryLine
-                    noPaddingTop
-                    render={() => (
-                      <Grid container spacing={1}>
-                        <Grid item>
-                          <Schedule />
-                        </Grid>
-                        <Grid item>
-                          <Typography variant="body1">
-                            Arriving in 20-30 min
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    )}
-                  />
-                </Grid>
-                {/* ------------------------ Location --------------------- */}
-                <Grid item container>
-                  <SummaryLine
-                    render={() => (
-                      <Grid container spacing={1}>
-                        <Grid item>
-                          <Room />
-                        </Grid>
-                        <Grid item>
-                          <Typography variant="body1">
-                            LS16 5RQ <br /> 27 Montgomery Avenue
-                          </Typography>
-                        </Grid>
-                      </Grid>
-                    )}
-                  />
-                </Grid>
-              </Grid>
-
-              {/* ------------------------ Divider --------------------- */}
-              <Grid item>
-                <Divider />
-              </Grid>
-
-              {/* ------------------------ Bill --------------------- */}
-              <Grid item container direction="column">
-                {/* ------------------------ Subtotal --------------------- */}
-                <Grid item container>
-                  <SummaryLine
-                    price="£ 15.99"
-                    render={() => (
-                      <Typography variant="body1">
-                        Subtotal * <strong>2 items</strong>
-                      </Typography>
-                    )}
-                  />
-                </Grid>
-
-                {/* ------------------------ Fees --------------------- */}
-                <Grid item container direction="column">
-                  <Grid item container>
-                    <SummaryLine
-                      render={() => (
-                        <Typography variant="body1">Fees</Typography>
-                      )}
-                    />
-                  </Grid>
-                  {/* ------------------------ Service --------------------- */}
-                  <Grid item container>
-                    <SummaryLine
-                      isFee
-                      price="£ 15.99"
-                      render={() => (
-                        <Typography variant="body2">Service</Typography>
-                      )}
-                    />
-                  </Grid>
-                  {/* ------------------------ Delivery --------------------- */}
-                  <Grid item container>
-                    <SummaryLine
-                      isFee
-                      price="£ 15.99"
-                      render={() => (
-                        <Typography variant="body2">Delivery</Typography>
-                      )}
-                    />
-                  </Grid>
-                </Grid>
-
-                {/* ------------------------ Total --------------------- */}
-                <Grid item container direction="column">
-                  <Grid item container>
-                    <SummaryLine
-                      isTotal
-                      price="£ 75.99"
-                      total
-                      render={() => <Typography variant="h6">Total</Typography>}
-                    />
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Section>
-        </Grid>
-
-        {/* ------------------------ Summary --------------------- */}
-        <Hidden xsUp>
-          <Grid xs={12} item>
-            <Box pr={2} pl={2}>
-              <Button variant="contained" color="primary" fullWidth>
-                Place Order
-              </Button>
-            </Box>
-          </Grid>
-        </Hidden>
-      </Grid>
-    </Box>
+        </Container>
+      </Box>
+      <Footer />
+    </div>
   );
 };
 

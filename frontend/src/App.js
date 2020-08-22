@@ -1,16 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Box, useTheme, makeStyles } from "@material-ui/core";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
-import Food from "./pages/Food";
-// import Cart from "./pages/Cart";
-// import Checkout from "./pages/Checkout";
-// import Payment from "./pages/Payment";
-// import Modal from "./layouts/Modal";
+import Checkout from "./pages/Checkout";
 import ScrollToTop from "./components/ScrollToTop";
-import useDeviceType from "./hooks/useDeviceType";
 
 function App() {
   return (
@@ -18,12 +12,8 @@ function App() {
       <div className="App">
         <ScrollToTop />
         <Switch>
-          {/* <Route path="/checkout">
+          <Route path="/checkout">
             <Checkout />
-          </Route> */}
-
-          <Route path="/food">
-            <Food />
           </Route>
 
           <Route path="/menu">

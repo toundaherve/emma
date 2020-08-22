@@ -12,6 +12,7 @@ import { Select } from "../components/Inputs";
 import Divider from "../components/Divider";
 import { WithCTAActionTemplate } from "../layouts/ActionTemplate";
 import isLastItem from "../utils/isLastItem";
+import { useHistory } from "react-router-dom";
 
 const itemsData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -88,10 +89,16 @@ const AddNote = () => {
 
 const Cart = () => {
   const theme = useTheme();
+  let history = useHistory();
+
+  function checkout() {
+    history.push("/checkout");
+  }
   return (
     <WithCTAActionTemplate
       title="Your Order"
       ctaText="Next: Checkout (£ 15.75)"
+      onButtonClick={checkout}
     >
       <OrderItems />
       <Box mt={3}>

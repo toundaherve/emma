@@ -5,9 +5,11 @@ import { LocalMall } from "@material-ui/icons";
 import Container from "../components/Container";
 import Logo from "../components/Logo";
 import useDeviceType from "../hooks/useDeviceType";
+import { useLocation } from "react-router-dom";
 
 const Header = ({ onShoppingCartIconClick }) => {
   const isTablet = useDeviceType("tablet");
+  const isMenuPage = useLocation().pathname === "/menu";
   return (
     <AppBar>
       <Container>
@@ -18,7 +20,7 @@ const Header = ({ onShoppingCartIconClick }) => {
           justifyContent="space-between"
         >
           <Logo />
-          <ShoppingCartIcon onClick={onShoppingCartIconClick} />
+          {isMenuPage && <ShoppingCartIcon onClick={onShoppingCartIconClick} />}
         </Box>
       </Container>
     </AppBar>

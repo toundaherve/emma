@@ -2,10 +2,7 @@ import React from "react";
 import { Box, Typography, makeStyles } from "@material-ui/core";
 
 import Button from "../components/Button";
-import { useLocation } from "react-router-dom";
 import useDeviceType from "../hooks/useDeviceType";
-
-const useStyles = makeStyles((theme) => ({}));
 
 const BaseActionTemplate = ({ title, children, render = () => null }) => {
   return (
@@ -29,13 +26,10 @@ export const WithCTAActionTemplate = ({
   title,
   children,
   ctaText = "Default text",
-  handleClick = () => {},
+  onButtonClick = () => {},
 }) => {
-  const { pathname } = useLocation();
-  const isMenuPage = pathname === "/menu";
   const isTablet = useDeviceType("tablet");
 
-  const classes = useStyles();
   return (
     <BaseActionTemplate
       title={title}
@@ -52,7 +46,7 @@ export const WithCTAActionTemplate = ({
             variant="contained"
             color="primary"
             fullWidth
-            onClick={handleClick}
+            onClick={onButtonClick}
           >
             {ctaText}
           </Button>
