@@ -25,6 +25,11 @@ const testData = {
 };
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.common.white,
+    paddingBottom: "32px",
+    marginBottom: "32px",
+  },
   list: {
     "& > li": {
       padding: "0",
@@ -116,14 +121,15 @@ const AddToOrder = () => {
 };
 
 const Food = ({ data = testData }) => {
+  const classes = useStyles();
   return (
-    <div>
+    <Box className={classes.root}>
       <FoodDetails data={data} />
       <AddExtras />
       <Divider />
       <ChooseQuantity />
       <AddToOrder />
-    </div>
+    </Box>
   );
 };
 

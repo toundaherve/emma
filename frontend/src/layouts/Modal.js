@@ -14,21 +14,19 @@ import Close from "../components/Close";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-    padding: "80px 0 40px 0",
+    padding: "80px 0 0 0",
   },
   paper: {
-    backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     position: "relative",
     marginLeft: "auto",
     marginRight: "auto",
     width: "676px",
     height: "auto",
-    minHeight: "100%",
   },
   content: {
     marginTop: "-48px",
-    height: "100%",
+    height: "auto",
   },
   overflow: {
     width: "100vw",
