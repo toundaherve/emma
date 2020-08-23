@@ -5,15 +5,27 @@ import Button from "../components/Button";
 import useDeviceType from "../hooks/useDeviceType";
 import { useLocation } from "react-router-dom";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: "calc(100vh - 80px - 40px)",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+}));
+
 const BaseActionTemplate = ({ title, children, render = () => null }) => {
   const isCheckoutPage = useLocation().pathname === "/checkout";
+  const classes = useStyles();
   return (
-    <Box pt={isCheckoutPage ? 12 : 8} pl={2} pr={2}>
-      <Box mb={3}>
-        <Typography variant="h4">{title}</Typography>
-      </Box>
+    <Box pt={isCheckoutPage ? 12 : 8} pl={2} pr={2} className={classes.root}>
+      <div>
+        <Box mb={3}>
+          <Typography variant="h4">{title}</Typography>
+        </Box>
 
-      <div>{children}</div>
+        <div>{children}</div>
+      </div>
 
       {render()}
     </Box>
@@ -38,8 +50,6 @@ export const WithCTAActionTemplate = ({
       render={() => (
         <Box
           pt={3}
-          pl={2}
-          pr={2}
           pb={4}
           position="sticky"
           bottom={isTablet ? "0px" : "-52px"}

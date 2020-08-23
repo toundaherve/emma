@@ -33,7 +33,7 @@ const Method = ({ img, name, onClick }) => {
 const AddPaymentMethod = ({ onAddCreditCardClick, onPaypalClick }) => {
   return (
     <SimpleActionTemplate title="Add Payment Method">
-      <Box height="100vh">
+      <Box>
         <Method
           name="Credit or debit card"
           img="https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/c60c8b82319cdae367fbda262219d47e.svg"
@@ -56,7 +56,7 @@ const AddCreditCardOrDebitCard = ({ onAddCardClick }) => {
       ctaText="Add card"
       onButtonClick={onAddCardClick}
     >
-      <Box height="100vh">
+      <Box mb={12}>
         <Grid item container spacing={2}>
           <CardDetail title="Card Number" />
           <CardDetail title="Exp. Date" placeholder="MM / YY" cols={6} />
@@ -89,7 +89,7 @@ const CardDetail = ({ title, cols = 12, select, placeholder = "" }) => {
 const AddPaypal = () => {
   return (
     <SimpleActionTemplate title="Add Paypal">
-      <Box height="100vh">
+      <Box>
         <Grid container direction="column" spacing={5}>
           <Grid item>
             <Typography variant="body2">

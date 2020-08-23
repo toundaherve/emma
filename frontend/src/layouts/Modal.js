@@ -14,8 +14,7 @@ import Close from "../components/Close";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
-    // overflow: "auto",
-    // maxHeight: "86vh",
+    padding: "80px 0 40px 0",
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -23,14 +22,21 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     marginLeft: "auto",
     marginRight: "auto",
+    width: "676px",
+    height: "auto",
+    minHeight: "100%",
+  },
+  content: {
+    marginTop: "-48px",
+    height: "100%",
   },
   overflow: {
+    width: "100vw",
+    height: "100%",
+    overflow: "auto",
     "&:focus": {
       outline: "none !important",
     },
-  },
-  content: {
-    transform: "translateY(-48px)",
   },
 }));
 
@@ -51,14 +57,9 @@ const Modal = ({ onCloseIconClick, children, open, ...rest }) => {
       }}
     >
       <Fade in={open}>
-        <Box
-          width="100vw"
-          height="100vh"
-          overflow="auto"
-          className={classes.overflow}
-        >
+        <Box className={classes.overflow}>
           <ClickAwayListener onClickAway={onCloseIconClick}>
-            <Box width="676px" mt={10} mb={10} className={classes.paper}>
+            <Box className={classes.paper}>
               <Close onClose={onCloseIconClick} />
 
               <Box className={classes.content}>{children}</Box>

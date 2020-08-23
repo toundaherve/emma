@@ -10,14 +10,13 @@ const useStyles = makeStyles((theme) => ({
       left: "0 !important",
       width: "100%",
       maxWidth: "none",
+      height: "100%",
       maxHeight: "calc(100% - 0px)",
       position: "relative",
     },
   },
 
-  content: {
-    transform: "translateY(-48px)",
-  },
+  content: {},
 }));
 
 const Popover = ({
@@ -37,7 +36,9 @@ const Popover = ({
     >
       <Close onClose={onCloseIconClick} />
 
-      <Box className={classes.content}>{children}</Box>
+      <Box height="100%" marginTop="-48px">
+        {children}
+      </Box>
     </MuiPopover>
   );
 };
