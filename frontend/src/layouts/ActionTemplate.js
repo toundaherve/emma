@@ -3,10 +3,12 @@ import { Box, Typography, makeStyles } from "@material-ui/core";
 
 import Button from "../components/Button";
 import useDeviceType from "../hooks/useDeviceType";
+import { useLocation } from "react-router-dom";
 
 const BaseActionTemplate = ({ title, children, render = () => null }) => {
+  const isCheckoutPage = useLocation().pathname === "/checkout";
   return (
-    <Box pt={8} pl={2} pr={2}>
+    <Box pt={isCheckoutPage ? 12 : 8} pl={2} pr={2}>
       <Box mb={3}>
         <Typography variant="h4">{title}</Typography>
       </Box>

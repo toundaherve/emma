@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Grid,
   Typography,
@@ -16,6 +16,10 @@ import useDeviceType from "../hooks/useDeviceType";
 import Divider from "../components/Divider";
 import Container from "../components/Container";
 import Footer from "../layouts/Footer";
+import { Switch } from "react-router-dom";
+import Popover from "../layouts/Popover";
+import PaymentMethodSelection from "./Payment";
+import Modal from "../layouts/Modal";
 
 const useStyles = makeStyles((theme) => ({
   line: {
@@ -29,6 +33,7 @@ const Section = ({
   info,
   children,
   ctaText = null,
+  onCTAClick,
 }) => {
   return (
     <Box pt={3} pb={3}>
@@ -36,7 +41,7 @@ const Section = ({
         <SectionTitle info={info}>{title}</SectionTitle>
       </Box>
       <div>{children}</div>
-      {ctaText && <SectionCTA>{ctaText}</SectionCTA>}
+      {ctaText && <SectionCTA onClick={onCTAClick}>{ctaText}</SectionCTA>}
     </Box>
   );
 };
@@ -55,8 +60,8 @@ const SectionTitle = ({ children, info = false }) => (
   </Grid>
 );
 
-const SectionCTA = ({ children }) => (
-  <Button variant="contained" color="primary" fullWidth>
+const SectionCTA = ({ children, onClick }) => (
+  <Button variant="contained" color="primary" fullWidth onClick={onClick}>
     {children}
   </Button>
 );
@@ -98,8 +103,12 @@ const DeliveryTime = () => (
   <Section title="Delivery Time" titleMargin={0} info="20-30min"></Section>
 );
 
-const PaymentMethod = () => (
-  <Section title="Payment" ctaText="Add payment method"></Section>
+const PaymentMethod = ({ onAddPaymentClick }) => (
+  <Section
+    title="Payment"
+    ctaText="Add payment method"
+    onCTAClick={onAddPaymentClick}
+  ></Section>
 );
 
 const OrderDeliveryTime = () => (
@@ -192,7 +201,29 @@ const Total = () => {
   );
 };
 
+function renderAddPaymentMethod({
+  isTablet,
+  isPaymentMethodsOpened,
+  closePaymentMethods,
+}) {
+  return isTablet ? (
+    <Modal open={isPaymentMethodsOpened} onCloseIconClick={closePaymentMethods}>
+      <PaymentMethodSelection onFinish={closePaymentMethods} />
+    </Modal>
+  ) : (
+    <Popover
+      open={isPaymentMethodsOpened}
+      verticalOrigin="center"
+      horizontalOrigin="center"
+      onCloseIconClick={closePaymentMethods}
+    >
+      <PaymentMethodSelection onFinish={closePaymentMethods} />
+    </Popover>
+  );
+}
+
 const OrderSummary = () => {
+  const isTablet = useDeviceType("tablet");
   return (
     <Section title="Order summary" ctaText="Place Order">
       <Box mb={3}>
@@ -220,6 +251,15 @@ const Hr = () => {
 
 const Checkout = () => {
   const isTablet = useDeviceType("tablet");
+  const [isPaymentMethodsOpened, setIsPaymentMethodsOpened] = useState(false);
+
+  function openPaymentMethods() {
+    setIsPaymentMethodsOpened(true);
+  }
+
+  function closePaymentMethods() {
+    setIsPaymentMethodsOpened(false);
+  }
   return (
     <div>
       <Box pt={isTablet ? 10 : 9} pb={10}>
@@ -231,7 +271,7 @@ const Checkout = () => {
               <Hr />
               <DeliveryTime />
               <Hr />
-              <PaymentMethod />
+              <PaymentMethod onAddPaymentClick={openPaymentMethods} />
               <Hidden smUp>
                 <Hr />
               </Hidden>
@@ -242,6 +282,12 @@ const Checkout = () => {
           </Grid>
         </Container>
       </Box>
+
+      {renderAddPaymentMethod({
+        isTablet,
+        isPaymentMethodsOpened,
+        closePaymentMethods,
+      })}
       <Footer />
     </div>
   );

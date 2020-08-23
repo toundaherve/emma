@@ -1,58 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, Box, Typography } from "@material-ui/core";
-import CloseBtn from "../components/CloseBtn";
 import Button from "../components/Button";
 import Divider from "../components/Divider";
 import { Input, Select } from "../components/Inputs";
+import {
+  SimpleActionTemplate,
+  WithCTAActionTemplate,
+} from "../layouts/ActionTemplate";
 
-const Template = ({ title, children }) => {
+const Method = ({ img, name, onClick }) => {
   return (
-    <Grid container direction="column">
-      <Grid item>
-        <CloseBtn />
-        <Box height="48px" />
-      </Grid>
-
-      {/* ------------------------ Title --------------------- */}
-      <Grid item>
-        <Box p={2}>
-          <Typography variant="h4">{title}</Typography>
-        </Box>
-      </Grid>
-
-      {/* ------------------------ Content --------------------- */}
-      <Grid item>
-        <Box p={1}>{children}</Box>
-      </Grid>
-    </Grid>
-  );
-};
-
-const PaymentMethods = () => {
-  return (
-    <Template title="Add Payment Method">
-      <Grid container direction="column">
-        <Method
-          name="Credit or debit card"
-          img="https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/c60c8b82319cdae367fbda262219d47e.svg"
-        />
-        <Grid item>
-          <Box pl={7}>
-            <Divider noPadding />
-          </Box>
-        </Grid>
-        <Method
-          name="PayPal"
-          img="https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/0efa900c7a49d597f23b4168defed2d0.svg"
-        />
-      </Grid>
-    </Template>
-  );
-};
-
-const Method = ({ img, name }) => {
-  return (
-    <Grid item container alignItems="center">
+    <Grid item container alignItems="center" onClick={onClick}>
       <Grid item>
         <Box
           height="56px"
@@ -72,34 +30,42 @@ const Method = ({ img, name }) => {
   );
 };
 
-const CreditCard = () => {
+const AddPaymentMethod = ({ onAddCreditCardClick, onPaypalClick }) => {
   return (
-    <Template title="Add credit or debit card">
-      <Box pl={1} pr={1}>
-        <Grid container direction="column" spacing={5}>
-          <Grid item container spacing={2}>
-            <CardDetail title="Card Number" />
-            <CardDetail title="Exp. Date" placeholder="MM / YY" cols={6} />
-            <CardDetail title="Security Code" cols={6} />
-            <CardDetail title="Country" select />
-            <CardDetail title="Zip Code" />
-          </Grid>
+    <SimpleActionTemplate title="Add Payment Method">
+      <Box height="100vh">
+        <Method
+          name="Credit or debit card"
+          img="https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/c60c8b82319cdae367fbda262219d47e.svg"
+          onClick={onAddCreditCardClick}
+        />
+        <Method
+          name="Paypal"
+          img="https://d3i4yxtzktqr9n.cloudfront.net/web-payments-experience/0efa900c7a49d597f23b4168defed2d0.svg"
+          onClick={onPaypalClick}
+        />
+      </Box>
+    </SimpleActionTemplate>
+  );
+};
 
-          <Grid item container direction="column" spacing={2}>
-            <Grid item>
-              <Button variant="contained" color="primary" fullWidth>
-                Add Card
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button variant="contained" fullWidth>
-                Cancel
-              </Button>
-            </Grid>
-          </Grid>
+const AddCreditCardOrDebitCard = ({ onAddCardClick }) => {
+  return (
+    <WithCTAActionTemplate
+      title="Add credit or debit card"
+      ctaText="Add card"
+      onButtonClick={onAddCardClick}
+    >
+      <Box height="100vh">
+        <Grid item container spacing={2}>
+          <CardDetail title="Card Number" />
+          <CardDetail title="Exp. Date" placeholder="MM / YY" cols={6} />
+          <CardDetail title="Security Code" cols={6} />
+          <CardDetail title="Country" select />
+          <CardDetail title="Zip Code" />
         </Grid>
       </Box>
-    </Template>
+    </WithCTAActionTemplate>
   );
 };
 
@@ -120,10 +86,10 @@ const CardDetail = ({ title, cols = 12, select, placeholder = "" }) => {
   );
 };
 
-const Paypal = () => {
+const AddPaypal = () => {
   return (
-    <Template title="Add Paypal">
-      <Box pl={1} pr={1}>
+    <SimpleActionTemplate title="Add Paypal">
+      <Box height="100vh">
         <Grid container direction="column" spacing={5}>
           <Grid item>
             <Typography variant="body2">
@@ -141,12 +107,43 @@ const Paypal = () => {
           </Grid>
         </Grid>
       </Box>
-    </Template>
+    </SimpleActionTemplate>
   );
 };
 
-const Payment = () => {
-  return <Paypal />;
+const ADD_PAYMENT_METHOD = "add-payment-method";
+const ADD_CREDIT_OR_DEBIT_CARD = "add-credit-or-debit-card";
+const ADD_PAYPAL = "add-paypal";
+
+const PaymentMethodSelection = ({ onFinish }) => {
+  const [stage, setStage] = useState(ADD_PAYMENT_METHOD);
+
+  function openAddCreditorDebitCard() {
+    setStage(ADD_CREDIT_OR_DEBIT_CARD);
+  }
+
+  function openAddPaypal() {
+    setStage(ADD_PAYPAL);
+  }
+
+  switch (stage) {
+    case ADD_PAYMENT_METHOD:
+      return (
+        <AddPaymentMethod
+          onAddCreditCardClick={openAddCreditorDebitCard}
+          onPaypalClick={openAddPaypal}
+        />
+      );
+
+    case ADD_CREDIT_OR_DEBIT_CARD:
+      return <AddCreditCardOrDebitCard onAddCardClick={onFinish} />;
+
+    case ADD_PAYPAL:
+      return <AddPaypal />;
+
+    default:
+      return;
+  }
 };
 
-export default Payment;
+export default PaymentMethodSelection;

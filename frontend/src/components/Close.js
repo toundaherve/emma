@@ -15,7 +15,7 @@ const Close = ({ onClose }) => {
   const classes = useStyles();
   return (
     <Fab
-      size="medium"
+      size="small"
       color="secondary"
       aria-label="close"
       className={classes.fab}
