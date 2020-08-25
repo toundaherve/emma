@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { connect } from "react-redux";
 import {
   Grid,
   Box,
@@ -20,7 +21,9 @@ import Drawer from "../layouts/Drawer";
 import Food from "./Food";
 import Cart from "./Cart";
 import Skeleton from "../components/Skeleton";
+
 import { mockMenu } from "../utils/mockData";
+import { setMenu, status } from "../store/menuSlice";
 
 const useStyles = makeStyles((theme) => ({
   tabs: {
@@ -30,12 +33,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
-const status = {
-  loading: "loading",
-  error: "error",
-  loaded: "loaded",
-};
 
 const categories = {
   mains: "mains",
@@ -106,11 +103,11 @@ const Navigation = ({ currentCategory, setCurrentCategory }) => {
   );
 };
 
-const List = ({ onListItemClick, currentStatus, menu, currentCategory }) => {
+const List = ({ onListItemClick, menu, currentCategory }) => {
   return (
     <Container>
       <Box pt={3} pb={3}>
-        {currentStatus === status.error ? (
+        {menu.status === status.error ? (
           <Typography variant="body1" align="center">
             Sorry, the menu is not yet available. <br />{" "}
             <strong>Please come back later !</strong>
@@ -119,9 +116,9 @@ const List = ({ onListItemClick, currentStatus, menu, currentCategory }) => {
           <Grid container spacing={3}>
             {menu[currentCategory].map((item, idx) => (
               <Grid item xs={12} sm={4} key={idx}>
-                {currentStatus === status.loading && <Skeleton />}
+                {menu.status === status.loading && <Skeleton />}
 
-                {currentStatus === status.loaded && (
+                {menu.status === status.loaded && (
                   <WithCTACard
                     data={item}
                     aspectRatio={315 / 240}
@@ -185,31 +182,13 @@ function getTheMenu(successHandler, errorHandler) {
   // errorHandler();
 }
 
-const Menu = () => {
+const Menu = ({ menu, setMenu }) => {
   const anchorEl = useRef(null);
   const isTablet = useDeviceType("tablet");
 
   const [isOpenedPopover, setIsOpenedPopover] = useState(false);
   const [isShoppingCartOpened, setIsShoppingCartOpened] = useState(false);
-  const [currentStatus, setCurrentStatus] = useState(status.loading);
   const [currentCategory, setCurrentCategory] = useState(categories.mains);
-  const [menu, setMenu] = useState({
-    mains: ["n/a", "n/a", "n/a", "n/a", "n/a", "n/a"],
-    entrees: ["n/a", "n/a", "n/a"],
-    wines: ["n/a", "n/a", "n/a"],
-  });
-
-  function setLoadingStatus() {
-    setCurrentStatus(status.loading);
-  }
-
-  function setErrorStatus() {
-    setCurrentStatus(status.error);
-  }
-
-  function setLoadedStatus() {
-    setCurrentStatus(status.loaded);
-  }
 
   function openPopover() {
     setIsOpenedPopover(true);
@@ -227,13 +206,12 @@ const Menu = () => {
     setIsShoppingCartOpened(false);
   }
 
-  function handleSuccessGettingTheMenu(menuData) {
-    setMenu(menuData);
-    setCurrentStatus(status.loaded);
+  function handleSuccessGettingTheMenu(fetchedMenu) {
+    setMenu({ ...fetchedMenu, status: status.loaded });
   }
 
-  function handleErrorGettingTheMenu(menuData) {
-    setCurrentStatus(status.error);
+  function handleErrorGettingTheMenu() {
+    setMenu({ ...menu, status: status.error });
   }
 
   useEffect(() => {
@@ -250,7 +228,6 @@ const Menu = () => {
       />
       <List
         onListItemClick={openPopover}
-        currentStatus={currentStatus}
         menu={menu}
         currentCategory={currentCategory}
       />
@@ -268,4 +245,15 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+function mapStateToProps(state) {
+  const { menu } = state;
+  return { menu };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setMenu: (menu) => dispatch(setMenu(menu)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
