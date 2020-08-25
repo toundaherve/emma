@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Grid,
   Box,
@@ -19,6 +19,8 @@ import Popover from "../layouts/Popover";
 import Drawer from "../layouts/Drawer";
 import Food from "./Food";
 import Cart from "./Cart";
+import Skeleton from "../components/Skeleton";
+import { mockMenu } from "../utils/mockData";
 
 const useStyles = makeStyles((theme) => ({
   tabs: {
@@ -28,6 +30,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+const status = {
+  loading: "loading",
+  error: "error",
+  loaded: "loaded",
+};
+
+const categories = {
+  mains: "mains",
+  entrees: "entrees",
+  wines: "wines",
+};
 
 const Banner = () => {
   const theme = useTheme();
@@ -47,16 +61,39 @@ const Banner = () => {
   );
 };
 
-const Navigation = () => {
+const Navigation = ({ currentCategory, setCurrentCategory }) => {
   const theme = useTheme();
-  const isTablet = useDeviceType("tablet");
   const classes = useStyles();
+
+  let activeTab = 0;
+  if (currentCategory === categories.main) activeTab = 0;
+  if (currentCategory === categories.entrees) activeTab = 1;
+  if (currentCategory === categories.wines) activeTab = 2;
+
+  const handleChange = (event, newValue) => {
+    switch (newValue) {
+      case 0:
+        setCurrentCategory(categories.mains);
+        break;
+      case 1:
+        setCurrentCategory(categories.entrees);
+        break;
+      case 2:
+        setCurrentCategory(categories.wines);
+        break;
+
+      default:
+        setCurrentCategory(categories.main);
+        break;
+    }
+  };
+
   return (
     <Box border={`1px solid ${theme.palette.grey[300]}`}>
       <Container>
         <Tabs
-          value={0}
-          onChange={() => {}}
+          value={activeTab}
+          onChange={handleChange}
           aria-label="simple tabs example"
           className={classes.tabs}
         >
@@ -69,49 +106,33 @@ const Navigation = () => {
   );
 };
 
-const mains = [
-  {
-    title: "Roasted chicken",
-    description: "This is delicious chciken",
-  },
-  {
-    title: "Roasted chicken",
-    description: "This is delicious chciken",
-  },
-  {
-    title: "Roasted chicken",
-    description: "This is delicious chciken",
-  },
-  {
-    title: "Roasted chicken",
-    description: "This is delicious chciken",
-  },
-  {
-    title: "Roasted chicken",
-    description: "This is delicious chciken",
-  },
-  {
-    title: "Roasted chicken",
-    description: "This is delicious chciken",
-  },
-];
-
-const List = ({ onListItemClick }) => {
+const List = ({ onListItemClick, currentStatus, menu, currentCategory }) => {
   return (
     <Container>
       <Box pt={3} pb={3}>
-        <Grid container spacing={3}>
-          {mains.map((item, idx) => (
-            <Grid item xs={12} sm={4} key={idx}>
-              <WithCTACard
-                data={item}
-                aspectRatio={315 / 240}
-                ctaText="Add to order"
-                onButtonClick={onListItemClick}
-              />
-            </Grid>
-          ))}
-        </Grid>
+        {currentStatus === status.error ? (
+          <Typography variant="body1" align="center">
+            Sorry, the menu is not yet available. <br />{" "}
+            <strong>Please come back later !</strong>
+          </Typography>
+        ) : (
+          <Grid container spacing={3}>
+            {menu[currentCategory].map((item, idx) => (
+              <Grid item xs={12} sm={4} key={idx}>
+                {currentStatus === status.loading && <Skeleton />}
+
+                {currentStatus === status.loaded && (
+                  <WithCTACard
+                    data={item}
+                    aspectRatio={315 / 240}
+                    ctaText="Add to order"
+                    onButtonClick={onListItemClick}
+                  />
+                )}
+              </Grid>
+            ))}
+          </Grid>
+        )}
       </Box>
     </Container>
   );
@@ -157,12 +178,38 @@ function renderShoppingCart(
   );
 }
 
+function getTheMenu(successHandler, errorHandler) {
+  setTimeout(() => {
+    successHandler(mockMenu);
+  }, 5000);
+  // errorHandler();
+}
+
 const Menu = () => {
   const anchorEl = useRef(null);
   const isTablet = useDeviceType("tablet");
 
   const [isOpenedPopover, setIsOpenedPopover] = useState(false);
   const [isShoppingCartOpened, setIsShoppingCartOpened] = useState(false);
+  const [currentStatus, setCurrentStatus] = useState(status.loading);
+  const [currentCategory, setCurrentCategory] = useState(categories.mains);
+  const [menu, setMenu] = useState({
+    mains: ["n/a", "n/a", "n/a", "n/a", "n/a", "n/a"],
+    entrees: ["n/a", "n/a", "n/a"],
+    wines: ["n/a", "n/a", "n/a"],
+  });
+
+  function setLoadingStatus() {
+    setCurrentStatus(status.loading);
+  }
+
+  function setErrorStatus() {
+    setCurrentStatus(status.error);
+  }
+
+  function setLoadedStatus() {
+    setCurrentStatus(status.loaded);
+  }
 
   function openPopover() {
     setIsOpenedPopover(true);
@@ -180,12 +227,33 @@ const Menu = () => {
     setIsShoppingCartOpened(false);
   }
 
+  function handleSuccessGettingTheMenu(menuData) {
+    setMenu(menuData);
+    setCurrentStatus(status.loaded);
+  }
+
+  function handleErrorGettingTheMenu(menuData) {
+    setCurrentStatus(status.error);
+  }
+
+  useEffect(() => {
+    getTheMenu(handleSuccessGettingTheMenu, handleErrorGettingTheMenu);
+  }, []);
+
   return (
     <div>
       <Header onShoppingCartIconClick={openShoppingCart} />
       <Banner />
-      <Navigation />
-      <List onListItemClick={openPopover} />
+      <Navigation
+        currentCategory={currentCategory}
+        setCurrentCategory={setCurrentCategory}
+      />
+      <List
+        onListItemClick={openPopover}
+        currentStatus={currentStatus}
+        menu={menu}
+        currentCategory={currentCategory}
+      />
       {renderFood(isTablet, isOpenedPopover, closePopover, anchorEl)}
       {renderShoppingCart(
         isTablet,

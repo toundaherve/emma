@@ -21,7 +21,9 @@ const BaseCard = ({ data, aspectRatio = 16 / 9, render = () => null }) => {
         <Grid container alignItems="flex-end">
           <Grid item xs={9}>
             <Typography variant="h5">{data.title}</Typography>
-            <Typography variant="body1">{data.description}</Typography>
+            <Typography variant="body1">
+              {data.description.substr(0, 32)}
+            </Typography>
           </Grid>
           {render() && (
             <Grid item xs={3}>
