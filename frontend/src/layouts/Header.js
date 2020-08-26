@@ -6,8 +6,9 @@ import Container from "../components/Container";
 import Logo from "../components/Logo";
 import useDeviceType from "../hooks/useDeviceType";
 import { useLocation } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Header = ({ onShoppingCartIconClick }) => {
+const Header = ({ onShoppingCartIconClick, cart }) => {
   const isTablet = useDeviceType("tablet");
   const isMenuPage = useLocation().pathname === "/menu";
   return (
@@ -20,14 +21,16 @@ const Header = ({ onShoppingCartIconClick }) => {
           justifyContent="space-between"
         >
           <Logo />
-          {isMenuPage && <ShoppingCartIcon onClick={onShoppingCartIconClick} />}
+          {isMenuPage && (
+            <ShoppingCartIcon onClick={onShoppingCartIconClick} cart={cart} />
+          )}
         </Box>
       </Container>
     </AppBar>
   );
 };
 
-const ShoppingCartIcon = ({ onClick }) => {
+const ShoppingCartIcon = ({ onClick, cart }) => {
   return (
     <Box
       pt={1.5}
@@ -43,11 +46,16 @@ const ShoppingCartIcon = ({ onClick }) => {
         </Grid>
 
         <Grid item>
-          <Typography variant="body1">2</Typography>
+          <Typography variant="body1">{cart.length}</Typography>
         </Grid>
       </Grid>
     </Box>
   );
 };
 
-export default Header;
+function mapStateToProps(state) {
+  const { cart } = state;
+  return { cart };
+}
+
+export default connect(mapStateToProps)(Header);

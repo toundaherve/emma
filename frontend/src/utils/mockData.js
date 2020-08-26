@@ -14,6 +14,7 @@ export const mockMenu = {
     {
       title: "Riz plaintain",
       description: "This is delicious chciken",
+      price: 35,
     },
     {
       title: "Sauce gombo",

@@ -1,4 +1,6 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 import {
   Grid,
   Typography,
@@ -10,14 +12,16 @@ import {
 
 import { Select } from "../components/Inputs";
 import Divider from "../components/Divider";
-import { WithCTAActionTemplate } from "../layouts/ActionTemplate";
+import {
+  WithCTAActionTemplate,
+  SimpleActionTemplate,
+} from "../layouts/ActionTemplate";
 import isLastItem from "../utils/isLastItem";
-import { useHistory } from "react-router-dom";
 
-const itemsData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const quantityNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const ItemQuantity = ({ children }) => {
-  return <Select />;
+const ItemQuantity = ({ number }) => {
+  return <Select source={quantityNumbers} value={number} />;
 };
 
 const ItemName = ({ children }) => {
@@ -32,44 +36,48 @@ const ItemPrice = ({ children }) => {
   );
 };
 
-const Extras = () => {
+const Extras = ({ item }) => {
   return (
     <Box pt={1} pb={0.5}>
       <Typography variant="body2">Add Extra</Typography>
-      <Typography variant="body2">Fries</Typography>
+      {item.extras.map((extra, idx) => (
+        <Typography variant="body2" key={idx}>
+          {extra}
+        </Typography>
+      ))}
     </Box>
   );
 };
 
-const OrderLine = () => {
+const OrderLine = ({ item }) => {
   return (
     <Grid item container justify="space-between">
       <Grid item>
         <Box mr={2} display="inline">
-          <ItemQuantity></ItemQuantity>
+          <ItemQuantity number={item.quantity} />
         </Box>
 
         <Box display="inline-block">
-          <ItemName>Roasted Chicken</ItemName>
-          <Extras />
+          <ItemName>{item.title}</ItemName>
+          {item.extras && <Extras item={item} />}
         </Box>
       </Grid>
 
       <Grid item>
-        <ItemPrice>£ 5.99</ItemPrice>
+        <ItemPrice>£ {item.price * item.quantity}</ItemPrice>
       </Grid>
     </Grid>
   );
 };
 
-const OrderItems = () => {
+const OrderItems = ({ cart }) => {
   return (
     <div>
-      {itemsData.map((item, idx) => (
-        <>
-          <OrderLine></OrderLine>
-          {!isLastItem(itemsData, idx) && <Divider />}
-        </>
+      {cart.map((item, idx) => (
+        <div key={idx}>
+          <OrderLine item={item} />
+          {!isLastItem(quantityNumbers, idx) && <Divider />}
+        </div>
       ))}
     </div>
   );
@@ -87,25 +95,44 @@ const AddNote = () => {
   );
 };
 
-const Cart = () => {
+const Cart = ({ cart }) => {
   const theme = useTheme();
   let history = useHistory();
 
   function checkout() {
     history.push("/checkout");
   }
-  return (
+
+  function calculateTotal() {
+    return cart.reduce((total, item) => {
+      total += item.price * item.quantity;
+      return total;
+    }, 0);
+  }
+
+  return cart.length ? (
     <WithCTAActionTemplate
       title="Your Order"
-      ctaText="Next: Checkout (£ 15.75)"
+      ctaText={`Next: Checkout (£ ${calculateTotal()})`}
       onButtonClick={checkout}
     >
-      <OrderItems />
+      <OrderItems cart={cart} />
       <Box mt={3}>
         <AddNote />
       </Box>
     </WithCTAActionTemplate>
+  ) : (
+    <SimpleActionTemplate title="Your order">
+      <Typography variant="body1" align="center">
+        No order yet
+      </Typography>
+    </SimpleActionTemplate>
   );
 };
 
-export default Cart;
+function mapStateToProps(state) {
+  const { cart } = state;
+  return { cart };
+}
+
+export default connect(mapStateToProps)(Cart);

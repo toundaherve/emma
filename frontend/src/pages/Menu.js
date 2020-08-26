@@ -138,7 +138,7 @@ const List = ({ onListItemClick, menu, currentCategory }) => {
 function renderFood(isTablet, isOpenedPopover, closePopover, anchorEl, item) {
   return isTablet ? (
     <Modal open={isOpenedPopover} onCloseIconClick={closePopover}>
-      <Food item={item} />
+      <Food item={item} handleClose={closePopover} />
     </Modal>
   ) : (
     <Popover
@@ -149,7 +149,7 @@ function renderFood(isTablet, isOpenedPopover, closePopover, anchorEl, item) {
       verticalOrigin="bottom"
       item={item}
     >
-      <Food item={item} />
+      <Food item={item} handleClose={closePopover} />
     </Popover>
   );
 }

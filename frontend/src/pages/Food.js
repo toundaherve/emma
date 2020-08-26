@@ -18,6 +18,8 @@ import {
 
 import Button from "../components/Button";
 import { useState } from "react";
+import { connect } from "react-redux";
+import { addToCart } from "../store/cartSlice";
 
 const testData = {
   title: "Roasted chicken",
@@ -128,10 +130,15 @@ const ChooseQuantity = ({ quantity, setQuantity }) => {
   );
 };
 
-const AddToOrder = ({ item, quantity }) => {
+const AddToOrder = ({ item, quantity, handleAddToCart }) => {
   return (
     <Box pl={2} pr={2} pt={3} pb={0}>
-      <Button variant="contained" color="primary" fullWidth>
+      <Button
+        variant="contained"
+        color="primary"
+        fullWidth
+        onClick={handleAddToCart}
+      >
         {`Add ${quantity} to order ( £ ${item.price * quantity} )`}
       </Button>
     </Box>
@@ -145,20 +152,41 @@ function createExtrasMap(extrasArray) {
   }, {});
 }
 
-const Food = ({ item = testData }) => {
+const Food = ({ item = testData, addToCart, handleClose }) => {
   const extrasMap = item.extras ? createExtrasMap(item.extras) : null;
   const [extras, setExtras] = useState(extrasMap);
   const [quantity, setQuantity] = useState(1);
   const classes = useStyles();
+
+  function handleAddToCart() {
+    const cartItem = {
+      title: item.title,
+      quantity,
+      extras: extrasMap ? item.extras.filter((extra) => extras[extra]) : null,
+      price: item.price,
+    };
+    addToCart(cartItem);
+    handleClose();
+  }
   return (
     <Box className={classes.root}>
       <FoodDetails data={item} />
       {extras && <AddExtras extras={extras} setExtras={setExtras} />}
       <Divider />
       <ChooseQuantity quantity={quantity} setQuantity={setQuantity} />
-      <AddToOrder item={item} quantity={quantity} />
+      <AddToOrder
+        item={item}
+        quantity={quantity}
+        handleAddToCart={handleAddToCart}
+      />
     </Box>
   );
 };
 
-export default Food;
+function mapDispatchToProps(dispatch) {
+  return {
+    addToCart: (item) => dispatch(addToCart(item)),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(Food);

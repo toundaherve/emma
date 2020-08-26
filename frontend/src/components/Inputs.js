@@ -13,24 +13,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Select = (props) => {
+export const Select = ({ source, value, ...rest }) => {
   const classes = useStyles();
   return (
     <TextField
       className={classes.textField}
       id="filled-select-quantity-native"
       select
-      value={2}
+      value={value}
       onChange={() => {}}
       SelectProps={{
         native: true,
       }}
       variant="filled"
-      {...props}
+      {...rest}
     >
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
-        <option key={n} value={n}>
-          {n}
+      {source.map((val, idx) => (
+        <option key={idx} value={val}>
+          {val}
         </option>
       ))}
     </TextField>
