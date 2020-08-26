@@ -3,6 +3,7 @@ export const mockMenu = {
     {
       title: "Roasted chicken",
       description: "This is delicious chciken",
+      extras: ["extra1", "extra2", "extra3"],
     },
     {
       title: "Ndolè poisson",
@@ -23,6 +24,7 @@ export const mockMenu = {
     {
       title: "Poulet DG",
       description: "This is delicious chciken",
+      extras: ["extra1", "extra2", "extra3"],
     },
   ],
 
@@ -31,6 +33,7 @@ export const mockMenu = {
       title: "Quiche Lorraine",
       description:
         "In France, a quiche makes a great starter course, and what better representative than this classic French tart made from bacon, cream and eggs (and oftentimes cheese!)",
+      extras: ["extra1", "extra2", "extra3"],
     },
     {
       title: "Baked Brie Recipes",

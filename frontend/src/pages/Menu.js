@@ -123,7 +123,7 @@ const List = ({ onListItemClick, menu, currentCategory }) => {
                     data={item}
                     aspectRatio={315 / 240}
                     ctaText="Add to order"
-                    onButtonClick={onListItemClick}
+                    onButtonClick={() => onListItemClick(item)}
                   />
                 )}
               </Grid>
@@ -135,10 +135,10 @@ const List = ({ onListItemClick, menu, currentCategory }) => {
   );
 };
 
-function renderFood(isTablet, isOpenedPopover, closePopover, anchorEl) {
+function renderFood(isTablet, isOpenedPopover, closePopover, anchorEl, item) {
   return isTablet ? (
     <Modal open={isOpenedPopover} onCloseIconClick={closePopover}>
-      <Food />
+      <Food item={item} />
     </Modal>
   ) : (
     <Popover
@@ -147,8 +147,9 @@ function renderFood(isTablet, isOpenedPopover, closePopover, anchorEl) {
       onCloseIconClick={closePopover}
       horizontalOrigin="center"
       verticalOrigin="bottom"
+      item={item}
     >
-      <Food />
+      <Food item={item} />
     </Popover>
   );
 }
@@ -189,8 +190,10 @@ const Menu = ({ menu, setMenu }) => {
   const [isOpenedPopover, setIsOpenedPopover] = useState(false);
   const [isShoppingCartOpened, setIsShoppingCartOpened] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(categories.mains);
+  const [currentItem, setCurrentItem] = useState(null);
 
-  function openPopover() {
+  function openPopover(item) {
+    setCurrentItem(item);
     setIsOpenedPopover(true);
   }
 
@@ -231,7 +234,13 @@ const Menu = ({ menu, setMenu }) => {
         menu={menu}
         currentCategory={currentCategory}
       />
-      {renderFood(isTablet, isOpenedPopover, closePopover, anchorEl)}
+      {renderFood(
+        isTablet,
+        isOpenedPopover,
+        closePopover,
+        anchorEl,
+        currentItem
+      )}
       {renderShoppingCart(
         isTablet,
         isShoppingCartOpened,

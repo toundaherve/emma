@@ -17,6 +17,7 @@ import {
 } from "@material-ui/core";
 
 import Button from "../components/Button";
+import { useState } from "react";
 
 const testData = {
   title: "Roasted chicken",
@@ -68,7 +69,7 @@ const FoodDetails = ({ data }) => {
     </div>
   );
 };
-const AddExtras = () => {
+const AddExtras = ({ extras, setExtras }) => {
   const theme = useTheme();
   const classes = useStyles();
   return (
@@ -79,16 +80,19 @@ const AddExtras = () => {
 
       <Box pt={2} pb={3}>
         <List disablePadding className={classes.list}>
-          {[1, 2, 3].map((n) => (
-            <ListItem key={n}>
+          {Object.keys(extras).map((extra, idx) => (
+            <ListItem
+              key={idx}
+              onClick={() => setExtras({ ...extras, [extra]: !extras[extra] })}
+            >
               <ListItemIcon>
                 <Checkbox
-                  defaultChecked
+                  checked={extras[extra]}
                   color="default"
                   inputProps={{ "aria-label": "checkbox with default color" }}
                 />
               </ListItemIcon>
-              <ListItemText primary={`Sauce mayonaise`} />
+              <ListItemText primary={extra} />
             </ListItem>
           ))}
         </List>
@@ -120,12 +124,21 @@ const AddToOrder = () => {
   );
 };
 
-const Food = ({ data = testData }) => {
+function createExtrasMap(extrasArray) {
+  return extrasArray.reduce((accumulator, currentValue) => {
+    accumulator[currentValue] = false;
+    return accumulator;
+  }, {});
+}
+
+const Food = ({ item = testData }) => {
+  const extrasMap = item.extras ? createExtrasMap(item.extras) : null;
+  const [extras, setExtras] = useState(extrasMap);
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <FoodDetails data={data} />
-      <AddExtras />
+      <FoodDetails data={item} />
+      {extras && <AddExtras extras={extras} setExtras={setExtras} />}
       <Divider />
       <ChooseQuantity />
       <AddToOrder />
