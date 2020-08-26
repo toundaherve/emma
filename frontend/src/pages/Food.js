@@ -72,6 +72,10 @@ const FoodDetails = ({ data }) => {
 const AddExtras = ({ extras, setExtras }) => {
   const theme = useTheme();
   const classes = useStyles();
+
+  function toggle(extra) {
+    return () => setExtras({ ...extras, [extra]: !extras[extra] });
+  }
   return (
     <div>
       <Box bgcolor={theme.palette.grey[100]} p={2}>
@@ -81,10 +85,7 @@ const AddExtras = ({ extras, setExtras }) => {
       <Box pt={2} pb={3}>
         <List disablePadding className={classes.list}>
           {Object.keys(extras).map((extra, idx) => (
-            <ListItem
-              key={idx}
-              onClick={() => setExtras({ ...extras, [extra]: !extras[extra] })}
-            >
+            <ListItem key={idx} onClick={toggle(extra)}>
               <ListItemIcon>
                 <Checkbox
                   checked={extras[extra]}
@@ -101,24 +102,37 @@ const AddExtras = ({ extras, setExtras }) => {
   );
 };
 
-const ChooseQuantity = () => {
+const ChooseQuantity = ({ quantity, setQuantity }) => {
   const classes = useStyles();
+
+  function increment() {
+    setQuantity(quantity + 1);
+  }
+
+  function decrement() {
+    const newQuantity = quantity === 1 ? 1 : quantity - 1;
+    setQuantity(newQuantity);
+  }
   return (
     <Box pt={3} pl={2} pr={2} display="flex" justifyContent="center">
       <ButtonGroup size="large" aria-label="small outlined button group">
-        <GroupButton className={classes.qtyBtn}>-</GroupButton>
-        <GroupButton className={classes.qtyBtn}>2</GroupButton>
-        <GroupButton className={classes.qtyBtn}>+</GroupButton>
+        <GroupButton className={classes.qtyBtn} onClick={decrement}>
+          -
+        </GroupButton>
+        <GroupButton className={classes.qtyBtn}>{quantity}</GroupButton>
+        <GroupButton className={classes.qtyBtn} onClick={increment}>
+          +
+        </GroupButton>
       </ButtonGroup>
     </Box>
   );
 };
 
-const AddToOrder = () => {
+const AddToOrder = ({ item, quantity }) => {
   return (
     <Box pl={2} pr={2} pt={3} pb={0}>
       <Button variant="contained" color="primary" fullWidth>
-        Add 1 to order ( £5.99 )
+        {`Add ${quantity} to order ( £ ${item.price * quantity} )`}
       </Button>
     </Box>
   );
@@ -134,14 +148,15 @@ function createExtrasMap(extrasArray) {
 const Food = ({ item = testData }) => {
   const extrasMap = item.extras ? createExtrasMap(item.extras) : null;
   const [extras, setExtras] = useState(extrasMap);
+  const [quantity, setQuantity] = useState(1);
   const classes = useStyles();
   return (
     <Box className={classes.root}>
       <FoodDetails data={item} />
       {extras && <AddExtras extras={extras} setExtras={setExtras} />}
       <Divider />
-      <ChooseQuantity />
-      <AddToOrder />
+      <ChooseQuantity quantity={quantity} setQuantity={setQuantity} />
+      <AddToOrder item={item} quantity={quantity} />
     </Box>
   );
 };
