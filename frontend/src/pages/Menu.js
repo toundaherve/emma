@@ -8,6 +8,7 @@ import {
   Tabs,
   Tab,
   makeStyles,
+  Badge,
 } from "@material-ui/core";
 
 import Header from "../layouts/Header";
@@ -30,6 +31,19 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiTab-root": {
       fontSize: "16px !important",
       padding: "8px 12px !important",
+    },
+  },
+  badge: {
+    width: "100%",
+
+    "& > div": {
+      width: "100%",
+    },
+
+    "& .MuiBadge-badge": {
+      width: "24px",
+      height: "24px",
+      borderRadius: "16px",
     },
   },
 }));
@@ -103,7 +117,17 @@ const Navigation = ({ currentCategory, setCurrentCategory }) => {
   );
 };
 
-const List = ({ onListItemClick, menu, currentCategory }) => {
+const List = ({ onListItemClick, menu, cart, currentCategory }) => {
+  const classes = useStyles();
+
+  function calculateBadgeContent(id) {
+    const line = cart.find((line) => line.item.id === id);
+    if (line) {
+      return line.quantity;
+    }
+
+    return 0;
+  }
   return (
     <Container>
       <Box pt={3} pb={3}>
@@ -114,20 +138,30 @@ const List = ({ onListItemClick, menu, currentCategory }) => {
           </Typography>
         ) : (
           <Grid container spacing={3}>
-            {menu[currentCategory].map((item, idx) => (
-              <Grid item xs={12} sm={4} key={idx}>
-                {menu.status === status.loading && <Skeleton />}
+            {menu[currentCategory].map((item, idx) => {
+              const badgeContent = calculateBadgeContent(item.id);
+              return (
+                <Grid item xs={12} sm={4} key={idx}>
+                  {menu.status === status.loading && <Skeleton />}
 
-                {menu.status === status.loaded && (
-                  <WithCTACard
-                    data={item}
-                    aspectRatio={315 / 240}
-                    ctaText="Add to order"
-                    onButtonClick={() => onListItemClick(item)}
-                  />
-                )}
-              </Grid>
-            ))}
+                  {menu.status === status.loaded && (
+                    <Badge
+                      className={classes.badge}
+                      color="secondary"
+                      badgeContent={badgeContent}
+                      invisible={badgeContent > 0 ? false : true}
+                    >
+                      <WithCTACard
+                        data={item}
+                        aspectRatio={315 / 240}
+                        ctaText="Add to order"
+                        onButtonClick={() => onListItemClick(item)}
+                      />
+                    </Badge>
+                  )}
+                </Grid>
+              );
+            })}
           </Grid>
         )}
       </Box>
@@ -183,7 +217,7 @@ function getTheMenu(successHandler, errorHandler) {
   // errorHandler();
 }
 
-const Menu = ({ menu, setMenu }) => {
+const Menu = ({ menu, setMenu, cart }) => {
   const anchorEl = useRef(null);
   const isTablet = useDeviceType("tablet");
 
@@ -232,6 +266,7 @@ const Menu = ({ menu, setMenu }) => {
       <List
         onListItemClick={openPopover}
         menu={menu}
+        cart={cart}
         currentCategory={currentCategory}
       />
       {renderFood(
@@ -255,8 +290,8 @@ const Menu = ({ menu, setMenu }) => {
 };
 
 function mapStateToProps(state) {
-  const { menu } = state;
-  return { menu };
+  const { menu, cart } = state;
+  return { menu, cart };
 }
 
 function mapDispatchToProps(dispatch) {

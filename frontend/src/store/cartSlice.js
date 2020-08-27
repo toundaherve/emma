@@ -8,8 +8,20 @@ const cartSlice = createSlice({
       state.push(action.payload);
     },
     updateQuantity(state, action) {
-      const line = state.find((line) => line.item.id === action.payload.id);
-      line.quantity = action.payload.newQuantity;
+      if (action.payload.newQuantity === 0) {
+        const oldCart = [...state];
+        while (state.length > 0) {
+          state.pop();
+        }
+        oldCart.forEach((line) => {
+          if (line.item.id !== action.payload.id) {
+            state.push(line);
+          }
+        });
+      } else {
+        const line = state.find((line) => line.item.id === action.payload.id);
+        line.quantity = action.payload.newQuantity;
+      }
     },
   },
 });

@@ -28,9 +28,9 @@ export const Select = ({ source, value, ...rest }) => {
       variant="filled"
       {...rest}
     >
-      {source.map((val, idx) => (
-        <option key={idx} value={val}>
-          {val}
+      {Object.keys(source).map((key, idx) => (
+        <option key={idx} value={source[key]}>
+          {key}
         </option>
       ))}
     </TextField>

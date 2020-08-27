@@ -19,11 +19,22 @@ import {
 import isLastItem from "../utils/isLastItem";
 import { updateQuantity } from "../store/cartSlice";
 
-const quantityNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const quantityNumbers = {
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
+  7: 7,
+  8: 8,
+  9: 9,
+};
 
 const ItemQuantity = ({ number, handleUpdateQuantity }) => {
   const handleChange = (event) => {
-    handleUpdateQuantity(event.target.value);
+    handleUpdateQuantity(parseInt(event.target.value));
   };
 
   return (

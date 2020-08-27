@@ -31,6 +31,11 @@ const Header = ({ onShoppingCartIconClick, cart }) => {
 };
 
 const ShoppingCartIcon = ({ onClick, cart }) => {
+  function totalItemsInCart() {
+    return cart.reduce((total, line) => {
+      return total + line.quantity;
+    }, 0);
+  }
   return (
     <Box
       pt={1.5}
@@ -46,7 +51,7 @@ const ShoppingCartIcon = ({ onClick, cart }) => {
         </Grid>
 
         <Grid item>
-          <Typography variant="body1">{cart.length}</Typography>
+          <Typography variant="body1">{totalItemsInCart()}</Typography>
         </Grid>
       </Grid>
     </Box>
