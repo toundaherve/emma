@@ -17,11 +17,18 @@ import {
   SimpleActionTemplate,
 } from "../layouts/ActionTemplate";
 import isLastItem from "../utils/isLastItem";
+import { updateQuantity } from "../store/cartSlice";
 
-const quantityNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const quantityNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const ItemQuantity = ({ number }) => {
-  return <Select source={quantityNumbers} value={number} />;
+const ItemQuantity = ({ number, handleUpdateQuantity }) => {
+  const handleChange = (event) => {
+    handleUpdateQuantity(event.target.value);
+  };
+
+  return (
+    <Select source={quantityNumbers} value={number} onChange={handleChange} />
+  );
 };
 
 const ItemName = ({ children }) => {
@@ -49,13 +56,16 @@ const Extras = ({ extras }) => {
   );
 };
 
-const OrderLine = ({ line }) => {
+const OrderLine = ({ line, handleUpdateQuantity }) => {
   const { item, quantity, chosenExtras } = line;
   return (
     <Grid item container justify="space-between">
       <Grid item>
         <Box mr={2} display="inline">
-          <ItemQuantity number={quantity} />
+          <ItemQuantity
+            number={quantity}
+            handleUpdateQuantity={handleUpdateQuantity(item.id)}
+          />
         </Box>
 
         <Box display="inline-block">
@@ -71,12 +81,12 @@ const OrderLine = ({ line }) => {
   );
 };
 
-const OrderItems = ({ cart }) => {
+const OrderItems = ({ cart, handleUpdateQuantity }) => {
   return (
     <div>
       {cart.map((line, idx) => (
         <div key={idx}>
-          <OrderLine line={line} />
+          <OrderLine line={line} handleUpdateQuantity={handleUpdateQuantity} />
           {!isLastItem(quantityNumbers, idx) && <Divider />}
         </div>
       ))}
@@ -84,7 +94,7 @@ const OrderItems = ({ cart }) => {
   );
 };
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, updateQuantity }) => {
   const theme = useTheme();
   let history = useHistory();
 
@@ -99,6 +109,12 @@ const Cart = ({ cart }) => {
     }, 0);
   }
 
+  function handleUpdateQuantity(id) {
+    return function (newQuantity) {
+      updateQuantity({ id, newQuantity });
+    };
+  }
+
   return cart.length ? (
     <WithCTAActionAndNoteTemplate
       title="Your Order"
@@ -106,7 +122,7 @@ const Cart = ({ cart }) => {
       onButtonClick={checkout}
       fullHeight
     >
-      <OrderItems cart={cart} />
+      <OrderItems cart={cart} handleUpdateQuantity={handleUpdateQuantity} />
     </WithCTAActionAndNoteTemplate>
   ) : (
     <SimpleActionTemplate title="Your order" fullHeight>
@@ -122,4 +138,8 @@ function mapStateToProps(state) {
   return { cart };
 }
 
-export default connect(mapStateToProps)(Cart);
+function mapDispatchToProps(dispatch) {
+  return { updateQuantity: (update) => dispatch(updateQuantity(update)) };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
