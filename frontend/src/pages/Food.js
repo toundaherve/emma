@@ -32,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.white,
     paddingBottom: "32px",
     marginBottom: "32px",
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   list: {
     "& > li": {
@@ -159,26 +163,31 @@ const Food = ({ item = testData, addToCart, handleClose }) => {
   const classes = useStyles();
 
   function handleAddToCart() {
-    const cartItem = {
-      title: item.title,
+    const line = {
+      item,
       quantity,
-      extras: extrasMap ? item.extras.filter((extra) => extras[extra]) : null,
-      price: item.price,
+      chosenExtras: extrasMap
+        ? item.extras.filter((extra) => extras[extra])
+        : null,
     };
-    addToCart(cartItem);
+    addToCart(line);
     handleClose();
   }
   return (
     <Box className={classes.root}>
-      <FoodDetails data={item} />
-      {extras && <AddExtras extras={extras} setExtras={setExtras} />}
-      <Divider />
-      <ChooseQuantity quantity={quantity} setQuantity={setQuantity} />
-      <AddToOrder
-        item={item}
-        quantity={quantity}
-        handleAddToCart={handleAddToCart}
-      />
+      <div>
+        <FoodDetails data={item} />
+        {extras && <AddExtras extras={extras} setExtras={setExtras} />}
+      </div>
+      <div>
+        <Divider />
+        <ChooseQuantity quantity={quantity} setQuantity={setQuantity} />
+        <AddToOrder
+          item={item}
+          quantity={quantity}
+          handleAddToCart={handleAddToCart}
+        />
+      </div>
     </Box>
   );
 };

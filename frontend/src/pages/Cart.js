@@ -13,7 +13,7 @@ import {
 import { Select } from "../components/Inputs";
 import Divider from "../components/Divider";
 import {
-  WithCTAActionTemplate,
+  WithCTAActionAndNoteTemplate,
   SimpleActionTemplate,
 } from "../layouts/ActionTemplate";
 import isLastItem from "../utils/isLastItem";
@@ -36,11 +36,11 @@ const ItemPrice = ({ children }) => {
   );
 };
 
-const Extras = ({ item }) => {
+const Extras = ({ extras }) => {
   return (
     <Box pt={1} pb={0.5}>
       <Typography variant="body2">Add Extra</Typography>
-      {item.extras.map((extra, idx) => (
+      {extras.map((extra, idx) => (
         <Typography variant="body2" key={idx}>
           {extra}
         </Typography>
@@ -49,22 +49,23 @@ const Extras = ({ item }) => {
   );
 };
 
-const OrderLine = ({ item }) => {
+const OrderLine = ({ line }) => {
+  const { item, quantity, chosenExtras } = line;
   return (
     <Grid item container justify="space-between">
       <Grid item>
         <Box mr={2} display="inline">
-          <ItemQuantity number={item.quantity} />
+          <ItemQuantity number={quantity} />
         </Box>
 
         <Box display="inline-block">
           <ItemName>{item.title}</ItemName>
-          {item.extras && <Extras item={item} />}
+          {chosenExtras && <Extras extras={chosenExtras} />}
         </Box>
       </Grid>
 
       <Grid item>
-        <ItemPrice>£ {item.price * item.quantity}</ItemPrice>
+        <ItemPrice>£ {item.price * quantity}</ItemPrice>
       </Grid>
     </Grid>
   );
@@ -73,25 +74,13 @@ const OrderLine = ({ item }) => {
 const OrderItems = ({ cart }) => {
   return (
     <div>
-      {cart.map((item, idx) => (
+      {cart.map((line, idx) => (
         <div key={idx}>
-          <OrderLine item={item} />
+          <OrderLine line={line} />
           {!isLastItem(quantityNumbers, idx) && <Divider />}
         </div>
       ))}
     </div>
-  );
-};
-
-const AddNote = () => {
-  return (
-    <TextField
-      id="note-textarea"
-      label="Add a note for Emma"
-      multiline
-      fullWidth
-      variant="filled"
-    />
   );
 };
 
@@ -104,25 +93,23 @@ const Cart = ({ cart }) => {
   }
 
   function calculateTotal() {
-    return cart.reduce((total, item) => {
-      total += item.price * item.quantity;
+    return cart.reduce((total, line) => {
+      total += line.item.price * line.quantity;
       return total;
     }, 0);
   }
 
   return cart.length ? (
-    <WithCTAActionTemplate
+    <WithCTAActionAndNoteTemplate
       title="Your Order"
       ctaText={`Next: Checkout (£ ${calculateTotal()})`}
       onButtonClick={checkout}
+      fullHeight
     >
       <OrderItems cart={cart} />
-      <Box mt={3}>
-        <AddNote />
-      </Box>
-    </WithCTAActionTemplate>
+    </WithCTAActionAndNoteTemplate>
   ) : (
-    <SimpleActionTemplate title="Your order">
+    <SimpleActionTemplate title="Your order" fullHeight>
       <Typography variant="body1" align="center">
         No order yet
       </Typography>
