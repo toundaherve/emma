@@ -77,7 +77,7 @@ const CardDetail = ({ title, cols = 12, select, placeholder = "" }) => {
       </Grid>
       <Grid item>
         {select ? (
-          <Select fullWidth />
+          <Select source={{}} value="0" fullWidth />
         ) : (
           <Input fullWidth placeholder={placeholder} />
         )}

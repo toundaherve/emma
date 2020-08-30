@@ -29,7 +29,8 @@ const testData = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.primary,
     paddingBottom: "32px",
     marginBottom: "32px",
     minHeight: "100vh",
@@ -55,9 +56,16 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     padding: "9px 18px !important",
   },
+  title: {
+    color: theme.palette.text.primary,
+  },
+  subtitle: {
+    color: theme.palette.text.secondary,
+  },
 }));
 
 const FoodDetails = ({ data }) => {
+  const classes = useStyles();
   return (
     <div>
       <Image
@@ -68,9 +76,13 @@ const FoodDetails = ({ data }) => {
       />
       <Box pl={3} pr={3} pt={2} pb={2}>
         <Box pb={2}>
-          <Typography variant="h4">{data.title}</Typography>
+          <Typography variant="h4" className={classes.title}>
+            {data.title}
+          </Typography>
         </Box>
-        <Typography variant="body2">{data.description}</Typography>
+        <Typography variant="body2" className={classes.subtitle}>
+          {data.description}
+        </Typography>
       </Box>
     </div>
   );
@@ -84,7 +96,7 @@ const AddExtras = ({ extras, setExtras }) => {
   }
   return (
     <div>
-      <Box bgcolor={theme.palette.grey[100]} p={2}>
+      <Box bgcolor={theme.palette.background.default} p={2}>
         <Typography variant="h6">Add Extra</Typography>
       </Box>
 
@@ -137,12 +149,7 @@ const ChooseQuantity = ({ quantity, setQuantity }) => {
 const AddToOrder = ({ item, quantity, handleAddToCart }) => {
   return (
     <Box pl={2} pr={2} pt={3} pb={0}>
-      <Button
-        variant="contained"
-        color="primary"
-        fullWidth
-        onClick={handleAddToCart}
-      >
+      <Button variant="contained" fullWidth onClick={handleAddToCart}>
         {`Add ${quantity} to order ( £ ${item.price * quantity} )`}
       </Button>
     </Box>

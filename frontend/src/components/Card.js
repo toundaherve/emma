@@ -6,9 +6,16 @@ const useStyles = makeStyles((theme) => ({
   btn: {
     padding: "4px 12px !important",
   },
+  title: {
+    color: theme.palette.text.primary,
+  },
+  subtitle: {
+    color: theme.palette.text.secondary,
+  },
 }));
 
 const BaseCard = ({ data, aspectRatio = 16 / 9, render = () => null }) => {
+  const classes = useStyles();
   return (
     <div>
       <Image
@@ -20,8 +27,10 @@ const BaseCard = ({ data, aspectRatio = 16 / 9, render = () => null }) => {
       <Box pt={1.5}>
         <Grid container alignItems="flex-end">
           <Grid item xs={9}>
-            <Typography variant="h5">{data.title}</Typography>
-            <Typography variant="body1">
+            <Typography variant="h5" className={classes.title}>
+              {data.title}
+            </Typography>
+            <Typography variant="body1" className={classes.subtitle}>
               {data.description.substr(0, 32)}
             </Typography>
           </Grid>
@@ -53,8 +62,7 @@ export const WithCTACard = ({
       aspectRatio={aspectRatio}
       render={() => (
         <Button
-          variant="outlined"
-          color="primary"
+          variant="contained"
           onClick={onButtonClick}
           className={classes.btn}
         >

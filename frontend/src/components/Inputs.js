@@ -10,6 +10,13 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiInputLabel-filled.MuiInputLabel-shrink": {
       display: "none",
     },
+
+    "& label.Mui-focused": {
+      color: theme.palette.action.active,
+    },
+    "& .MuiInput-underline:after": {
+      borderBottom: "2x solid yellow",
+    },
   },
 }));
 

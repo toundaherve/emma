@@ -7,7 +7,8 @@ import Logo from "../components/Logo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    color: theme.palette.grey[50],
+    backgroundColor: theme.palette.grey[900],
+    color: theme.palette.text.primary,
   },
 }));
 
@@ -15,10 +16,10 @@ const Footer = () => {
   const theme = useTheme();
   const classes = useStyles();
   return (
-    <Box bgcolor={theme.palette.grey[900]}>
+    <Box className={classes.root}>
       <Container>
         <Box pt={8} pb={10}>
-          <Grid container spacing={5} className={classes.root}>
+          <Grid container spacing={5}>
             <Grid item xs={12} sm={6} container spacing={3}>
               <Grid item xs={12} sm={6}>
                 <Logo />

@@ -7,7 +7,8 @@ import { useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.primary,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -60,12 +61,7 @@ export const WithCTAActionTemplate = ({
     <BaseActionTemplate
       render={() => (
         <Box pt={3} pb={4} position="sticky" bottom="0">
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            onClick={onButtonClick}
-          >
+          <Button variant="contained" fullWidth onClick={onButtonClick}>
             {ctaText}
           </Button>
         </Box>
@@ -105,12 +101,7 @@ export const WithCTAActionAndNoteTemplate = ({
             <AddNote />
           </Box>
           <Box pt={3} pb={4} position="sticky" bottom="0" zIndex="99">
-            <Button
-              variant="contained"
-              color="primary"
-              fullWidth
-              onClick={onButtonClick}
-            >
+            <Button variant="contained" fullWidth onClick={onButtonClick}>
               {ctaText}
             </Button>
           </Box>

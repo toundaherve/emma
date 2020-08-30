@@ -19,6 +19,15 @@ import {
 import isLastItem from "../utils/isLastItem";
 import { updateQuantity } from "../store/cartSlice";
 
+const useStyles = makeStyles((theme) => ({
+  extraHeading: {
+    color: theme.palette.text.primary,
+  },
+  extraName: {
+    color: theme.palette.text.secondary,
+  },
+}));
+
 const quantityNumbers = {
   0: 0,
   1: 1,
@@ -55,11 +64,14 @@ const ItemPrice = ({ children }) => {
 };
 
 const Extras = ({ extras }) => {
+  const classes = useStyles();
   return (
     <Box pt={1} pb={0.5}>
-      <Typography variant="body2">Add Extra</Typography>
+      <Typography variant="body2" className={classes.extraHeading}>
+        Add Extra
+      </Typography>
       {extras.map((extra, idx) => (
-        <Typography variant="body2" key={idx}>
+        <Typography variant="body2" key={idx} className={classes.extraName}>
           {extra}
         </Typography>
       ))}

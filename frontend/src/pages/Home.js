@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Typography, Grid, Box, TextField, useTheme } from "@material-ui/core";
+import {
+  Typography,
+  Grid,
+  Box,
+  TextField,
+  useTheme,
+  makeStyles,
+} from "@material-ui/core";
 
 import Container from "../components/Container";
 import Button from "../components/Button";
@@ -9,11 +16,22 @@ import { SimpleCard } from "../components/Card";
 import Footer from "../layouts/Footer";
 import useDeviceType from "../hooks/useDeviceType";
 
+const useStyles = makeStyles((theme) => ({
+  hero: {
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.primary,
+  },
+  about: {
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.primary,
+  },
+}));
+
 const WelcomeToEmmas = () => {
-  const theme = useTheme();
+  const classes = useStyles();
   const isTablet = useDeviceType("tablet");
   return (
-    <Box bgcolor={theme.palette.grey[300]}>
+    <Box className={classes.hero}>
       <Container>
         <Box
           height={`calc(100vh - ${isTablet ? "80px" : "72px"})`}
@@ -30,16 +48,16 @@ const WelcomeToEmmas = () => {
                 Fresh and Tasty Homemade Food
               </Typography>
             </Box>
-            <Box mb={2}>
+            {/* <Box mb={2}>
               <TextField
                 id="outlined-basic"
                 label="Enter postcode"
                 variant="outlined"
                 fullWidth
               />
-            </Box>
+            </Box> */}
             <Link to="/menu">
-              <Button variant="contained" color="primary" fullWidth>
+              <Button variant="contained" fullWidth>
                 Order now
               </Button>
             </Link>
@@ -66,18 +84,21 @@ const dataAboutEmmas = [
 ];
 
 const AboutEmmas = () => {
+  const classes = useStyles();
   return (
-    <Container>
-      <Box pt={3} pb={3}>
-        <Grid container spacing={4}>
-          {dataAboutEmmas.map((item, n) => (
-            <Grid item xs={12} sm={4} key={n}>
-              <SimpleCard data={item} aspectRatio={16 / 9} />
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-    </Container>
+    <Box className={classes.about}>
+      <Container>
+        <Box pt={3} pb={3}>
+          <Grid container spacing={4}>
+            {dataAboutEmmas.map((item, n) => (
+              <Grid item xs={12} sm={4} key={n}>
+                <SimpleCard data={item} aspectRatio={16 / 9} />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

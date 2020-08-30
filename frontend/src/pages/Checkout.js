@@ -22,6 +22,10 @@ import PaymentMethodSelection from "./Payment";
 import Modal from "../layouts/Modal";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.text.primary,
+  },
   line: {
     flexWrap: "nowrap !important",
   },
@@ -61,7 +65,7 @@ const SectionTitle = ({ children, info = false }) => (
 );
 
 const SectionCTA = ({ children, onClick }) => (
-  <Button variant="contained" color="primary" fullWidth onClick={onClick}>
+  <Button variant="contained" fullWidth onClick={onClick}>
     {children}
   </Button>
 );
@@ -246,10 +250,11 @@ const OrderSummary = () => {
 
 const Hr = () => {
   const theme = useTheme();
-  return <Box height="8px" bgcolor={theme.palette.grey[200]} />;
+  return <Box height="8px" bgcolor={theme.palette.divider} />;
 };
 
 const Checkout = () => {
+  const classes = useStyles();
   const isTablet = useDeviceType("tablet");
   const [isPaymentMethodsOpened, setIsPaymentMethodsOpened] = useState(false);
 
@@ -261,7 +266,7 @@ const Checkout = () => {
     setIsPaymentMethodsOpened(false);
   }
   return (
-    <div>
+    <div className={classes.root}>
       <Box pt={isTablet ? 10 : 9} pb={10}>
         <Header />
         <Container>

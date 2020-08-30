@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Box, Grid, Typography } from "@material-ui/core";
+import { AppBar, Box, Grid, Typography, makeStyles } from "@material-ui/core";
 import { LocalMall } from "@material-ui/icons";
 
 import Container from "../components/Container";
@@ -8,11 +8,19 @@ import useDeviceType from "../hooks/useDeviceType";
 import { useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: theme.palette.background.paper,
+    color: theme.palette.text.primary,
+  },
+}));
+
 const Header = ({ onShoppingCartIconClick, cart }) => {
+  const classes = useStyles();
   const isTablet = useDeviceType("tablet");
   const isMenuPage = useLocation().pathname === "/menu";
   return (
-    <AppBar>
+    <AppBar className={classes.appBar}>
       <Container>
         <Box
           height={`${isTablet ? "80px" : "72px"}`}

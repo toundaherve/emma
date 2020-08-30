@@ -100,7 +100,7 @@ const Navigation = ({ currentCategory, setCurrentCategory }) => {
   };
 
   return (
-    <Box border={`1px solid ${theme.palette.grey[300]}`}>
+    <Box color={theme.palette.text.primary}>
       <Container>
         <Tabs
           value={activeTab}

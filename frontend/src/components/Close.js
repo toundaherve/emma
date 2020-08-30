@@ -16,7 +16,6 @@ const Close = ({ onClose }) => {
   return (
     <Fab
       size="small"
-      color="secondary"
       aria-label="close"
       className={classes.fab}
       onClick={onClose}
