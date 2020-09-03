@@ -1,0 +1,94 @@
+user card		                       card schemes					pci dss
+
+
+																    Dashboard
+
+																    Webhook
+
+  				emma			                               server				            API-stripe
+
+				checkout
+
+stripe-api-key			succeeded
+				error
+loadStripe			processing
+				disabled						paymentIntent	
+stripe-Elements			clientSecret					       
+				
+				useElements
+				useStripe
+				CardElement
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	bank												emma bank account		
+
+authentication-code	
+funds																																											
+
+							stripe
+
+
+
+			card				
+		
+		expiry date
+
+
+
+
+
+
+
+d
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					              

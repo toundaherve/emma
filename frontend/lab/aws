@@ -1,0 +1,8 @@
+										  AWS							account
+		nodejs
+									aws-sdk	        console	    cli
+	
+									iam	          s3		             ec2                rds
+									
+									root	   bucket-static-website	   instance           instance
+									herves		emma-frontend             emma-server	       emma-db

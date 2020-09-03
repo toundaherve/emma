@@ -5,6 +5,7 @@ import {
   Grid,
   Box,
   TextField,
+
   useTheme,
   makeStyles,
 } from "@material-ui/core";
@@ -16,11 +17,18 @@ import { SimpleCard } from "../components/Card";
 import Footer from "../layouts/Footer";
 import useDeviceType from "../hooks/useDeviceType";
 
+import heroImage from "../images/hero/katie-smith-uQs1802D0CQ-unsplash.jpg"
+
 const useStyles = makeStyles((theme) => ({
-  hero: {
+  hero: {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
     backgroundColor: theme.palette.background.default,
     color: theme.palette.text.primary,
-  },
+    background: `url(https://images.unsplash.com/photo-1515036918611-4b7f32b8406c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80)`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "cover"
+
+  },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
   about: {
     backgroundColor: theme.palette.background.default,
     color: theme.palette.text.primary,
