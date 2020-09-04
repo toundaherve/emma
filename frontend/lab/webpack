@@ -1,0 +1,33 @@
+
+
+		 graph										bundle			webpack-bundle-analyzer
+												vendor
+												bundle1
+	
+
+		webpack        								  webpack-dev-server
+		 mode
+
+loaders
+
+plugins
+
+
+
+			emma
+
+
+			index
+
+			react-router               axios
+
+	material-ui	getMenu
+
+images			home      menu    checkout
+
+	credit-card           paypal
+
+
+		template	popover      modal
+
+	food   			cart
