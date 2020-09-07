@@ -1,0 +1,35 @@
+			   aws		                      account					     aws-sdk	
+							    access-key					     
+		          console		            secret-key					                  .aws/credentials
+							    canonical-userID
+			  europe		
+
+      		  iam					  			s3				     cloudfront   route53
+
+     users                 policies		   	    	              STANDARD
+	
+herves+access-keys  emmasfrontendpoliciy      emmasfrontendbucket(static-website+access-logging)   emmaslogbucket
+customer                administrator	      *|s3:ListBucket|arn:aws:s3:::emmasfrontendbucket
+serveradmin   				     
+emma+access-keys	      		      index.html_v1					   /logs
+jeanyves				      css/
+backengineers		   		      js/
+			   		      images/
+aws-predefined-groups			      index.html
+		   	      	
+authenticatedUsers
+AllUsers		           
+			   											public
+
+													
+
+
+
+
+
+	
+policy 
+principal     action    ressource
+
+acl
+grantee   permission 
