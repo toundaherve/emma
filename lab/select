@@ -1,0 +1,60 @@
+emmas-kitchen-server						postgresql
+no *
+					
+	
+								query
+
+							[FROM]		SELECT	...cols expression AS alias
+		
+duplicate  sort    filter    subset 	    group  filter-groups	join				set operations
+
+DISTINCT  ORDER BY  WHERE  LIMIT  FETCH  GROUP BY  HAVING  		JOIN				UNION  INSTERSECT  EXCEPT
+							   		INNER LEFT FULL OUTER CROSS	
+
+	result set
+
+	FROM					SELECT		   ORDER_BY
+
+	entrees					name, price	   price asc;
+	 __________________________________	______________	   ______________
+	|ID    |name  |desc  |image |price |   |name  |price  |	  |name  |price ^| 
+	|______|______|______|______|______|   |______|_______|   |______|_______|
+	|______|______|______|______|______|   |______|_______|	  |______|_______|
+	|______|______|______|______|______|   |______|_______|   |______|_______| 
+	|______|______|______|______|______|   |______|_______|   |______|_______|
+	|______|______|______|______|______|   |______|_______|   |______|_______|
+	|______|______|______|______|______|   |______|_______|   |______|_______|
+	|______|______|______|______|______|   |______|_______|   |______|_______|
+
+
+
+
+		[FROM] [SELECT] [ORDER BY]
+			
+	sort		SELECT select_list  FROM table ORDER BY sort_expression [ASC | DESC ] [NULL FIRST | NULL LAST];
+
+	duplicate	SELECT DISTINCT col_name FROM table_name
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

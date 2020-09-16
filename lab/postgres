@@ -1,0 +1,33 @@
+
+
+psql    pgAdmin    emmas-server							                POSTGRES		
+	
+	
+
+
+			timezone		        Tablespace	  users		      	      functions		                  
+			"Europe/London"		
+						      	pg_default/	  postgres                  pg_get_serial_sequence('menu','id') 
+							pg_global/	  herves	            currval() 			  
+								       	  emma	                    version()	                          
+												    now()	          
+												    pg_sleep()
+
+
+							emmas-kitchen-database
+						
+		views		extensions	functions 	sequences
+				
+				uuid-ossp			menu_id_seq
+								main_id_seq
+								entree_id_seq
+								wine_id_seq
+
+
+
+									schemas					
+
+	Menu-Mains Menu-Entrees Menu-Wines	Menu		  	Items					          Mains  Entrees  Wines
+	
+						ID	   created   	ID      name	     description img	price     	
+						UUID,PK    timestamptz	UUID,PK varchar(100) text	 text	numeric(6,2)

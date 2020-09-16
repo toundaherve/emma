@@ -1,0 +1,120 @@
+
+
+
+		plpgsql					
+
+	statement
+
+	OPEN cursor_name(variables)
+	OPEN cursor_name [[NO] SCROLL] FOR query
+	CLOSE cursor_name
+	UPDATE/DELETE ... WHERE CURRENT OF cursor_name
+	EXECUTE query USING variable
+									      __			__
+				  disk					     |	  	memory		  |		
+	query		table							cursor		record
+			 _______________________				 _______________________
+			|_____|_____|_____|_____| 				|_____|_____|_____|_____|<
+			|_____|_____|_____|_____|				|_____|_____|_____|_____|
+			|_____|_____|_____|_____|				|_____|_____|_____|_____|
+			|_____|_____|_____|_____|				|_____|_____|_____|_____|
+			|_____|_____|_____|_____|				|_____|_____|_____|_____|
+			|_____|_____|_____|_____|			     |__			__|
+			|_____|_____|_____|_____|							
+			|_____|_____|_____|_____|				
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+			|_____|_____|_____|_____|
+
+
+
+
+
+
+
+
+
+		tables								getfilm
+
+								
+								record
+			
+		
+	film						     cur_films		 cur_films2(year)        unbound_cur_film3
+						
+	id  release_year				   query1  open		query2  open			open
+							           scroll	
+							
+							           fetch   move
+							         
+							next last prior first  forward backward relative absolute
+
+
+
+
+
+
+
+
+				get_film_titles   	p_year
+
+
+			cur_films	rec_film	titles	
+
+	query		query open		
+				
+						openCursor	fetchRow  addTitle nextRow  closeCur checkNotFOund
+
+tables
+
+film
+id  release_year
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+		

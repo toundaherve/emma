@@ -1,0 +1,40 @@
+
+
+
+statements
+
+SELECT INTO
+RAISE 
+ASSERT 
+			
+memory	      constants variables	block			datatypes				objects
+		
+0X-100	      vat	name 		[declaration		integer, numeric, char, varchar, null   table, view, result set
+0X-902			my_entree	 body       ]		row-type, record(placeholder)
+0X-002									
+	       							%type, %rowtype
+
+			
+		schemas
+
+		tables
+
+	Entrees
+	ID	name	description	price
+	uuid	varchar text		numeric(6,2)
+
+
+
+do
+$$
+declare
+	vat constant numeric := 0.1;
+	my_entree record;
+	
+begin
+	select * into my_entree from entrees where id = 'djadahdakdq86q73';
+	
+	raise notice '% ', my_entree.name;
+end
+$$
+;

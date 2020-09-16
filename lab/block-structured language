@@ -1,0 +1,33 @@
+			
+
+
+					language
+
+		 block-structured	
+
+		[ 		]
+		[		]
+		[		]
+
+		
+		postgres
+		[
+			<<label>>
+			declare
+				...declarations
+			begin
+			$$
+				...statements
+			$$
+			end <<label>>;
+		]
+
+
+		do $$
+		<<first block>>
+		declare
+			film_count integer := 0;
+		begin
+			select count(*) into film_count from films;
+			raise notice 'The number of films is: %', film_count;
+		end first block $$;

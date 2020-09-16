@@ -1,0 +1,37 @@
+pdAdmin
+
+query	->						
+<- result set 
+							
+									postgresql
+
+		statements				
+		
+		SELECT
+		SELECT INTO
+		RAISE NOTICE
+		PERFORM
+		   ^
+		   |
+		   
+
+	     languages							   user-defined				   built-in
+			
+	sql	pl/pgsql					functions  stored-procedures  triggers 	    functions	stored-procedures
+
+		control structures(if, case, loop)
+		loops
+		computations
+		features
+		
+
+		$$ ''
+		do 'anonynous block'
+
+		block	
+		 ______________	
+		|  declaration |
+		|_ body________| 
+		       
+	
+		

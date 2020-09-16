@@ -1,0 +1,17 @@
+				 PC	
+				
+			     linux/amd64	
+					
+			
+				
+
+		 
+			      Go1.15			external-linkers
+
+program			      linker			C linker				
+			     20% faster
+main.go		     	     30% less memory
+server.go
+client.go
+db.go
+

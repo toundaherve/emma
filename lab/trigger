@@ -1,0 +1,47 @@
+app1 app2 app3			
+
+
+					posgresql
+
+		
+							functions
+							
+							functionA
+							functionB <trigger>(row level | statement level)
+
+		     tables
+
+	entrees
+	
+event	   id name description img price	
+	
+insert
+update
+delete
+truncate
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

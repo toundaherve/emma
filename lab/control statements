@@ -1,0 +1,48 @@
+
+		
+								plpgsql
+
+		
+			control statements					global variables		
+
+			if then							found				
+			if then else
+			if then elsif
+			end if;
+
+			case
+			when
+			when
+			when
+			else			   
+			end case;
+
+			loop
+			end loop;	
+
+			while loop
+			end loop;			
+		
+			for in from to loop
+			end loop;
+
+			for counter in [reverse] from to [by step] loop
+				...statements
+			end loop;
+
+			for target in query loop
+				...statements
+			end loop;
+
+			for target in execute dynamic_query [using query_param [...,] loop
+				...statements
+			end loop;
+
+			exit
+			continue
+
+
+
+
+		
+

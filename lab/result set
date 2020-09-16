@@ -1,0 +1,19 @@
+
+Entrees	 schema									index of entrees
+ _____________________________________			
+|ID____|Name_____|Descript_|Image_____|
+|______|_________|_________|__________|
+|______|_________|_________|__________|
+|______|_________|_________|__________|
+|______|_________|_________|__________|
+|______|_________|_________|__________|	
+
+
+
+tablespace entrees:
+ajhdiaihf7e942-952-w5,salade_tomate, un bon melangeefefef, https://dajahdaff.ckad, 546.96,428642uh75-535h50025-53,carottesggs, jdha.cjaHFEKF,GRKgjgr,RGJJRLJLJH,hreor5ry,y5u5e5u,ea6uaajhdiaihf7e942-952-w5,salade_tomate, un bon melangeefefef, https://dajahdaff.ckad, 546.96,428642uh75-535h50025-53,carottesggs, jdha.cjaHFEKF,GRKgjgr,RGJJRLJLJH,hreor5ry,y5u5e5u,ea6ua,ajhdiaihf7e942-952-w5,salade_tomate, un bon melangeefefef, https://dajahdaff.ckad, 546.96,428642uh75-535h50025-53,carottesggs, jdha.cjaHFEKF,GRKgjgr,RGJJRLJLJH,hreor5ry,y5u5e5u,ea6ua,ajhdiaihf7e942-952-w5,salade_tomate, un bon melangeefefef, https://dajahdaff.ckad, 546.96,428642uh75-535h50025-53,carottesggs, jdha.cjaHFEKF,GRKgjgr,RGJJRLJLJH,hreor5ry,y5u5e5u,ea6ua,ajhdiaihf7e942-952-w5,salade_tomate, un bon melangeefefef, https://dajahdaff.ckad, 546.96,428642uh75-535h50025-53,carottesggs, jdha.cjaHFEKF,GRKgjgr,RGJJRLJLJH,hreor5ry,y5u5e5u,ea6ua
+
+
+
+table => array
+row   => set

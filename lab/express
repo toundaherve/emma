@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+
+	menu				   emmas-API		  					
+
+			    middlewares		         /menu GET	
+			   
+	
+			default-error-handling	 	  getMenu
+			 err, req, res, next	     	req, res, next

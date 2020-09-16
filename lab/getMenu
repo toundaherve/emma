@@ -1,0 +1,34 @@
+				       
+
+
+							
+			tables
+
+menus	menus-mains	menus-entrees	menus-wines	mains     entrees    wines	
+
+
+
+
+
+
+
+
+
+				
+					menu
+
+					menuID  categefory  itemID  name description img price	
+
+
+
+
+				menu-ID	   result_set	record
+					
+			query-menuID	query-mains     putInRecord  fromRecordToTable  nextRow nextInreturnTable
+				           join
+
+					query-entrees
+					   join
+
+					query-wines
+					   join

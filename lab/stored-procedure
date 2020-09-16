@@ -1,0 +1,45 @@
+
+
+							postgres
+
+				languages						stored-procedures
+			
+	sql	c		plsql			
+
+				statement					
+				
+				CREATE PROCEDURE
+				DROP PROCEDURE
+					
+
+
+									 IN INOUT
+					CREATE PROCEDURE procedure_name(params_list)
+					LANGUAGE plpgsql
+					AS
+					$$
+					DECLARE
+						--variables
+					BEGIN
+						--body
+					END;
+					$$;
+
+
+
+
+					transfer	sender	receiver  amount
+
+
+
+					remove  add 
+					
+
+
+	schemas
+
+	tables 
+	
+	accounts
+
+	id	name	balance

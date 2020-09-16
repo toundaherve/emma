@@ -1,0 +1,26 @@
+								postgres
+
+			plpgsql								user-defined
+		
+data_type			statement						functions
+
+integer,varchar			CREATE FUNCTION		
+				DROP FUNCTION
+
+
+				CREATE or REPLACE FUNCTION function_name(param_list)
+					RETURNS return_type, table (columns list)
+					LANGUAGE plpgsql
+					as
+					[block				]
+
+
+
+		
+
+			getMainsCheaperhan  max_price	table
+							
+							name price
+	main record
+
+query		nextRow	  copyRowToReturnTable  nextRowInReturnTable	

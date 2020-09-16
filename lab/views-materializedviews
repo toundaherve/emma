@@ -1,0 +1,25 @@
+		
+pgAdmin psql app
+
+
+							postgres
+				
+			
+plpgsql									 databases			users			
+				
+CREATE OR REPLACE VIEW view_name AS query;				 emmas-kitchen			herves
+ALTER VIEW view_name RENAME TO new_view_name;
+DROP VIEW [IF EXISTS] view_name [CASCADE];
+
+CREATE OR REPLACE MATERIALIZED VIEW view_name AS query WITH [NO] DATA;
+REFRESH MATERIALIZED VIEW [CONCURRENTLY] view_name;
+DROP MATERIALIZED VIEW view_name;
+			
+					schemas	
+		
+			base-tables 			views/stored_queries			materialized-views
+							
+		menus	menus-entrees	entrees		complete_menus_entrees			cache
+							query					
+												materialized_complete_menus_entrees
+												result_of_query

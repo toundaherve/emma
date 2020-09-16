@@ -1,0 +1,16 @@
+						AWS					account
+
+		 		  		   europe
+				
+           ec2       	    		             vpc	   	         rds		
+
+emmas-kichen-sever-instance         		  defaultVPC   	   	 emmas-kichen-db-instance
+	       					db-security-group		postgresql
+	          				  route-table			standard-dm6
+	      					internet-gateway
+
+						default-subnet
+	     				    emmas-kichen-sever-instance
+					      (private and public ip)
+					    emmas-kichen-db-instance	
+				             (private and public ip)
